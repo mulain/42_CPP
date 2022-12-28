@@ -6,42 +6,32 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2022/12/28 14:46:33 by wmardin          ###   ########.fr        #
+#    Updated: 2022/12/28 18:54:41 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = megaphone
 
-CC = gcc
+CC = c++
 CFLAGS = -g -fsanitize=address
-EFLAGS = -Wall -Wextra -Werror
-LIBFLAGS =
+EFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
-PINK	:= \033[0;35m
-PURPLE	:= \033[0;34m
 BLUE	= \033[94m
-RESET	:= \033[0m
+RESET	= \033[0m
 
 SRC =	megaphone.cpp
-OBJ	=	$(addprefix obj/, $(SRC:src/%.cpp=%.o))
+OBJ	=	$(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT)
-	@$(CC) $(CFLAGS) $(EFLAGS) $(OBJ) -o $(NAME) $(LIBFT) $(LIBFLAGS) $(RL_FLAG)
-	@echo "$(BLUE)$(NAME) compiled.$(RESET)\n"
-
-$(LIBFT):
-	@make --no-print-directory -C src/libft
-
-obj/%.o: src/%.cpp
-	@mkdir -p obj
-	$(CC) $(EFLAGS) -c $< -o $@
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) $(EFLAGS) $(OBJ) -o $(NAME)
+	@echo "$(BLUE)$(NAME) compiled.$(RESET)"
 
 clean:
 	@$(RM) $(OBJ) obj
-	@echo "$(PINK)✨Minishell successfully cleaned!✨$(RESET)"
+	@echo "$(BLUE)$(NAME) cleaned.$(RESET)"
 
 fclean: clean
 	@$(RM) $(NAME)
