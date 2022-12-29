@@ -6,15 +6,17 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:22:08 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/29 12:18:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/29 21:26:55 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#//include "PhoneBook.hpp"
 
 int main(void)
 {
 	std::string		input;
+	//PhoneBook		phonebook;
 
 	while (1)
 	{
@@ -26,6 +28,8 @@ int main(void)
 			std::cout << "compare stuff" << std::endl;
 		else if (!input.compare("EXIT") || input.empty())
 			break;
+		else
+			std::cout << "phonebook: invalid command." << std::endl;
 		input.clear();
 	}
 }
