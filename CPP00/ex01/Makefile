@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2022/12/30 10:19:22 by wmardin          ###   ########.fr        #
+#    Updated: 2022/12/30 20:10:14 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM = rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC =	main.cpp
+SRC =	main.cpp Contact.cpp PhoneBook.cpp
 OBJ	=	$(SRC:.cpp=.o)
 
 all: $(NAME)
