@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/29 11:22:08 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/29 21:26:55 by wmardin          ###   ########.fr       */
+/*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
+/*   Updated: 2022/12/30 10:15:49 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#//include "PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
-int main(void)
+PhoneBook::PhoneBook(void)
 {
-	std::string		input;
-	//PhoneBook		phonebook;
+	return;
+}
 
-	while (1)
-	{
-		std::cout << "Enter command (<ADD>, <SEARCH> or <EXIT>)" << std::endl;
-		std::cin >> input;
-		if (!input.compare("ADD"))
-			std::cout << "Add stuff" << std::endl;
-		else if (!input.compare("SEARCH"))
-			std::cout << "compare stuff" << std::endl;
-		else if (!input.compare("EXIT") || input.empty())
-			break;
-		else
-			std::cout << "phonebook: invalid command." << std::endl;
-		input.clear();
-	}
+PhoneBook::~PhoneBook(void)
+{
+	return;
 }
