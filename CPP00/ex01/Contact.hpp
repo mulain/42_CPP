@@ -6,21 +6,20 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:25:42 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 20:19:36 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:05:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 #define CONTACT_H
+
+#include <iostream>
+
 #define FIRSTNAME	0
 #define LASTNAME	1
 #define NICKNAME	2
 #define PHONENUMBER	3
 #define SECRET		4
-
-#include <iostream>
-
-#define E_BLANK "phonebook: field may not be blank. "
 
 struct Field
 {
@@ -35,14 +34,6 @@ class Contact
 		~Contact(void);
 
 		Field	fields[5];
-
-		/* std::string firstname;
-		std::string lastname;
-		std::string nickname;
-		std::string firstname;
-		std::string phonenumber;
-		std::string darkestsecret; */
-
 	private:
 };
 

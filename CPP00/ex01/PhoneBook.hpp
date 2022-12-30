@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:27:06 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 20:00:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/30 21:06:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Contact.hpp"
+
+#define E_BLANK		"phonebook: field may not be blank. "
 
 class PhoneBook
 {
