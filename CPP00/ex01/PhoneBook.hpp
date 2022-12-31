@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:27:06 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/31 18:35:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 20:21:07 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 #include <stdlib.h>
 #include "Contact.hpp"
 
-#define E_BLANK		"phonebook: field may not be blank. "
+#define E_BLANK		"phonebook: field may not be blank"
+#define E_INVAL		"phonebook: input must be from 0 to 7"
 
 class PhoneBook
 {

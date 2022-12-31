@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/31 18:47:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 20:48:11 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ std::string		PhoneBook::display_version(std::string field)
 int	PhoneBook::select_contact()
 {
 	std::string		input;
-	char			c;
+	int				ret_val;
+	char			*inval;
 
-	//input.clear();
 	while (input.empty())
 	{
 		std::cout << "Enter index of contact to display: ";
@@ -85,8 +85,25 @@ int	PhoneBook::select_contact()
 		if (std::cin.eof())
 			exit(0);
 		if (input.empty())
+		{
 			std::cout << E_BLANK << std::endl;
-		c = input[0];
-		if (atoi(&c))
+			continue;
+		}
+		ret_val = (int)strtol(input.c_str(), &inval, 10);
+		if (ret_val > -1 && ret_val < 8  && !*inval)
+			return (ret_val);
+		std::cout << E_INVAL << std::endl;
+		input.clear();
+	}
+	std::cout << "fail" << std::endl;
+	return (-1);
+}
+
+void	PhoneBook::display_contact(int index)
+{
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << this->_contacts[index].fields[i].name << ": ";
+		std::cout << this->_contacts[index].fields[i].value << std::endl;
 	}
 }
