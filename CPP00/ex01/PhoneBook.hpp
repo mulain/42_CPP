@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:27:06 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 21:06:03 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 16:16:01 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define PHONEBOOK_H
 
 #include <iostream>
+#include <iomanip>
+#include <ios>
 #include <stdlib.h>
 #include "Contact.hpp"
 
@@ -25,10 +27,11 @@ class PhoneBook
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void	add_contact(void);
-		void	search_contact(void);
-		void	display_toc(void);
-		void	display_contact(int);
+		void			add_contact(void);
+		void			search_contact(void);
+		void			display_toc(void);
+		void			display_contact(int);
+		std::string		display_version(std::string);
 
 	private:
 		unsigned char	_index;

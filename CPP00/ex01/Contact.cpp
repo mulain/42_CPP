@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:39:34 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 20:54:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 15:36:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Contact::Contact(void)
 	this->fields[NICKNAME].name = "nick name";
 	this->fields[PHONENUMBER].name = "phone number";
 	this->fields[SECRET].name = "darkest secret";
-	return;
 }
 
 Contact::~Contact(void)

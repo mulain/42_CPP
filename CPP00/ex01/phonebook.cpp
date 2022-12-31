@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 21:20:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 16:47:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
-void PhoneBook::add_contact(void)
+void	PhoneBook::add_contact(void)
 {
 	std::string		input;
 
@@ -38,9 +38,36 @@ void PhoneBook::add_contact(void)
 				exit(0);
 			if (input.empty())
 				std::cout << E_BLANK << std::endl;
-			this->_contacts[this->_index].fields[i].value = input;
+			else
+				this->_contacts[this->_index].fields[i].value = input;
 		}
 	}
-	std::cout << (int)this->_index << std::endl;
 	++this->_index %= 8;
+}
+
+void	PhoneBook::display_toc(void)
+{
+	// Display header row
+	std::cout << std::setw(10) << std::right << "index";
+	for (int i = 0; i < 3; i++)
+		std::cout << '|' << std::setw(10) << std::right << this->display_version(this->_contacts[0].fields[i].name);
+	std::cout << std::endl;
+	// Display contact rows
+	for (int i = 0; i < 8; i++)
+	{
+		std::cout << std::setw(10) << std::right << i;
+		for (int j = 0; j < 3; j++)
+			std::cout << '|' << std::setw(10) << std::right << this->display_version(this->_contacts[i].fields[j].value);
+		std::cout << std::endl;
+	}
+}
+
+std::string		PhoneBook::display_version(std::string field)
+{
+	if (field.length() > 10)
+	{
+		field.resize(9);
+		field.append(".");
+	}
+	return (field);
 }

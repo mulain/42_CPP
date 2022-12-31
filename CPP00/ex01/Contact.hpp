@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:25:42 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 21:05:53 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 15:40:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Contact
 		~Contact(void);
 
 		Field	fields[5];
+		
 	private:
 };
 

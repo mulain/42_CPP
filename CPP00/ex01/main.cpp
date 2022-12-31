@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:22:08 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/30 20:57:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 14:57:32 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,12 @@ int main(void)
 		if (input.compare("ADD") == 0)
 			phonebook.add_contact();
 		else if (input.compare("SEARCH") == 0)
-			std::cout << "compare stuff" << std::endl;
+		{
+			phonebook.display_toc();
+		}
 		else
 			std::cout << "phonebook: invalid command." << std::endl;
 
 		input.clear();
 	}
 }
-
-// void error_emptyinput(std::string input)
-// {
-// 	std::cout << E_BLANK << std::endl;
-// }
