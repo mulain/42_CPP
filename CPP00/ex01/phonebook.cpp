@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/31 16:47:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 18:47:18 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,23 @@ std::string		PhoneBook::display_version(std::string field)
 		field.append(".");
 	}
 	return (field);
+}
+
+int	PhoneBook::select_contact()
+{
+	std::string		input;
+	char			c;
+
+	//input.clear();
+	while (input.empty())
+	{
+		std::cout << "Enter index of contact to display: ";
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit(0);
+		if (input.empty())
+			std::cout << E_BLANK << std::endl;
+		c = input[0];
+		if (atoi(&c))
+	}
 }

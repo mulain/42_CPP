@@ -6,15 +6,13 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:22:08 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/31 14:57:32 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 18:33:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-
-void error_emptyinput(std::string);
 
 int main(void)
 {
@@ -32,10 +30,10 @@ int main(void)
 		else if (input.compare("SEARCH") == 0)
 		{
 			phonebook.display_toc();
+			//phonebook.
 		}
 		else
 			std::cout << "phonebook: invalid command." << std::endl;
-
 		input.clear();
 	}
 }

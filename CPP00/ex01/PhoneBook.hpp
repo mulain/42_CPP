@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:27:06 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/31 16:16:01 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/31 18:35:28 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ class PhoneBook
 		~PhoneBook(void);
 
 		void			add_contact(void);
-		void			search_contact(void);
 		void			display_toc(void);
+		int				select_contact(void);
 		void			display_contact(int);
 		std::string		display_version(std::string);
 
 	private:
-		unsigned char	_index;
-		Contact			_contacts[8];
+		int			_index;
+		Contact		_contacts[8];
 };
 
 #endif
