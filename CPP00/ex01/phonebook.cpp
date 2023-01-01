@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/01 12:37:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/01 12:58:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	PhoneBook::add_contact(void)
 
 	for (int i = 0; i < 5; i++)
 	{
-		this->_contacts[this->_index].fields[i].value.clear();
-		while (this->_contacts[this->_index].fields[i].value.empty())
+		while (1)
 		{
 			std::cout << "Enter " << this->_contacts[this->_index].fields[i].name << ": ";
 			std::getline(std::cin, input);
@@ -39,8 +38,9 @@ void	PhoneBook::add_contact(void)
 			if (input.empty())
 				std::cout << E_BLANK << std::endl;
 			else
-				this->_contacts[this->_index].fields[i].value = input;
+				break;
 		}
+		this->_contacts[this->_index].fields[i].value = input;
 	}
 	++this->_index %= 8;
 }
@@ -78,22 +78,21 @@ int	PhoneBook::select_contact()
 	int				ret_val;
 	char			*inval;
 
-	while (input.empty())
+	while (1)
 	{
 		std::cout << "Enter index of contact to display: ";
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			exit(0);
 		if (input.empty())
-		{
 			std::cout << E_BLANK << std::endl;
-			continue;
+		else
+		{
+			ret_val = (int)strtol(input.c_str(), &inval, 10);
+			if (ret_val > -1 && ret_val < 8  && !*inval)
+				break;
+			std::cout << E_INVAL << std::endl;
 		}
-		ret_val = (int)strtol(input.c_str(), &inval, 10);
-		if (ret_val > -1 && ret_val < 8  && !*inval)
-			break;
-		std::cout << E_INVAL << std::endl;
-		input.clear();
 	}
 	return (ret_val);
 }
