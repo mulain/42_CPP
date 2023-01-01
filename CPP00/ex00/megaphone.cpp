@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:40:57 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/28 21:57:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2022/12/30 14:07:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,4 @@ int main(int argc, char **argv)
 // 		// 	std::cout << " ";
 // 	}
 // 	std::cout << std::endl;
-
-
-
 // }
-
-void a(char)
-{
-
-}
-void a(int)
-{
-
-}
-void a(int, int)
-{
-
-}
