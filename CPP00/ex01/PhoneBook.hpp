@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:27:06 by wmardin           #+#    #+#             */
-/*   Updated: 2022/12/31 18:35:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/01 18:00:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@
 #include <stdlib.h>
 #include "Contact.hpp"
 
-#define E_BLANK		"phonebook: field may not be blank. "
+#define E_BLANK			"phonebook: field may not be blank"
+#define E_INVAL			"phonebook: input must be from 0 to "
+#define E_INDEXEMPTY	"phonebook: selected index has no saved contact"
+#define E_BOOKEMPTY		"phonebook: no saved contacts"
+#define BOOKSIZE		8
 
 class PhoneBook
 {
@@ -27,6 +31,7 @@ class PhoneBook
 		PhoneBook(void);
 		~PhoneBook(void);
 
+		bool			empty(void);
 		void			add_contact(void);
 		void			display_toc(void);
 		int				select_contact(void);
@@ -35,7 +40,7 @@ class PhoneBook
 
 	private:
 		int			_index;
-		Contact		_contacts[8];
+		Contact		_contacts[BOOKSIZE];
 };
 
 #endif
