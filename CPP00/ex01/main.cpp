@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:22:08 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/01 17:52:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/02 19:04:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ int main(void)
 		}
 		else
 			std::cout << "phonebook: invalid command." << std::endl;
-		input.clear();
 	}
 }
