@@ -6,14 +6,14 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2022/12/30 20:10:14 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/02 18:59:22 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
 CC = c++
-CFLAGS = -g #-fsanitize=address
+CFLAGS = -g -fsanitize=address
 EFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
