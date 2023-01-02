@@ -6,27 +6,27 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/02 14:05:15 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/02 18:59:15 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = tests
+NAME	= tests
 
-CC = c++
-CFLAGS = -g -fsanitize=address
-EFLAGS = -Wall -Wextra -Werror -std=c++98
-RM = rm -rf
+CC		= c++
+CFLAGS	= -g -fsanitize=address
+EFLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -rf
 
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC =	tests.cpp Account.cpp
-OBJ	=	$(SRC:.cpp=.o)
+SRC		= tests.cpp Account.cpp
+#OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $(EFLAGS) $(OBJ) -o $(NAME)
+$(NAME): #$(OBJ)
+	@$(CC) $(CFLAGS) $(EFLAGS) $(SRC) -o $(NAME)
 	@echo "$(BLUE)$(NAME) compiled.$(RESET)"
 
 clean:
@@ -51,4 +51,4 @@ mgit:
 	git push
 	@echo "$(BLUE)git auto add & push with message performed.$(RESET)"
 
-.SILENT: $(OBJ)
+#.SILENT: $(OBJ)
