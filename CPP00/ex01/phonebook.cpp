@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/01 17:59:46 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/02 19:22:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	PhoneBook::select_contact()
 			ret_val = (int)strtol(input.c_str(), &inval, 10);
 			if (ret_val > -1 && ret_val < BOOKSIZE  && !*inval)
 				break;
-			std::cout << E_INVAL << BOOKSIZE << std::endl;
+			std::cout << E_INVAL << BOOKSIZE - 1 << std::endl;
 		}
 	}
 	return (ret_val);
