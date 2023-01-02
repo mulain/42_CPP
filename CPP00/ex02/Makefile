@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2022/12/28 18:54:41 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/02 14:05:15 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = tests
 
 CC = c++
 CFLAGS = -g -fsanitize=address
@@ -20,7 +20,7 @@ RM = rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC =	megaphone.cpp
+SRC =	tests.cpp Account.cpp
 OBJ	=	$(SRC:.cpp=.o)
 
 all: $(NAME)
