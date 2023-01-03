@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:27:06 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/01 18:00:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:29:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #define E_INVAL			"phonebook: input must be from 0 to "
 #define E_INDEXEMPTY	"phonebook: selected index has no saved contact"
 #define E_BOOKEMPTY		"phonebook: no saved contacts"
+#define E_BLANK			"phonebook: field may not be blank"
 #define BOOKSIZE		8
 
 class PhoneBook
@@ -39,6 +40,7 @@ class PhoneBook
 		std::string		display_version(std::string);
 
 	private:
+		int			_nbContacts;
 		int			_index;
 		Contact		_contacts[BOOKSIZE];
 };

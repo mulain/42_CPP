@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:25:42 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/03 15:00:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:19:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #define CONTACT_H
 
 #define E_BLANK			"phonebook: field may not be blank"
-#define E_INVAL			"phonebook: input must be from 0 to "
-#define E_INDEXEMPTY	"phonebook: selected index has no saved contact"
-#define E_BOOKEMPTY		"phonebook: no saved contacts"
-#define BOOKSIZE		8
 
 #include <iostream>
 
@@ -27,8 +23,12 @@ class Contact
 		Contact(void);
 		~Contact(void);
 
-		void	add_contact(void);
-		void	display_contact(void);
+		void		add(void);
+		void		display(void);
+		bool		empty(void);
+		std::string	get_firstname(void);
+		std::string	get_lastname(void);
+		std::string	get_nickname(void);
 
 	private:
 		std::string		_firstname;
@@ -38,6 +38,7 @@ class Contact
 		std::string		_darkestsecret;
 
 		std::string	get_input(void);
+		std::string	formatversion(std::string);
 		void		set_firstname(void);
 		void		set_lastname(void);
 		void		set_nickname(void);

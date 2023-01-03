@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:39:34 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/03 14:59:53 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 18:38:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Contact::~Contact(void)
 }
 
 //Public
-void	Contact::add_contact(void)
+void	Contact::add(void)
 {
 	set_firstname();
 	set_lastname();
@@ -32,13 +32,33 @@ void	Contact::add_contact(void)
 	set_darkestsecret();
 }
 
-void	Contact::display_contact(void)
+void	Contact::display(void)
 {
 	std::cout << "First name: " << this->_firstname << std::endl;
 	std::cout << "Last name: " << this->_lastname << std::endl;
 	std::cout << "Nick name: " << this->_nickname << std::endl;
 	std::cout << "Phone number: " << this->_phonenumber << std::endl;
 	std::cout << "Darkest Secret: " << this->_darkestsecret << std::endl;
+}
+
+bool	Contact::empty(void)
+{
+	return (this->_firstname.empty());
+}
+
+std::string	Contact::get_firstname(void)
+{
+	return (this->formatversion(this->_firstname));
+}
+
+std::string	Contact::get_lastname(void)
+{
+	return (this->formatversion(this->_lastname));
+}
+
+std::string	Contact::get_nickname(void)
+{
+	return (this->formatversion(this->_nickname));
 }
 
 //Private
@@ -56,6 +76,16 @@ std::string	Contact::get_input(void)
 			break;
 	}
 	return (input);
+}
+
+std::string	Contact::formatversion(std::string string)
+{
+	if (string.length() > 10)
+	{
+		string.resize(9);
+		string.append(".");
+	}
+	return (string);
 }
 
 void	Contact::set_firstname(void)

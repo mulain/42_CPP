@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/03 15:04:36 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 19:41:17 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 PhoneBook::PhoneBook(void)
 {
+	this->_nbContacts = 0;
 	this->_index = 0;
-	return;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -25,42 +25,36 @@ PhoneBook::~PhoneBook(void)
 
 bool	PhoneBook::empty(void)
 {
-	return(this->_contacts[0].fields[0].value.empty());
+	return(this->_nbContacts == 0);
 }
 
 void	PhoneBook::add_contact(void)
 {
-	
+	this->_contacts[this->_index].add();
 	++this->_index %= BOOKSIZE;
+	if (this->_nbContacts <= BOOKSIZE)
+		this->_nbContacts++;
 }
 
 void	PhoneBook::display_toc(void)
 {
 	// Display header row
 	std::cout << '|' << std::setw(10) << std::right << "index";
-	for (int i = 0; i < 3; i++)
-		std::cout << '|' << std::setw(10) << std::right << this->display_version(this->_contacts[0].fields[i].name);
+	std::cout << '|' << std::setw(10) << std::right << "first name";
+	std::cout << '|' << std::setw(10) << std::right << "last name";
+	std::cout << '|' << std::setw(10) << std::right << "nick name";
 	std::cout << '|' << std::endl;
 	// Display contact rows
 	for (int i = 0; i < BOOKSIZE; i++)
 	{
-		if (this->_contacts[i].fields[0].value.empty())
-			break;
+		if (this->_contacts[i].empty())
+			return;
 		std::cout << '|' << std::setw(10) << std::right << i;
-		for (int j = 0; j < 3; j++)
-			std::cout << '|' << std::setw(10) << std::right << this->display_version(this->_contacts[i].fields[j].value);
+		std::cout << '|' << std::setw(10) << std::right << this->_contacts->get_firstname();
+		std::cout << '|' << std::setw(10) << std::right << this->_contacts->get_lastname();
+		std::cout << '|' << std::setw(10) << std::right << this->_contacts->get_nickname();
 		std::cout << '|' << std::endl;
 	}
-}
-
-std::string		PhoneBook::display_version(std::string field)
-{
-	if (field.length() > 10)
-	{
-		field.resize(9);
-		field.append(".");
-	}
-	return (field);
 }
 
 int	PhoneBook::select_contact()
@@ -90,14 +84,8 @@ int	PhoneBook::select_contact()
 
 void	PhoneBook::display_contact(int index)
 {
-	if (this->_contacts[index].fields[0].value.empty())
-	{
+	if (this->_contacts[index].empty())
 		std::cout << E_INDEXEMPTY << std::endl;
-		return;
-	}
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << this->_contacts[index].fields[i].name << ": ";
-		std::cout << this->_contacts[index].fields[i].value << std::endl;
-	}
+	else
+		this->_contacts[index].display();
 }
