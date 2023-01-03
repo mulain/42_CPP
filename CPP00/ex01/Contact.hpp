@@ -6,18 +6,12 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:25:42 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/03 13:52:10 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 15:00:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 #define CONTACT_H
-
-#define	FIRSTNAME	1
-#define	NICKNAME	2
-#define	LASTNAME	3
-#define	PHONENUM	4
-#define	DARKSECRET	5
 
 #define E_BLANK			"phonebook: field may not be blank"
 #define E_INVAL			"phonebook: input must be from 0 to "
@@ -33,11 +27,10 @@ class Contact
 		Contact(void);
 		~Contact(void);
 
-		void	add_contact(std::string);
+		void	add_contact(void);
+		void	display_contact(void);
 
 	private:
-		int				_nbContacts;
-		int				_index;
 		std::string		_firstname;
 		std::string		_lastname;
 		std::string		_nickname;

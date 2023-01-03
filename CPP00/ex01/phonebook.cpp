@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/02 19:22:53 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 15:04:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,7 @@ bool	PhoneBook::empty(void)
 
 void	PhoneBook::add_contact(void)
 {
-	std::string		input;
-
-	for (int i = 0; i < 5; i++)
-	{
-		while (1)
-		{
-			std::cout << "Enter " << this->_contacts[this->_index].fields[i].name << ": ";
-			std::getline(std::cin, input);
-			if (std::cin.eof())
-				exit(0);
-			if (input.empty())
-				std::cout << E_BLANK << std::endl;
-			else
-				break;
-		}
-		this->_contacts[this->_index].fields[i].value = input;
-	}
+	
 	++this->_index %= BOOKSIZE;
 }
 

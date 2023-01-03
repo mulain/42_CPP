@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:39:34 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/03 14:39:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/03 14:59:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,26 @@ Contact::~Contact(void)
 	return;
 }
 
-void	Contact::add_contact(std::string input)
+//Public
+void	Contact::add_contact(void)
 {
-	this->_index = this->_nbContacts++;
 	set_firstname();
+	set_lastname();
+	set_nickname();
+	set_phonenumber();
+	set_darkestsecret();
 }
 
+void	Contact::display_contact(void)
+{
+	std::cout << "First name: " << this->_firstname << std::endl;
+	std::cout << "Last name: " << this->_lastname << std::endl;
+	std::cout << "Nick name: " << this->_nickname << std::endl;
+	std::cout << "Phone number: " << this->_phonenumber << std::endl;
+	std::cout << "Darkest Secret: " << this->_darkestsecret << std::endl;
+}
+
+//Private
 std::string	Contact::get_input(void)
 {
 	std::string		input;
@@ -58,18 +72,18 @@ void	Contact::set_lastname(void)
 
 void	Contact::set_nickname(void)
 {
-	std::cout << "Enter last name: ";
+	std::cout << "Enter nick name: ";
 	this->_nickname = get_input();
 }
 
 void	Contact::set_phonenumber(void)
 {
-	std::cout << "Enter last name: ";
+	std::cout << "Enter phone number: ";
 	this->_phonenumber = get_input();
 }
 
 void	Contact::set_darkestsecret(void)
 {
-	std::cout << "Enter last name: ";
+	std::cout << "Enter darkest secret: ";
 	this->_darkestsecret = get_input();
 }
