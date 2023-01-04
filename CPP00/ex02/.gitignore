@@ -1,6 +1,6 @@
 *
 !*.cpp
 !*.hpp
-!*.log
+!19920104_091532.log
 !Makefile
 !.gitignore
