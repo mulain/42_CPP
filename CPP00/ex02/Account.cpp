@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:20:56 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/02 18:45:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/04 12:11:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 #include "Account.hpp"
 
 /*
-Syntax for logfile comparison to omit timestamp outputs
+Commands for logfile comparison to omit timestamp outputs:
+./tests > mylog.log
 cut -c 17- mylog.log > 2023.log
+cut -c 17- 19920104_091532.log > 1992.log
 cmp 1992.log 2023.log
-diff -u 1992.log 2023.log > diff.log
+Beware: Mac destructor destroys from highest index to lowest; Linux from lowest to highest.
+Is relevant for end of logfile. Is allowed by subject.
 */
 
 int	Account::_nbAccounts = 0;
