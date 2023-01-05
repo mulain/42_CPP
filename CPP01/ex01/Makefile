@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/05 22:26:23 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/05 22:28:37 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM		= rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC		= main.cpp Zombie.cpp zombieHorde.cpp
 #OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)

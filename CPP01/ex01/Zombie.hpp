@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:39:55 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/05 22:08:05 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/05 22:41:07 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ class Zombie
 {
 	public:
 		Zombie(std::string);
+		Zombie(void);
 		~Zombie(void);
 
+		void	setName(std::string);
 		void	announce(void);
 
 	private:
@@ -28,7 +30,6 @@ class Zombie
 
 };
 
-Zombie	*newZombie(std::string);
-void	randomChump(std::string);
+Zombie*	zombieHorde(int, std::string);
 
 #endif
