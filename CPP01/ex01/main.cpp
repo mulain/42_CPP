@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:25:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/05 23:02:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/05 23:15:51 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 int	main (int argc, char **argv)
 {
 	std::string		input;
+	int				n;
+	Zombie			*horde;
 
 	if (argc != 2)
 	{
@@ -29,4 +31,9 @@ int	main (int argc, char **argv)
 		std::cout << E_MSG << std::endl;
 		return (1);
 	}
+	n = (int)strtol(input.c_str(), NULL, 10);
+	horde = zombieHorde(n, "Hugo");
+	for (int i = 0; i < n; i++)
+		horde[i].announce();
+	delete [] horde;
 }
