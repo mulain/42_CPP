@@ -6,14 +6,14 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/05 22:14:20 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/05 22:19:20 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= zombie
 
 CC		= c++
-CFLAGS	= -g -fsanitize=address
+CFLAGS	= #-g -fsanitize=address
 EFLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
