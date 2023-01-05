@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:39:55 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/05 21:19:17 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/05 22:08:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ class Zombie
 		std::string		_name;
 
 };
+
+Zombie	*newZombie(std::string);
+void	randomChump(std::string);
 
 #endif

@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/02 18:59:15 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/05 22:14:20 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= tests
+NAME	= zombie
 
 CC		= c++
 CFLAGS	= -g -fsanitize=address
@@ -20,7 +20,7 @@ RM		= rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC		= tests.cpp Account.cpp
+SRC		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 #OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -34,7 +34,7 @@ clean:
 	@echo "$(BLUE)$(NAME) cleaned.$(RESET)"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME).dSYM
 
 re: fclean all
 
