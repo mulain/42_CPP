@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:45:57 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/05 22:41:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/05 23:19:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Zombie::Zombie(std::string name):
 
 Zombie::Zombie(void)
 {
-	std::cout << "A zombie sprang to unlife!" << std::endl;
+	std::cout << "A zombie has sprung to unlife!" << std::endl;
 }
 
 Zombie::~Zombie(void)
