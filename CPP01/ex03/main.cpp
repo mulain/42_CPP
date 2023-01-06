@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:45:22 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/06 16:53:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/06 17:12:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ int	main(void)
 {
 	std::string		string;
 	std::string		*stringPTR;
+	std::string		&stringREF = string;
 
-	stringPTR = &string;
-	std::cout << ptr << std::endl;
 	string = "HI THIS IS BRAIN";
-	std::cout << "string content: " << string << std::endl;
-	std::cout << "stringPTR: " << stringPTR << std::endl;
+	stringPTR = &string;
+	std::cout << "Memory address of the string variable:\t" << &string << std::endl;
+	std::cout << "Memory address held by stringPTR:\t" << stringPTR << std::endl;
+	std::cout << "Memory address held by stringREF:\t" << &stringREF << std::endl;
 
-
+	std::cout << "Value of the string variable:\t\t" << string << std::endl;
+	std::cout << "Value pointed to by stringPTR:\t\t" << *stringPTR << std::endl;
+	std::cout << "Value pointed to by stringREF:\t\t" << stringREF << std::endl;
 }
