@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:25:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/06 12:00:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/06 12:12:39 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int	main (int argc, char **argv)
 	for (int i = 0; i < n; i++)
 		horde[i].announce();
 	delete[] horde;
+	Zombie test;
+	Zombie test2("Josie");
 	return (0);
 }

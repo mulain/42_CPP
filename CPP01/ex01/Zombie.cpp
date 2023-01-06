@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:45:57 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/06 12:04:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/06 12:06:14 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ Zombie::Zombie(void)
 
 Zombie::~Zombie(void)
 {
-	std::cout << this->_name << " dieded." << std::endl;
+	if (this->_name.empty())
+		std::cout << "A zombie dieded." << std::endl;
+	else
+		std::cout << this->_name << " dieded." << std::endl;
 }
 
 void	Zombie::setName(std::string name)
