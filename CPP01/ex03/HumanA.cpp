@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 22:17:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/07 22:34:24 by wmardin          ###   ########.fr       */
+/*   Created: 2023/01/07 22:32:17 by wmardin           #+#    #+#             */
+/*   Updated: 2023/01/07 22:43:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-#define WEAPON_H
+#include "HumanA.hpp"
 
-#include <iostream>
-
-class Weapon
+HumanA::HumanA(void)
 {
-	public:
-		Weapon(void);
-		~Weapon(void);
 
-		const std::string&	getType(void);
-		void				setType(std::string);
+}
 
-	private:
-		std::string		_type;
-};
+HumanA::~HumanA(void)
+{
 
-#endif
+}
+
+void	HumanA::attack(void)
+{
+	std::cout << this->_name << " attacks with their " << this->_weapon << std::endl;
+}
