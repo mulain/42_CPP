@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 08:36:25 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/03 19:41:17 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/09 09:44:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	PhoneBook::display_toc(void)
 		if (this->_contacts[i].empty())
 			return;
 		std::cout << '|' << std::setw(10) << std::right << i;
-		std::cout << '|' << std::setw(10) << std::right << this->_contacts->get_firstname();
-		std::cout << '|' << std::setw(10) << std::right << this->_contacts->get_lastname();
-		std::cout << '|' << std::setw(10) << std::right << this->_contacts->get_nickname();
+		std::cout << '|' << std::setw(10) << std::right << this->_contacts[i].get_firstname();
+		std::cout << '|' << std::setw(10) << std::right << this->_contacts[i].get_lastname();
+		std::cout << '|' << std::setw(10) << std::right << this->_contacts[i].get_nickname();
 		std::cout << '|' << std::endl;
 	}
 }
