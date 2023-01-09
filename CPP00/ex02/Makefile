@@ -6,14 +6,14 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/02 18:59:15 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/09 09:47:19 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= tests
 
 CC		= c++
-CFLAGS	= -g -fsanitize=address
+CFLAGS	= #-g -fsanitize=address
 EFLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
