@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:32:17 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/07 22:52:10 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/09 14:25:25 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,9 @@ HumanA::~HumanA(void)
 void	HumanA::attack(void)
 {
 	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
+}
+
+void	HumanA::setWeapon(Weapon weapon)
+{
+	this->_weapon = weapon;
 }
