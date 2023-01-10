@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:05:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/10 17:57:53 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 20:12:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 	std::string		outfile_name;
 	std::string		buffer;
 	std::string		content;
+	std::string		string1;
 	std::ifstream	infile;
 	std::ofstream	outfile;
 	size_t			index;
@@ -67,8 +68,9 @@ int	main(int argc, char **argv)
 		content.append(buffer + '\n');
 	content.pop_back();
 	infile.close();
-	// Replace string if search string is not empty
-	if (argv[2][0])
+	// Replace string1 with string2 if string1 is not empty and string1 is not same as string2
+	string1 = argv[2];
+	if (!string1.empty() && string1.compare(argv[3]) != 0)
 	{
 		index = content.find(argv[2]);
 		while (index != std::string::npos)
