@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:05:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/10 15:50:55 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 17:57:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 
 #define E_ARGCOUNT		"Wrong number of arguments. Please provide <filename>, <string1>, <string2>"
-#define E_INVALIDARG	"<string1> and <string2> may not be empty."
+#define E_INVALIDARG	"<string1> (search string) may not be empty."
 #define E_INFILE		"Infile error."
 #define E_OUTFILE		"Outfile error. "
 
@@ -38,23 +38,22 @@ int	main(int argc, char **argv)
 	std::string		content;
 	std::ifstream	infile;
 	std::ofstream	outfile;
+	size_t			index;
 
+	// Check input
 	if (argc != 4)
 	{
 		std::cout << E_ARGCOUNT << std::endl;
 		return (1);
 	}
-	if (!argv[2][0] || !argv[3][0]) //wrong. argv2.empty should just copy the file and argv3.empty should delete argv2 occurences
-	{
-		std::cout << E_INVALIDARG << std::endl;
-		return (1);
-	}
+	// Manage input file
 	infile.open(argv[1]);
 	if (!infile.is_open())
 	{
 		std::cout << E_INFILE << std::endl;
 		return (1);
 	}
+	// Manage output file
 	outfile_name = argv[1];
 	outfile_name.append(".replace");
 	outfile.open(outfile_name);
@@ -63,10 +62,23 @@ int	main(int argc, char **argv)
 		std::cout << E_OUTFILE << std::endl;
 		return (1);
 	}
+	// Copy input file contents to buffer string
 	while (std::getline(infile, buffer))
 		content.append(buffer + '\n');
 	content.pop_back();
 	infile.close();
-
-
+	// Replace string if search string is not empty
+	if (argv[2][0])
+	{
+		index = content.find(argv[2]);
+		while (index != std::string::npos)
+		{
+			content.erase(index, strlen(argv[2]));
+			content.insert(index, argv[3]);
+			index = content.find(argv[2]);
+		}
+	}
+	// Copy buffer string into output file
+	outfile << content;
+	outfile.close();
 }
