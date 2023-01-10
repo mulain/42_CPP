@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:16:54 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/09 15:52:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 14:19:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanB
 		~HumanB(void);
 
 		void	attack(void);
-		void	setWeapon(Weapon);
+		void	setWeapon(Weapon&);
 
 	private:
 		std::string		_name;

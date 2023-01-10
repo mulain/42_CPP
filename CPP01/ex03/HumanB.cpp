@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 13:59:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/10 13:18:37 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 14:20:39 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	HumanB::attack(void)
 		std::cout << this->_name << " just flails around weaponlessly.";
 }
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
 	this->_weapon = &weapon;
 }
