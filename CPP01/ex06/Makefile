@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/10 21:01:13 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/10 21:27:04 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= harl
+NAME	= harlFilter
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
