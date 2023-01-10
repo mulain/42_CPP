@@ -6,13 +6,13 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:32:17 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/09 14:25:25 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 13:29:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon):
+HumanA::HumanA(std::string name, Weapon &weapon):
 	_name(name),
 	_weapon(weapon)
 {

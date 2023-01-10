@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:33:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/09 14:25:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 13:29:28 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class HumanA
 {
 	public:
-		HumanA(std::string, Weapon);
+		HumanA(std::string, Weapon &);
 		~HumanA(void);
 
 		void	attack(void);
@@ -27,7 +27,7 @@ class HumanA
 
 	private:
 		std::string		_name;
-		Weapon			_weapon;
+		Weapon			&_weapon;
 };
 
 #endif
