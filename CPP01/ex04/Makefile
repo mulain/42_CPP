@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/06 16:48:34 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/10 14:29:01 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= hello
+NAME	= replace0r
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
