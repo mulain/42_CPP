@@ -3,3 +3,4 @@
 !*.hpp
 !.gitignore
 !Makefile
+!shmism.txt
