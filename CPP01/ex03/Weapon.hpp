@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:17:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/09 17:45:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 13:18:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Weapon
 		void				setType(std::string);
 
 	private:
-		std::string	const	_type;
+		std::string		_type;
 };
 
 #endif

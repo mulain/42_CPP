@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:17:42 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/09 17:47:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/10 13:24:16 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 Weapon::Weapon(std::string type):
 	_type(type)
 {
-return;
+	std::cout << "A " << type << " was dropped in the arena!" << std::endl;
 }
 
 Weapon::~Weapon(void)
 {
-	std::cout << this->_type << " destroyed." << std::endl;
+	std::cout << "A " << this->_type << " was destroyed." << std::endl;
 }
 
-const std::string&	Weapon::getType(void)
+const std::string&	Weapon::getType(void) const
 {
 	const std::string&	typeREF = this->_type;
 	return(typeREF);
