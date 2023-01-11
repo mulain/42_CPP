@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:05:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/10 20:12:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:14:54 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@
 #define E_INVALIDARG	"<string1> (search string) may not be empty."
 #define E_INFILE		"Infile error."
 #define E_OUTFILE		"Outfile error. "
-
-/*
-Create a program that takes three parameters in the following order:
-a filename and two strings, s1 and s2.
-It will open the file <filename> and copies its content into a new file <filename>.replace,
-replacing every occurrence of s1 with s2.
-Using C file manipulation functions is forbidden and will be considered cheating.
-All the member functions of the class std::string are allowed, except replace. Use them wisely!
-Of course, handle unexpected inputs and errors.
-You have to create and turn in your own tests to ensure your program works as expected
-
-forbidden: std::string::replace
-*/
 
 int	main(int argc, char **argv)
 {
@@ -72,12 +59,12 @@ int	main(int argc, char **argv)
 	string1 = argv[2];
 	if (!string1.empty() && string1.compare(argv[3]) != 0)
 	{
-		index = content.find(argv[2]);
+		index = content.find(string1);
 		while (index != std::string::npos)
 		{
-			content.erase(index, strlen(argv[2]));
+			content.erase(index, string1.length());
 			content.insert(index, argv[3]);
-			index = content.find(argv[2]);
+			index = content.find(string1);
 		}
 	}
 	// Copy buffer string into output file
