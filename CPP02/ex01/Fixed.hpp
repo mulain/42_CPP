@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 13:08:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 13:10:50 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
 
 	private:
 		int					_integer;
-		static const int	frac_bits = 8;
+		static const int	_frac_bits = 8;
 };
 
 #endif
