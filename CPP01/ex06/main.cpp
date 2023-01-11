@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 21:23:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/10 21:58:20 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 10:44:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ int	main(int argc, char **argv)
 	{
 		case (0):
 			harl.complain("DEBUG");
+			/* FALLTHRU */
 		case (1):
 			harl.complain("INFO");
+			/* FALLTHRU */
 		case (2):
 			harl.complain("WARNING");
+			/* FALLTHRU */
 		case (3):
 			harl.complain("ERROR");
 			break;
