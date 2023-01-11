@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 12:25:20 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:26:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ Fixed::Fixed(const Fixed &copy)
 	*this = copy;
 }
 
-Fixed::~Fixed(void):
-	_integer(0)
+Fixed::~Fixed(void)
 {
 	std::cout << "Default destructor called." << std::endl;
 }
