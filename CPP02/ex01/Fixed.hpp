@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 13:10:50 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 18:07:17 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed
 		void 	setRawBits(int const raw);
 
 	private:
-		int					_integer;
+		int					_fixed_point;
 		static const int	_frac_bits = 8;
 };
 
