@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 12:20:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 13:08:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(const Fixed &);
-		~Fixed(void);
 		Fixed &operator=(const Fixed &);
+		~Fixed(void);
+
+		int		getRawBits(void) const;
+		void 	setRawBits(int const raw);
 
 	private:
 		int					_integer;
@@ -29,16 +32,3 @@ class Fixed
 };
 
 #endif
-
-An integer to store the fixed-point number value.
-◦ A static constant integer to store the number of fractional bits. Its value
-will always be the integer literal 8.
-• Public members:
-◦ A default constructor that initializes the fixed-point number value to 0.
-◦ A copy constructor.
-◦ A copy assignment operator overload.
-◦ A destructor.
-◦ A member function int getRawBits( void ) const;
-that returns the raw value of the fixed-point value.
-◦ A member function void setRawBits( int const raw );
-that sets the raw value of the fixed-point number
