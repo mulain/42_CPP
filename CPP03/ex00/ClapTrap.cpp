@@ -6,13 +6,26 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:41:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 20:26:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 21:27:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hitpoints(10), _energypoints(10), _attackdmg(0)
+ClapTrap::ClapTrap(void):
+	_name("Nameless"),
+	_hitpoints(10),
+	_energypoints(10),
+	_attackdmg(0)
+{
+	std::cout << "Unnamed ClapTrap created." << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name):
+	_name(name),
+	_hitpoints(10),
+	_energypoints(10),
+	_attackdmg(0)
 {
 	std::cout << "ClapTrap " << _name << " created." << std::endl;
 }
@@ -20,6 +33,14 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitpoints(10), _energypoints
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << "ClapTrap " << _name << " was destroyed!" << std::endl;
+}
+
+void	ClapTrap::status(void)
+{
+	std::cout << "ClapTrap " << _name << " status:" << std::endl;
+	std::cout << "Hit points:\t" << _hitpoints << std::endl;
+	std::cout << "Energy points:\t" << _energypoints << std::endl;
+	std::cout << "Attack damage:\t" << _attackdmg << std::endl;
 }
 
 void	ClapTrap::attack(const std::string &target)

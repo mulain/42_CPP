@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 20:17:17 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 21:25:30 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 class ClapTrap
 {
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string);
 		~ClapTrap(void);
 
+		void	status(void);
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
