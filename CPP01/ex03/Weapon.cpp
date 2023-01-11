@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 22:17:42 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 12:42:44 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:45:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Weapon::~Weapon(void)
 	std::cout << "A " << this->_type << " was destroyed." << std::endl;
 }
 
-const std::string&	Weapon::getType(void) const
+const std::string	&Weapon::getType(void) const
 {
 	const std::string	&typeREF = this->_type;
 	return(typeREF);
