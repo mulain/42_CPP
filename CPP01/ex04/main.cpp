@@ -6,19 +6,16 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:05:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/12 15:11:14 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:14:47 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <sstream>
 #include <stdlib.h>
-#include <filesystem>
 
 #define E_ARGCOUNT		"Wrong number of arguments. Please provide <filename>, <string1>, <string2>"
-#define E_INVALIDARG	"<string1> (search string) may not be empty."
 #define E_INFILE		"Infile error."
 #define E_OUTFILE		"Outfile error."
 
