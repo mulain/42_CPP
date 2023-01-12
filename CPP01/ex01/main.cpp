@@ -6,11 +6,12 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 22:25:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/06 12:12:39 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/12 08:31:35 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <stdlib.h>
 
 #define E_MSG	"Please enter exactly one int to determine the size of the horde!"
 
