@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:05:13 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/12 08:54:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/12 13:58:29 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 	}
 	// Copy input file contents to buffer stringstream
 	buffer << infile.rdbuf();
+	// Couldn't figure out how to manipulate the stringstream object; even using the string function...
 	content = buffer.str();
 	infile.close();
 	// Replace string1 with string2 if string1 is not empty and string1 is not same as string2
@@ -70,6 +71,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	// Copy buffer string into output file
-	outfile << buffer.str();
+	outfile << content;
 	outfile.close();
 }
