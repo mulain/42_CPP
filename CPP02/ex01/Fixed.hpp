@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 18:07:17 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/12 20:17:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,28 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 
 class Fixed
 {
 	public:
 		Fixed(void);
 		Fixed(const Fixed &);
-		Fixed &operator=(const Fixed &);
+		Fixed(const int); //converts to corresponding fixed point val. frac bits val is also 8
+		Fixed(const float); //same
 		~Fixed(void);
+
+		Fixed	&operator=(const Fixed &);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 
 		int		getRawBits(void) const;
 		void 	setRawBits(int const raw);
 
 	private:
-		int					_fixed_point;
-		static const int	_frac_bits = 8;
+		int					_fixedPoint;
+		static const int	_fractionalBits = 8;
 };
 
 #endif
