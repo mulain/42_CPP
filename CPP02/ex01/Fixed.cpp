@@ -6,29 +6,55 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/12 19:10:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/13 10:09:48 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void): _fixedPoint(0)
+// Default constructor
+Fixed::Fixed(void):
+	_fixedPoint(0)
 {
 	std::cout << "Default constructor called." << std::endl;
 }
 
+// Copy constructor
 Fixed::Fixed(Fixed const &source)
 {
 	std::cout << "Copy constructor called." << std::endl;
 	*this = source;
 }
 
+// Int constructor
+Fixed::Fixed(const int num):
+	_fixedPoint(num)
+{
+	std::cout << "Int constructor called." << std::endl;
+}
+
+// Float constructor
+Fixed::Fixed(const float num):
+	_fixedPoint(num)
+{
+	std::cout << "Float constructor called." << std::endl;
+}
+
+// Destructor
+Fixed::~Fixed(void)
+{
+	std::cout << "Default destructor called." << std::endl;
+}
+
+// Copy assignment operator overload
 Fixed	&Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assignment operator called." << std::endl;
 	_fixedPoint = other.getRawBits();
 	return(*this);
 }
+
+// Getters and Setters
 
 int	Fixed::getRawBits(void) const
 {
@@ -42,7 +68,14 @@ void	Fixed::setRawBits(int const raw)
 	_fixedPoint = raw;
 }
 
-Fixed::~Fixed(void)
+// Calculators
+
+float	Fixed::toFloat(void) const
 {
-	std::cout << "Default destructor called." << std::endl;
+
+}
+
+int		Fixed::toInt(void) const
+{
+	return (_fixedPoint >> _fractionalBits);
 }
