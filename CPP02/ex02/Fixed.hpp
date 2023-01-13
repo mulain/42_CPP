@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/13 12:39:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/13 16:00:40 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ class Fixed
 		~Fixed(void);
 
 		Fixed	&operator=(const Fixed &);
+
+		//Comparison operators
+		bool	operator==(const Fixed &) const;
+		bool	operator>(const Fixed &) const;
+		bool	operator<(const Fixed &) const;
+		bool	operator>=(const Fixed &) const;
+		bool	operator<=(const Fixed &) const;
+		bool	operator!=(const Fixed &) const;
+
 		float	toFloat(void) const;
 		int		toInt(void) const;
-
 		int		getRawBits(void) const;
 		void 	setRawBits(int const raw);
 

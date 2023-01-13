@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/13 10:59:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/13 16:05:16 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,6 @@ Fixed::~Fixed(void)
 	std::cout << "Default destructor called." << std::endl;
 }
 
-// = operator overload
-Fixed	&Fixed::operator=(const Fixed &other)
-{
-	std::cout << "Copy assignment operator called." << std::endl;
-	_fixedPoint = other.getRawBits();
-	return(*this);
-}
-
 // Getters and Setters
 
 int	Fixed::getRawBits(void) const
@@ -85,4 +77,18 @@ std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 {
 	o << rhs.toFloat();
 	return (o);
+}
+
+// = operator overload
+Fixed	&Fixed::operator=(const Fixed &other)
+{
+	std::cout << "Copy assignment operator called." << std::endl;
+	_fixedPoint = other.getRawBits();
+	return(*this);
+}
+
+//> operator overload
+bool	Fixed::operator>(const Fixed &other) const
+{
+	return (this->getRawBits() > other.getRawBits());
 }
