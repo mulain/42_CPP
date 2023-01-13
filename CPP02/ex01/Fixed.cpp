@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/13 10:09:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/13 10:30:01 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Fixed::~Fixed(void)
 	std::cout << "Default destructor called." << std::endl;
 }
 
-// Copy assignment operator overload
+// = operator overload
 Fixed	&Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assignment operator called." << std::endl;
@@ -78,4 +78,11 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return (_fixedPoint >> _fractionalBits);
+}
+
+// << operator overload (2nd "std::" isn't necessary, put it there to better understand the syntax)
+std::ostream &std::operator<<(std::ostream &o, Fixed const &rhs)
+{
+	o << rhs.toFloat();
+	return (o);
 }
