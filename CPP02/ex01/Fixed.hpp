@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/13 10:03:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/13 10:52:37 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ class Fixed
 		int					_fixedPoint;
 		static const int	_fractionalBits = 8;
 };
+
+std::ostream &operator<<(std::ostream &, Fixed const &);
 
 #endif

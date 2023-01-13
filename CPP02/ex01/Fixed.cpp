@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/13 10:30:01 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/13 10:59:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ Fixed::Fixed(Fixed const &source)
 
 // Int constructor
 Fixed::Fixed(const int num):
-	_fixedPoint(num)
+	_fixedPoint(num << _fractionalBits)
 {
 	std::cout << "Int constructor called." << std::endl;
 }
 
 // Float constructor
 Fixed::Fixed(const float num):
-	_fixedPoint(num)
+	_fixedPoint(roundf(num * (1 << _fractionalBits)))
 {
 	std::cout << "Float constructor called." << std::endl;
 }
@@ -72,7 +72,7 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-
+	return ((float)_fixedPoint / (1 << _fractionalBits));
 }
 
 int		Fixed::toInt(void) const
@@ -80,8 +80,8 @@ int		Fixed::toInt(void) const
 	return (_fixedPoint >> _fractionalBits);
 }
 
-// << operator overload (2nd "std::" isn't necessary, put it there to better understand the syntax)
-std::ostream &std::operator<<(std::ostream &o, Fixed const &rhs)
+// << operator overload
+std::ostream &operator<<(std::ostream &o, Fixed const &rhs)
 {
 	o << rhs.toFloat();
 	return (o);
