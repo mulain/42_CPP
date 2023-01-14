@@ -6,13 +6,13 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:51 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 16:42:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/14 16:44:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-// Tests thanks to kmeixner! Big Shoutout!
+// Tests thanks to kmeixner247! Big Shoutout!
 int main(void)
 {
 	{
