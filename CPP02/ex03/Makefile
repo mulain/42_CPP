@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/12 18:27:16 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/14 21:10:57 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RM		= rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC		= main.cpp Fixed.cpp
+SRC		= main.cpp Fixed.cpp Point.cpp bsp.cpp
 #OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
