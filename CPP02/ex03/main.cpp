@@ -6,8 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 19:49:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 19:50:11 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/14 20:13:37 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//Files to turn in : M Fixed.{h, hpp}, Fixed.cpp, Point.{h, hpp}, Point.cpp, bsp.cpp

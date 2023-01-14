@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 19:52:39 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/14 20:11:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define FIXED_HPP
 
 #define SUBJECTMODE 1
-// Subjectmode 1 -> ++ increments by the smallest possible unit
-// Subjectmode 0 -> ++ increments by 1.0
+// Subjectmode 1 -> ++ increments by the smallest possible unit (subject wants it this way)
+// Subjectmode 0 -> ++ increments by 1.0 (just cause it's way cooler)
 
 #include <iostream>
 #include <iomanip>
