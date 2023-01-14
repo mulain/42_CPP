@@ -6,12 +6,14 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/13 16:00:40 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/14 16:37:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
+
+#define SUBJECTMODE 1
 
 #include <iostream>
 #include <iomanip>
@@ -26,9 +28,10 @@ class Fixed
 		Fixed(const float);
 		~Fixed(void);
 
+		// Assignment operator
 		Fixed	&operator=(const Fixed &);
 
-		//Comparison operators
+		// Comparison operators
 		bool	operator==(const Fixed &) const;
 		bool	operator>(const Fixed &) const;
 		bool	operator<(const Fixed &) const;
@@ -36,10 +39,35 @@ class Fixed
 		bool	operator<=(const Fixed &) const;
 		bool	operator!=(const Fixed &) const;
 
+		// Arithmetic operators
+		Fixed	operator+(const Fixed &) const;
+		Fixed	operator-(const Fixed &) const;
+		Fixed	operator*(const Fixed &) const;
+		Fixed	operator/(const Fixed &) const;
+
+		// Prefix increment / decrement operators
+		Fixed&	operator++(void);
+		Fixed&	operator--(void);
+
+		// Postfix increment / decrement operators
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		// Conversions
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+		// Get / set raw bits
 		int		getRawBits(void) const;
 		void 	setRawBits(int const raw);
+
+		// Min
+		static Fixed	&min(Fixed &, Fixed &);
+		static Fixed	const &min(Fixed const &, Fixed const &);
+
+		// Max
+		static Fixed	&max(Fixed &, Fixed &);
+		static Fixed	const &max(Fixed const &, Fixed const &);
 
 	private:
 		int					_fixedPoint;
@@ -47,12 +75,5 @@ class Fixed
 };
 
 std::ostream &operator<<(std::ostream &, Fixed const &);
-
-//Comparison operators
-//>, <, >=, <=, == and !=
-
-//Arithmetic operators
-//+, -, *, and /.
-//pre and post increment (n=4), take smallest representable into account
 
 #endif
