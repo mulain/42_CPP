@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:51 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 16:44:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/14 16:46:57 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main(void)
 		std::cout << f1 << "\t+ " << nf << "\t= " << f1 + nf << std::endl;
 		std::cout << ni << "\t+ " << nf << "\t= " << ni + nf << std::endl << std::endl;
 
-		std::cout << "SUBSTRACTION:" << std::endl;
+		std::cout << "SUBTRACTION:" << std::endl;
 		std::cout << i1 << "\t- " << i2 << "\t\t= " << i1 - i2 << std::endl;
 		std::cout << f1 << "\t- " << f2 << "\t= " << f1 - f2 << std::endl;
 		std::cout << i1 << "\t- " << f1 << "\t= " << i1 - f1 << std::endl;
