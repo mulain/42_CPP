@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/14 21:10:57 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/15 16:41:55 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= fixed
+NAME	= BisulfiteSequencingPCR
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
