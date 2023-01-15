@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 21:25:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 14:05:11 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ class ClapTrap
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string);
+		ClapTrap(ClapTrap const &);
 		~ClapTrap(void);
+
+		ClapTrap	&operator=(const ClapTrap &rhs);
 
 		void	status(void);
 		void	attack(const std::string &target);
@@ -32,8 +35,6 @@ class ClapTrap
 		int				_hitpoints;
 		int				_energypoints;
 		int				_attackdmg;
-
-
 };
 
 #endif

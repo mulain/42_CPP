@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:41:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/11 21:30:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 14:05:48 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ ClapTrap::ClapTrap(std::string name):
 	_attackdmg(0)
 {
 	std::cout << "ClapTrap " << _name << " created." << std::endl;
+}
+
+ClapTrap::ClapTrap(ClapTrap const &src)
+{
+	*this = src;
+}
+
+ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
+{
+	this->_name = rhs._name + "_copy";
+	this->_attackdmg = rhs._attackdmg;
+	this->_energypoints = rhs._energypoints;
+	this->_hitpoints = rhs._hitpoints;
+	return (*this);
 }
 
 ClapTrap::~ClapTrap(void)
@@ -58,7 +72,7 @@ void	ClapTrap::attack(const std::string &target)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitpoints < 1)
-		std::cout "Wow. They already ded..." << std::endl;
+		std::cout << "Wow. They already ded..." << std::endl;
 	_hitpoints -= amount;
 	std::cout << "ClapTrap " << _name << " takes " << amount << " damage, reducing its hit points to " << _hitpoints << "!" << std::endl;
 	if (_hitpoints < 1)
