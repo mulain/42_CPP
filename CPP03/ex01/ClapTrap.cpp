@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:41:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/15 15:17:43 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 19:48:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ ClapTrap::~ClapTrap(void)
 
 void	ClapTrap::status(void)
 {
-	std::cout << "ClapTrap " << _name << " status:" << std::endl;
+	std::cout << "Trap " << _name << " status:" << std::endl;
 	std::cout << "Hit points:\t" << _hitpoints << std::endl;
 	std::cout << "Energy points:\t" << _energypoints << std::endl;
 	std::cout << "Attack damage:\t" << _attackdmg << std::endl;
@@ -59,14 +59,14 @@ void	ClapTrap::status(void)
 
 bool	ClapTrap::isActive(void)
 {
-	if (!_hitpoints)
+	if (_hitpoints < 1)
 	{
-		std::cout << "ClapTrap " << _name << " is ded and can't act!" << std::endl;
+		std::cout << "Trap " << _name << " is ded and can't act!" << std::endl;
 		return (false);
 	}
-	if (!_energypoints)
+	if (_energypoints < 1)
 	{
-		std::cout << "ClapTrap " << _name << " has no energy points and can't act!" << std::endl;
+		std::cout << "Trap " << _name << " has no energy points and can't act!" << std::endl;
 		return (false);
 	}
 	return (true);
@@ -74,32 +74,38 @@ bool	ClapTrap::isActive(void)
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (this->isActive())
-	{
-		_energypoints--;
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackdmg << " points of damage! ";
-		std::cout << _name << " now has " << _energypoints << " energy points left." << std::endl;
-	}
+	if (!this->isActive())
+		return;
+	_energypoints--;
+	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackdmg << " points of damage! ";
+	std::cout << _name << " now has " << _energypoints << " energy points left." << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	bool alrdyDed;
+
 	if (_hitpoints < 1)
-		std::cout << "Wow. They already ded..." << std::endl;
+		alrdyDed = true;
+	else
+		 alrdyDed = false;
 	_hitpoints -= amount;
-	std::cout << "ClapTrap " << _name << " takes " << amount << " damage, reducing its hit points to " << _hitpoints << "!" << std::endl;
+	std::cout << "Trap " << _name << " takes " << amount << " damage, reducing its hit points to " << _hitpoints << "!" << std::endl;
 	if (_hitpoints < 1)
-		std::cout << "ClapTrap " << _name << " is fatally wounded!" << std::endl;
+	{
+		if (alrdyDed)
+			std::cout << "Wow. Trap " << _name << " was already ded. Just wow." << std::endl;
+		else
+			std::cout << "Trap " << _name << " is fatally wounded!" << std::endl;
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->isActive())
-	{
-		_hitpoints += amount;
-		_energypoints--;
-		std::cout << "ClapTrap " << _name << " was repaired for " << amount << " hit points and now has " << _hitpoints << " hit points! ";
-		std::cout << _name << " now has " << _energypoints << " energy points left." << std::endl;
+	if (!this->isActive())
 		return;
-	}
+	_hitpoints += amount;
+	_energypoints--;
+	std::cout << "Trap " << _name << " was repaired for " << amount << " hit points and now has " << _hitpoints << " hit points! ";
+	std::cout << _name << " now has " << _energypoints << " energy points left." << std::endl;
 }
