@@ -2,4 +2,5 @@
 !*.cpp
 !*.hpp
 !.gitignore
+!triangle.jpg
 !Makefile
