@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:41:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/15 15:15:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 15:17:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ bool	ClapTrap::isActive(void)
 	}
 	if (!_energypoints)
 	{
-		std::cout << "ClapTrap " << _name << " has no energ points and can't act!" << std::endl;
+		std::cout << "ClapTrap " << _name << " has no energy points and can't act!" << std::endl;
 		return (false);
 	}
 	return (true);
