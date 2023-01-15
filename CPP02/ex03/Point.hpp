@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:14:10 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 21:16:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 10:43:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Point
 	public:
 		// Constructors
 		Point(void);
-		Point(const float, const float);
+		Point(std::string, const float, const float);
 		Point(Point const &);
 
 		// Deconstructors
@@ -29,11 +29,15 @@ class Point
 		// Operator overloads
 		Point	&operator=(Point const &);
 
-		// Functions
-		Fixed const	getX(void);
-		Fixed const	getY(void);
+		// Getters
+		std::string	getName(void) const;
+		Fixed const	getX(void) const;
+		Fixed const	getY(void) const;
 
 	private:
-		Fixed const	_x;
-		Fixed const	_y;
+		std::string		_name;
+		Fixed const		_x;
+		Fixed const		_y;
 };
+
+std::ostream	&operator<<(std::ostream &, Point const &);
