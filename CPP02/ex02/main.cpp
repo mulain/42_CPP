@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:51 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 16:46:57 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:40:48 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int main(void)
 {
 	{
-		std::cout << std::string(80, '-') << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
 		std::cout << "TESTS FROM SUBJECT PDF:" << std::endl;
 		Fixed a;
 		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
@@ -27,7 +27,7 @@ int main(void)
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
 		std::cout << Fixed::max( a, b ) << std::endl;
-		std::cout << std::string(80, '-') << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
 	}
 	{
 		Fixed const i1(5);
@@ -73,7 +73,7 @@ int main(void)
 		std::cout << i1 << "\t/ " << ni << "\t\t= " << i1 / ni << std::endl;
 		std::cout << f1 << "\t/ " << nf << "\t= " << f1 / nf << std::endl;
 		std::cout << ni << "\t/ " << nf << "\t= " << ni / nf << std::endl << std::endl;
-		std::cout << std::string(80, '-') << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
 	}
 	{
 		Fixed const i1(2);
@@ -118,7 +118,7 @@ int main(void)
 		std::cout << f2 << "\t!= " << f1 << "\t\t:" << (f2 != f1 ? " true " : " false ") << std::endl;
 		std::cout << f2 << "\t!= " << f2 << "\t:" << (f2 != f2 ? " true " : " false ") << std::endl;
 		std::cout << i1 << "\t\t!= " << i1 << "\t\t:" << (i1 != i1 ? " true " : " false ") << std::endl << std::endl;
-		std::cout << std::string(80, '-') << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
 	}
 	{
 		Fixed a;
@@ -133,7 +133,7 @@ int main(void)
 		std::cout << "--b\t= " << --b << std::endl;
 		std::cout << "b--\t= " << b-- << std::endl;
 		std::cout << "b\t= " << b << std::endl;
-		std::cout << std::string(80, '-') << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
 	}
 
 	{
@@ -153,8 +153,7 @@ int main(void)
 		std::cout << "min(" << a << ", " << c_b << ")\t= " << Fixed::min(a, c_b) << std::endl;
 		std::cout << "two constants:" << std::endl;
 		std::cout << "min(" << c_a << ", " << c_b << ")\t= " << Fixed::min(c_a, c_b) << std::endl << std::endl;
-		std::cout << std::string(80, '-') << std::endl;
+		std::cout << std::string(50, '-') << std::endl;
 	}
-
 	return 0;
 }

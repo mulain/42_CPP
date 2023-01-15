@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/14 16:41:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 16:36:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ Fixed	Fixed::operator+(Fixed const &rhs) const
 
 Fixed	Fixed::operator-(Fixed const &rhs) const
 {
-	return (this->toFloat() + rhs.toFloat());
+	return (this->toFloat() - rhs.toFloat());
 }
 
 Fixed	Fixed::operator*(Fixed const &rhs) const
