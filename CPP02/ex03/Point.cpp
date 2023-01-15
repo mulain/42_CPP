@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:18:43 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/15 10:46:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 11:14:26 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ Fixed const Point::getY(void) const
 	return (_y);
 }
 
-std::ostream &operator<<(std::ostream &o, Point const &pointObj)
+std::ostream &operator<<(std::ostream &oStream, Point const &pointObj)
 {
 	std::cout << pointObj.getName() << "(" << pointObj.getX() << "," << pointObj.getY() << ")";
-	return (o);
+	return (oStream);
 }
