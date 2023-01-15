@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:41:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/15 14:05:48 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 15:15:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,29 @@ void	ClapTrap::status(void)
 	std::cout << "Attack damage:\t" << _attackdmg << std::endl;
 }
 
+bool	ClapTrap::isActive(void)
+{
+	if (!_hitpoints)
+	{
+		std::cout << "ClapTrap " << _name << " is ded and can't act!" << std::endl;
+		return (false);
+	}
+	if (!_energypoints)
+	{
+		std::cout << "ClapTrap " << _name << " has no energ points and can't act!" << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
 void	ClapTrap::attack(const std::string &target)
 {
-	if (_energypoints)
+	if (this->isActive())
 	{
 		_energypoints--;
 		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackdmg << " points of damage! ";
 		std::cout << _name << " now has " << _energypoints << " energy points left." << std::endl;
-		return;
 	}
-	std::cout << "ClapTrap " << _name << " has no energy points left and can't attack!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -81,7 +94,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energypoints)
+	if (this->isActive())
 	{
 		_hitpoints += amount;
 		_energypoints--;
@@ -89,5 +102,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << _name << " now has " << _energypoints << " energy points left." << std::endl;
 		return;
 	}
-	std::cout << "ClapTrap " << _name << " has no energy points left and can't repair itself!" << std::endl;
 }

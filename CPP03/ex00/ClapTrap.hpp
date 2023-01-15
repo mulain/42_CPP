@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:45:48 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/15 14:05:11 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/15 15:10:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
 		ClapTrap	&operator=(const ClapTrap &rhs);
 
 		void	status(void);
+		bool	isActive(void);
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
