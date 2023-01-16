@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 19:56:52 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 11:33:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:50:28 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 	trap2.beRepaired(19);
 
 	FragTrap	trap3("ScAvenger");
-	trap3.guardGate();
+	trap3.highFivesGuys();
 
-	ScavTrap	unnamed;
+	FragTrap	unnamed;
 }

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 19:53:25 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 11:25:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/16 11:58:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class FragTrap: public ClapTrap
 
 		FragTrap	&operator=(FragTrap const &);
 
+		void	attack(const std::string &target);
 		void	highFivesGuys(void);
 };
 
