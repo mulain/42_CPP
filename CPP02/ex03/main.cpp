@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 19:49:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 18:11:25 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:19:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(void)
 	Point const c("c", 3, 3);
 	Point const p1("p1", 3, 1.5);		//inside
 	Point const p2("p2", 2, 1);			//on hypotenuse (edge)
-	Point const p3("p3", 4, 3);		//outside
+	Point const p3("p3", 4, 3);			//outside
 	Point const p4("p4", 3, 0.99); 		//outside but with small fractional difference
 	Point const p5("p5", 3, 3); 		//vertex c
 	std::cout << "Triangle: " << a << b << c << std::endl;
