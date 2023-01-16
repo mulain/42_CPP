@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 19:49:04 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/15 17:22:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:11:25 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,40 +33,4 @@ int	main(void)
 	std::cout << "Point " << p4 << (bsp(a, b, c, p4) ? " is " : " is NOT ") << "inside the triangle" << std::endl;
 	std::cout << "Point " << p5 << (bsp(a, b, c, p5) ? " is " : " is NOT ") << "inside the triangle" << std::endl;
 	}
-
-	float	x;
-	float	y;
-
-	std::cout << "Define triangle by supplying coordinates for points a, b and c:" << std::endl;
-
-	std::cout << "Enter x-axis coordinate for point a: ";
-	std::cin >> x;
-	std::cout << "Enter y-axis coordinate for point a: ";
-	std::cin >> y;
-	Point	a("a", x, y);
-
-	std::cout << "Enter x-axis coordinate for point b: ";
-	std::cin >> x;
-	std::cout << "Enter y-axis coordinate for point b: ";
-	std::cin >> y;
-	Point	b("b", x, y);
-
-	std::cout << "Enter x-axis coordinate for point c: ";
-	std::cin >> x;
-	std::cout << "Enter y-axis coordinate for point c: ";
-	std::cin >> y;
-	Point	c("c", x, y);
-
-	std::cout << "Select a point to test for its location relative to the triangle's area." << std::endl;
-
-	std::cout << "Enter x-axis coordinate for point p: ";
-	std::cin >> x;
-	std::cout << "Enter y-axis coordinate for point p: ";
-	std::cin >> y;
-	Point	p("p", x, y);
-
-	if (bsp(a, b, c, p))
-		std::cout << "The point is inside the triangle." << std::endl;
-	else
-		std::cout << "The point is not inside the triangle." << std::endl;
 }
