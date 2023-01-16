@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 20:16:26 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 20:31:46 by wmardin          ###   ########.fr       */
+/*   Created: 2023/01/16 20:34:49 by wmardin           #+#    #+#             */
+/*   Updated: 2023/01/16 20:39:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "Dog.hpp"
 
-#include <iostream>
+#define CLASSNAME	"Dog"
 
-class Animal
+Dog::Dog(void)
 {
-	public:
-		Animal(void);
-		Animal(Animal const &);
+	std::cout << CLASSNAME << " standard constructor called" << std::endl;
+}
 
-		Animal &operator=(Animal const &);
+Dog::~Dog(void)
+{
+	std::cout << CLASSNAME << " standard destructor called" << std::endl;
+}
 
-		void makeSound(void);
+Dog::Dog(Dog const &src): Animal()
+{
+	*this = src;
+	std::cout << CLASSNAME << " copy constructor called" << std::endl;
+}
 
-	protected:
-		std::string _type;
-};
+Dog Dog::&operator=(Dog const & src)
+{
+	_type
+}
 
-
-#endif

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 20:16:26 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 20:31:46 by wmardin          ###   ########.fr       */
+/*   Created: 2023/01/16 20:33:06 by wmardin           #+#    #+#             */
+/*   Updated: 2023/01/16 20:35:15 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include <iostream>
+#include "Animal.hpp"
 
-class Animal
+class Dog: public Animal
 {
 	public:
-		Animal(void);
-		Animal(Animal const &);
-
-		Animal &operator=(Animal const &);
-
-		void makeSound(void);
-
-	protected:
-		std::string _type;
+		Dog(void);
+		~Dog(void);
+		Dog(Dog const &);
+		
+		Dog & operator=(Dog const &);
 };
-
 
 #endif
