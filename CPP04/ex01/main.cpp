@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:16:00 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 11:47:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:16:18 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int main(void)
 	std::cout << partition << std::endl;
 	{
 		Cat a;
-		
 		Cat b(a);
+
+		std::cout << a.getIdea(1) << std::endl;
+		std::cout << b.getIdea(1) << std::endl;
 		
 	}
 	return 0;
