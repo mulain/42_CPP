@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:21:53 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 10:23:43 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:11:52 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,19 @@
 class Brain
 {
 	public:
+		Brain(void);
+		~Brain(void);
+		Brain(Brain const &);
+
+		Brain & operator=(Brain const &);
+
+		void setIdea(int, std::string);
+		std::string getIdea(int) const;
 
 	protected:
-		std::string ideas[100];
+		std::string _ideas[100];
+
+		bool validIndex(int) const;
 };
 
 #endif

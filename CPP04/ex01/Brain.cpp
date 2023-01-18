@@ -1,58 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 15:55:53 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 12:10:00 by wmardin          ###   ########.fr       */
+/*   Created: 2023/01/18 10:37:42 by wmardin           #+#    #+#             */
+/*   Updated: 2023/01/18 12:11:34 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-#define CLASSNAME	"Cat"
+#define CLASSNAME "Brain"
 
-Cat::Cat(void)
+Brain::Brain(void)
 {
 	std::cout << CLASSNAME << " standard constructor called" << std::endl;
-	_type = CLASSNAME;
-	_brain = new Brain();
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = i;
 }
 
-Cat::~Cat(void)
+Brain::~Brain(void)
 {
 	std::cout << CLASSNAME << " standard destructor called" << std::endl;
-	delete _brain;
 }
 
-Cat::Cat(Cat const & src): Animal()
+Brain::Brain(Brain const & src)
 {
 	std::cout << CLASSNAME << " copy constructor called" << std::endl;
-	_brain = new Brain();
 	*this = src;
 }
 
-Cat &Cat::operator=(Cat const & src)
+Brain & Brain::operator=(Brain const & rhs)
 {
 	std::cout << CLASSNAME << " copy assignment operator called" << std::endl;
-	_type = src._type;
-	*_brain = *src._brain;
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = rhs._ideas[i];
 	return *this;
 }
 
-void Cat::makeSound(void) const
+void Brain::setIdea(int i, std::string idea)
 {
-	std::cout << "Meauuuu!" << std::endl;
+	if (!validIndex(i))
+		std::cout << "Invalid index." << std::endl;
+	else
+		_ideas[i] = idea;
 }
 
-void Cat::setIdea(int i, std::string idea)
+std::string Brain::getIdea(int i) const
 {
-	_brain->setIdea(i, idea);
+	if (!validIndex(i))
+	{
+		std::cout << "Invalid index." << std::endl;
+		return NULL;
+	}
+	else
+		return _ideas[i];
 }
 
-std::string Cat::getIdea(int i) const
+bool Brain::validIndex(int i) const
 {
-	return _brain->getIdea(i);
+	return (i >= 0 && i < 100);
 }

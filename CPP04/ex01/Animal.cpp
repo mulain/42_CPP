@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:52:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 09:45:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 11:40:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ Animal::~Animal(void)
 
 Animal::Animal(Animal const & src)
 {
-	*this = src;
 	std::cout << CLASSNAME << " copy constructor called" << std::endl;
+	*this = src;
 }
 
 Animal &Animal::operator=(Animal const & rhs)
 {
+	std::cout << CLASSNAME << " copy assignment operator called" << std::endl;
 	_type = rhs._type;
 	return *this;
 }
