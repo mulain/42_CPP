@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 10:37:42 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 12:11:34 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:22:25 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Brain::Brain(void)
 {
 	std::cout << CLASSNAME << " standard constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
-		_ideas[i] = i;
+		_ideas[i] = "random thought";
 }
 
 Brain::~Brain(void)

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:16:00 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 12:16:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 12:24:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int main(void)
 		Cat b(a);
 
 		std::cout << a.getIdea(1) << std::endl;
+		std::cout << b.getIdea(1) << std::endl;
+		a.setIdea(1, "Annoy my human.");
+		b.setIdea(1, "Push stuff off of the coffee table.");
+		std::cout << a.getIdea(1) << std::endl;
+		std::cout << b.getIdea(1) << std::endl;
+		b = a;
 		std::cout << b.getIdea(1) << std::endl;
 		
 	}
