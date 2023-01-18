@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 21:40:08 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 21:50:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 21:51:50 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Ice::~Ice(void)
 	return;
 }
 
-Ice::Ice(Ice const & src)
+Ice::Ice(Ice const & src): AMateria()
 {
 	*this = src;
 }

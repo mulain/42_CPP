@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/18 15:11:53 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/18 21:53:02 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= purevirtual_or_abstractfuntion
+NAME	= materialworld
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
@@ -20,7 +20,7 @@ RM		= rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC		= main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRC		= main.cpp AAmateria.cpp Ice.cpp Cure.cpp
 #OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
