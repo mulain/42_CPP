@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:19:43 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 19:54:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 17:57:52 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,10 @@ class DiamondTrap: public ScavTrap, public FragTrap
         DiamondTrap &   operator=(DiamondTrap const &);
 
         using ScavTrap::attack;
-        using ScavTrap::takeDamage;
-        using ScavTrap::beRepaired;
-        void    whoAmI(void); //This member function will display both its name and its ClapTrap name.
+        void    whoAmI(void);
 
     private:
         std::string     _name;
-        using FragTrap::_hitpoints;
-        using ScavTrap::_energypoints;
-        using FragTrap::_attackdmg;
 };
 
 #endif
