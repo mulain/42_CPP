@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 15:52:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 09:45:02 by wmardin          ###   ########.fr       */
+/*   Created: 2023/01/17 15:55:53 by wmardin           #+#    #+#             */
+/*   Updated: 2023/01/17 18:24:40 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
-#define CLASSNAME	"Animal"
+#define CLASSNAME	"Cat"
 
-Animal::Animal(void):
-	_type("Unspecified family")
+Cat::Cat(void)
 {
+	_type = CLASSNAME;
 	std::cout << CLASSNAME << " standard constructor called" << std::endl;
 }
 
-Animal::~Animal(void)
+Cat::~Cat(void)
 {
 	std::cout << CLASSNAME << " standard destructor called" << std::endl;
 }
 
-Animal::Animal(Animal const & src)
+Cat::Cat(Cat const & src): Animal()
 {
 	*this = src;
 	std::cout << CLASSNAME << " copy constructor called" << std::endl;
 }
 
-Animal &Animal::operator=(Animal const & rhs)
+Cat &Cat::operator=(Cat const & src)
 {
-	_type = rhs._type;
+	_type = src._type;
 	return *this;
 }
 
-void Animal::makeSound(void) const
+void Cat::makeSound(void) const
 {
-	std::cout << "Eerie sounds from the mists of time permeate the air." << std::endl;
-}
-
-std::string Animal::getType(void) const
-{
-	return _type;
+	std::cout << "Meauuuu!" << std::endl;
 }

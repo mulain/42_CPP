@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 20:16:26 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/16 20:31:46 by wmardin          ###   ########.fr       */
+/*   Created: 2023/01/17 18:06:01 by wmardin           #+#    #+#             */
+/*   Updated: 2023/01/18 09:43:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ class Animal
 	public:
 		Animal(void);
 		Animal(Animal const &);
+		virtual ~Animal(void);
+		
+		Animal & operator=(Animal const &);
 
-		Animal &operator=(Animal const &);
-
-		void makeSound(void);
+		virtual void makeSound(void) const;
+		std::string getType(void) const;
 
 	protected:
 		std::string _type;
 };
-
 
 #endif

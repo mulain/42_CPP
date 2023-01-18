@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:52:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 09:45:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/18 09:54:17 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-#define CLASSNAME	"Animal"
+#define CLASSNAME	"WrongAnimal"
 
-Animal::Animal(void):
-	_type("Unspecified family")
+WrongAnimal::WrongAnimal(void):
+	_type("Wrong Unspecified family")
 {
 	std::cout << CLASSNAME << " standard constructor called" << std::endl;
 }
 
-Animal::~Animal(void)
+WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << CLASSNAME << " standard destructor called" << std::endl;
 }
 
-Animal::Animal(Animal const & src)
+WrongAnimal::WrongAnimal(WrongAnimal const & src)
 {
 	*this = src;
 	std::cout << CLASSNAME << " copy constructor called" << std::endl;
 }
 
-Animal &Animal::operator=(Animal const & rhs)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const & rhs)
 {
 	_type = rhs._type;
 	return *this;
 }
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
-	std::cout << "Eerie sounds from the mists of time permeate the air." << std::endl;
+	std::cout << "The wrong eerie sounds from the mists of time permeate the air!" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
 	return _type;
 }
