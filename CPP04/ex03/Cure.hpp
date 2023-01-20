@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 21:40:59 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 09:33:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/20 09:40:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#ifndef CURE_HPP
+#define CURE_HPP
 
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Ice: public AMateria
+class Cure: public AMateria
 {
 	public:
-		Ice(void);
-		~Ice(void);
-		Ice(Ice const &);
+		Cure(void);
+		~Cure(void);
+		Cure(Cure const &);
 
-		Ice & operator=(Ice const &);
+		Cure & operator=(Cure const &);
 
 		AMateria *clone(void) const;
 		virtual void use(ICharacter &target) const;
