@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 15:19:01 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/20 18:35:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ Character & Character::operator=(Character const & src)
 	_name = src._name + "_copy";
 	for (int i= 0; i < 4; i++)
 	{
+		if (_inventory[i])
+			delete _inventory[i];
 		if (src._inventory[i])
 			_inventory[i] = src._inventory[i]->clone();
 		else
@@ -71,7 +73,10 @@ void Character::equip(AMateria* m)
 	if (i == 4)
 		std::cout << "Inventory is full, cannot equip new materia!" << std::endl;
 	else
+	{
 		_inventory[i] = m;
+		std::cout << "New materia equipped in slot " << i << "!"<< std::endl;
+	}
  }
 
  void Character::unequip(int idx)
@@ -79,7 +84,10 @@ void Character::equip(AMateria* m)
 	if (!_inventory[idx])
 		std::cout << "Inventory slot is already empty!" << std::endl;
 	else
+	{
 		_inventory[idx] = NULL;
+		std::cout << "Inventory slot " << idx << " cleared!" << std::endl;
+	}
  }
 
  void Character::use(int idx, ICharacter & target)
@@ -90,4 +98,9 @@ void Character::equip(AMateria* m)
 		std::cout << "Inventory slot is empty!" << std::endl;
 	else
 		_inventory[idx]->use(target);
+ }
+
+ AMateria * Character::getMatAddr(int idx)
+ {
+	return _inventory[idx];
  }

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:37:18 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 11:44:10 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/20 18:34:00 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Character: public ICharacter
 		Character & operator=(Character const &);
 
 		std::string const & getName(void) const;
-		//Materiagetter: 	AMateria *getMateriaAddr(int index) const;
+		AMateria * getMatAddr(int) const;
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
