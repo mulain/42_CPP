@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
+#    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/21 12:22:58 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/21 20:45:53 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= itsamateriaworld
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
-EFLAGS	= -Wall -Wextra -Werror -std=c++98
+EFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 RM		= rm -rf
 
 BLUE	= \033[94m

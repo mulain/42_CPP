@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 18:06:01 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 09:30:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/21 20:44:59 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria
 		AMateria(std::string const & type);
 		AMateria(AMateria const &);
 		virtual ~AMateria(void);
-		
+
 		// Operator overloads
 		AMateria & operator=(AMateria const &);
 
@@ -33,7 +33,7 @@ class AMateria
 		// Member functions
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);	
+		virtual void use(ICharacter& target);
 
 	protected:
 		std::string _type;
