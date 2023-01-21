@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 21:40:59 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 09:40:20 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/21 12:20:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cure: public AMateria
 		Cure & operator=(Cure const &);
 
 		AMateria *clone(void) const;
-		virtual void use(ICharacter &target) const;
+		virtual void use(ICharacter &target); //const;
 
 	protected:
 };

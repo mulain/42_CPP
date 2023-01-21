@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 18:35:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/21 12:15:26 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void Character::equip(AMateria* m)
 		_inventory[idx]->use(target);
  }
 
- AMateria * Character::getMatAddr(int idx)
+ AMateria * Character::getMatAddr(int idx) const
  {
 	return _inventory[idx];
  }

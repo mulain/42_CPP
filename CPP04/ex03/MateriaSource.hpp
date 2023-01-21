@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:40:33 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 18:48:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/21 12:16:10 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ class MateriaSource: public IMateriaSource
 	
 	private:
 		AMateria * _inventory[4];
-}
+};
+
+#endif

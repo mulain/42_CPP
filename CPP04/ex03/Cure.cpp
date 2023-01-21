@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 21:40:08 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/20 09:41:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/21 12:20:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ AMateria *Cure::clone(void) const
 	return clone;
 }
 
-void Cure::use(ICharacter & target) const
+void Cure::use(ICharacter & target) // const
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
