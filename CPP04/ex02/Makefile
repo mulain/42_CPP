@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/22 11:53:49 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/22 11:54:37 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= purevirtual_or_abstractfunction
+NAME	= virtualanimality
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
