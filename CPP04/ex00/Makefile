@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/18 09:53:57 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/22 11:47:32 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= animalkingdom
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
-EFLAGS	= -Wall -Wextra -Werror -std=c++98
+EFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 RM		= rm -rf
 
 BLUE	= \033[94m
