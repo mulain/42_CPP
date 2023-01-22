@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:05:31 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/22 13:03:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/22 15:05:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(void)
 		delete me;
 		delete src;
 	}
-	
+	/* 
 	std::cout << partition << std::endl;
 	std::cout << "Additional tests 1" << std::endl;
 	std::cout << partition << std::endl;
@@ -123,6 +123,6 @@ int main(void)
 		delete phil;
 	}
 
-
+ */
 	return 0;
 }
