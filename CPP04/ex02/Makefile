@@ -6,15 +6,15 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/18 15:11:53 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/22 11:53:49 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= purevirtual_or_abstractfuntion
+NAME	= purevirtual_or_abstractfunction
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
-EFLAGS	= -Wall -Wextra -Werror -std=c++98
+EFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 RM		= rm -rf
 
 BLUE	= \033[94m
