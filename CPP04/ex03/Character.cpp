@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/21 20:46:14 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/22 12:15:30 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,38 +64,38 @@ void Character::equip(AMateria* m)
 {
 	if (!m)
 	{
-		std::cout << "Cannot equip materia of type NULL!" << std::endl;
+		std::cout << _name << ": Cannot equip materia of type NULL!" << std::endl;
 		return;
 	}
 	int i = 0;
 	while (i < 4 && _inventory[i])
 		i++;
 	if (i == 4)
-		std::cout << "Inventory is full, cannot equip new materia!" << std::endl;
+		std::cout << _name << ": Inventory is full, cannot equip new materia!" << std::endl;
 	else
 	{
 		_inventory[i] = m;
-		std::cout << "New materia equipped in slot " << i << "!"<< std::endl;
+		std::cout << _name << ": New materia equipped in slot " << i << "!"<< std::endl;
 	}
  }
 
  void Character::unequip(int idx)
  {
 	if (!_inventory[idx])
-		std::cout << "Inventory slot is already empty!" << std::endl;
+		std::cout << _name << ": Inventory slot is already empty!" << std::endl;
 	else
 	{
 		_inventory[idx] = NULL;
-		std::cout << "Inventory slot " << idx << " cleared!" << std::endl;
+		std::cout << _name << ": Inventory slot " << idx << " cleared!" << std::endl;
 	}
  }
 
  void Character::use(int idx, ICharacter & target)
  {
 	if (idx < 0 || idx > 3)
-		std::cout << "Invalid inventory slot!" << std::endl;
+		std::cout << _name << ": Invalid inventory slot!" << std::endl;
 	else if (!_inventory[idx])
-		std::cout << "Inventory slot is empty!" << std::endl;
+		std::cout << _name << ": Inventory slot is empty!" << std::endl;
 	else
 		_inventory[idx]->use(target);
  }

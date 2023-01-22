@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:05:31 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/21 20:45:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/22 12:12:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,80 @@
 
 int main(void)
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	std::string partition(50, '-');
+	
+	std::cout << partition << std::endl;
+	std::cout << "Subject tests" << std::endl;
+	std::cout << partition << std::endl;
+	
+	{
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
 
-	ICharacter* me = new Character("me");
+		ICharacter* me = new Character("me");
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
 
-	ICharacter* bob = new Character("bob");
+		ICharacter* bob = new Character("bob");
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+		me->use(0, *bob);
+		me->use(1, *bob);
 
-	delete bob;
-	delete me;
-	delete src;
+		delete bob;
+		delete me;
+		delete src;
+	}
+	
+	std::cout << partition << std::endl;
+	std::cout << "Additional tests" << std::endl;
+	std::cout << partition << std::endl;
+	{
+		IMateriaSource *icesrc = new MateriaSource();
+		MateriaSource mixedsrc;
+		for (int i = 0; i < 4; i++)
+			icesrc->learnMateria(new Ice());
+		mixedsrc.learnMateria(new Ice());
+		mixedsrc.learnMateria(new Cure());
+		mixedsrc.learnMateria(new Ice());
+		mixedsrc.learnMateria(new Cure());
+		icesrc->learnMateria(new Ice());
+		mixedsrc.learnMateria(new Ice());
+		MateriaSource mixedsrc2(mixedsrc);
+		MateriaSource mixedsrc3;
+		mixedsrc3 = mixedsrc2;
+		ICharacter *phil = new Character("phil");
+		Character bob("bob");
+		Character bobcopy;
+		phil->use(0, bob);
+		bob.use(0, *phil);
+		bob.equip(mixedsrc3.createMateria("ice"));
+		bob.equip(mixedsrc3.createMateria("cure"));
+		bob.equip(mixedsrc3.createMateria("ultima"));
+		AMateria *tmp;
+		for (int i = 0; i < 5; i++)
+		{
+			tmp = mixedsrc.createMateria("cure");
+			bobcopy.equip(tmp);
+		}
+		delete tmp;
+		bobcopy = bob;
+		bob.equip(NULL);
+		bob.use(0, *phil);
+		bob.use(1, *phil);
+		tmp = bob.getMatAddr(0);
+		bob.unequip(0);
+		bob.unequip(5);
+		bob.use(0, *phil);
+		delete tmp;
+		delete icesrc;
+		delete phil;
+	}
+
 
 	return 0;
 }

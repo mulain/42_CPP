@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:40:07 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/21 20:45:36 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/22 12:16:47 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void MateriaSource::learnMateria(AMateria *materia)
 	while (i < 4 && _inventory[i])
 		i++;
 	if (i == 4)
-		std::cout << "Inventory is full!" << std::endl;
+		std::cout << "Materia Source: Inventory is full!" << std::endl;
 	else
 		_inventory[i] = materia->clone();
 }
@@ -67,7 +67,7 @@ AMateria * MateriaSource::createMateria(std::string const & type)
 		i++;
 	if (i == 4 || !_inventory[i])
 	{
-		std::cout << "Unknown Materia type, cannot create it!" << std::endl;
+		std::cout << "Materia Source: Unknown Materia type, cannot create it!" << std::endl;
 		return NULL;
 	}
 	return _inventory[i]->clone();
