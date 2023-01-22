@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:40:07 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/22 12:16:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/22 13:01:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ void MateriaSource::learnMateria(AMateria *materia)
 	if (i == 4)
 		std::cout << "Materia Source: Inventory is full!" << std::endl;
 	else
+	{
+		std::cout << "Materia Source: Learned new Materia of type " << materia->getType() << " and stored it in slot " << i << "!" << std::endl;
 		_inventory[i] = materia->clone();
+	}
 }
 
 AMateria * MateriaSource::createMateria(std::string const & type)
@@ -70,5 +73,6 @@ AMateria * MateriaSource::createMateria(std::string const & type)
 		std::cout << "Materia Source: Unknown Materia type, cannot create it!" << std::endl;
 		return NULL;
 	}
+	std::cout << "Materia Source: Created a new Materia of previously learned type " << _inventory[i]->getType() << "!" << std::endl;
 	return _inventory[i]->clone();
 }

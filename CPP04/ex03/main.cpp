@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:05:31 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/22 12:12:20 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/22 13:03:29 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,39 @@ int main(void)
 	}
 	
 	std::cout << partition << std::endl;
-	std::cout << "Additional tests" << std::endl;
+	std::cout << "Additional tests 1" << std::endl;
+	std::cout << partition << std::endl;
+	{
+		Character newBoi("newBoi");
+		Character oldBoi("oldBoi");
+		ICharacter& oldBoiref = oldBoi;
+		MateriaSource matSrc;
+		
+		AMateria * materia;
+		materia = matSrc.createMateria("knudel");
+		
+		newBoi.equip(materia);
+		newBoi.use(0, oldBoiref);
+		
+		
+		materia = matSrc.createMateria("Ice");
+		materia = matSrc.createMateria("ice");
+		
+		Ice ice;
+		
+		matSrc.learnMateria(&ice);
+		
+		AMateria * materia_2;
+		materia_2 = matSrc.createMateria("Ice");
+		materia_2 = matSrc.createMateria("ice");
+
+		newBoi.equip(materia_2);
+		newBoi.use(0, oldBoiref);
+		
+		
+	}
+	std::cout << partition << std::endl;
+	std::cout << "Additional tests 2" << std::endl;
 	std::cout << partition << std::endl;
 	{
 		IMateriaSource *icesrc = new MateriaSource();
