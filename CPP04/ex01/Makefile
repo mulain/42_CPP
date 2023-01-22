@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/18 11:12:35 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/22 11:52:08 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= brainyanimalkingdom
+NAME	= brainimals
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
