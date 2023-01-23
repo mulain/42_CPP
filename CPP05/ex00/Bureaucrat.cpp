@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 20:50:01 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:52:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src):
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
 	_grade = src._grade;
+	return *this;
 }
 
 void Bureaucrat::decrementGrade(void)
