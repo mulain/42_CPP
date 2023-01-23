@@ -6,12 +6,14 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 16:33:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:51:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+#define HIGHGRADE	1
+#define LOWGRADE	150
 
 Bureaucrat::Bureaucrat(void):
 	_name("Unnamed Burryboi"),
@@ -42,4 +44,46 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src):
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
 	_grade = src._grade;
+}
+
+void Bureaucrat::decrementGrade(void)
+{
+	if (_grade == LOWGRADE)
+		throw Bureaucrat::GradeTooLowException();
+	else
+		_grade++;
+}
+
+void Bureaucrat::incrementGrade(void)
+{
+	if (_grade == HIGHGRADE)
+		throw Bureaucrat::GradeTooHighException();
+	else
+		_grade--;
+}
+
+const std::string Bureaucrat::getName(void) const
+{
+	return _name;
+}
+
+int Bureaucrat::getGrade(void) const
+{
+	return _grade;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade too high!";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade too low!";
+}
+
+std::ostream& operator<<(std::ostream& o, Bureaucrat& const bur)
+{
+	std::cout << "Bureaucrat " << bur.getName() << ", bureaucrat grade " << bur.getGrade() << ".";
+	return o;
 }
