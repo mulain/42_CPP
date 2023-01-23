@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:37 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 16:36:11 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:26:00 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat&);
 
 		int getGrade(void) const;
+		void setGrade(int);
 		const std::string getName(void) const;
 		void incrementGrade(void);
 		void decrementGrade(void);

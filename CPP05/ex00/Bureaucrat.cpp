@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 16:51:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:28:15 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,15 @@ const std::string Bureaucrat::getName(void) const
 int Bureaucrat::getGrade(void) const
 {
 	return _grade;
+}
+
+void Bureaucrat::setGrade(int grade)
+{
+	if (grade < HIGHGRADE)
+		throw Bureaucrat::GradeTooHighException();
+	if (grade > LOWGRADE)
+		throw Bureaucrat::GradeTooLowException();
+	_grade = grade;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
