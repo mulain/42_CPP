@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 20:52:36 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 21:04:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 
 void Bureaucrat::decrementGrade(void)
 {
-	if (_grade == LOWGRADE)
-		throw Bureaucrat::GradeTooLowException();
-	else
-		_grade++;
+	setGrade(_grade + 1);
 }
 
 void Bureaucrat::incrementGrade(void)
 {
-	if (_grade == HIGHGRADE)
-		throw Bureaucrat::GradeTooHighException();
-	else
-		_grade--;
+	setGrade(_grade - 1);
 }
 
 const std::string Bureaucrat::getName(void) const
