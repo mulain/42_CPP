@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 20:28:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 20:50:01 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade):
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src):
-	_name(src._name),
-	_grade(src._grade)
+	_name(src._name)
 {
-	return;
+	*this = src;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
