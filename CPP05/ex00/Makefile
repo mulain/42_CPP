@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/21 20:45:53 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/23 16:29:12 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= itsamateriaworld
+NAME	= bureaucrazy
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
@@ -20,7 +20,7 @@ RM		= rm -rf
 BLUE	= \033[94m
 RESET	= \033[0m
 
-SRC		= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
+SRC		= main.cpp Bureaucrat.cpp
 #OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)

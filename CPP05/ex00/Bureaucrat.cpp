@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 13:33:43 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:33:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ Bureaucrat::Bureaucrat(void):
 }
 
 Bureaucrat::~Bureaucrat(void)
+{
+	return;
+}
+
+Bureaucrat::Bureaucrat(std::string name, int grade):
+	_name(name),
+	_grade(grade)
 {
 	return;
 }
