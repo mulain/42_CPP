@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 21:04:03 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/23 21:23:07 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ Bureaucrat::~Bureaucrat(void)
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade):
-	_name(name),
-	_grade(grade)
+	_name(name)
 {
-	return;
+	setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src):
@@ -42,7 +41,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src):
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
-	_grade = src._grade;
+	setGrade(src._grade);
 	return *this;
 }
 
@@ -85,7 +84,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 	return "Grade too low!";
 }
 
-std::ostream& operator<<(std::ostream& o, Bureaucrat& const bur)
+std::ostream& operator<<(std::ostream& o, const Bureaucrat& bur)
 {
 	std::cout << "Bureaucrat " << bur.getName() << ", bureaucrat grade " << bur.getGrade() << ".";
 	return o;
