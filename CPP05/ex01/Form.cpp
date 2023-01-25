@@ -6,11 +6,14 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:58:32 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/25 15:08:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/25 15:19:51 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+
+#define HIGHGRADE	1
+#define	LOWGRADE 	150
 
 Form::Form(void):
 	_name("Unnamed Form"),
@@ -32,7 +35,10 @@ Form::Form(std::string name, int signGrade, int execGrade):
 	_execGrade(execGrade),
 	_isSigned(false)
 {
-	return;
+	if (_signGrade < HIGHGRADE || _execGrade < HIGHGRADE)
+		throw Form::GradeTooHighException();
+	if (_signGrade > LOWGRADE || _execGrade > LOWGRADE)
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form& src):
@@ -72,3 +78,24 @@ const int Form::getExecGrade(void) const
 {
 	return _execGrade;
 }
+
+const char* Form::GradeTooHighException::what() const
+{
+	return "Grade too high!";
+}
+
+const char* Form::GradeTooLowException::what() const
+{
+	return "Grade too low!";
+}
+
+Add also a beSigned() member function to the Form that takes a Bureaucrat as parameter.
+It changes the form status to signed if the bureaucrat’s grade is
+high enough (higher or egal to the required one).
+Remember, grade 1 is higher than grade 2.
+If the grade is too low, throw a Form::GradeTooLowException.
+Lastly, add a signForm() member function to the Bureaucrat. If the form got signed, it will print something like:
+   <bureaucrat> signed <form>
+Otherwise, it will print something like:
+<bureaucrat> couldn’t sign <form> because <reason>.
+Implement and turn in some tests to ensure everything works as expected.
