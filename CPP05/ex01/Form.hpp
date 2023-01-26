@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:36:01 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/26 21:31:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/26 22:01:17 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ class Form
 
 		class GradeTooHighException: public std::exception
 		{
-			const char* what() const throw();
+			const char* what(void) const throw();
 		};
 
 		class GradeTooLowException: public std::exception
 		{
-			const char* what() const throw();
+			const char* what(void) const throw();
 		};
 
 	private:

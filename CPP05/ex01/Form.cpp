@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:58:32 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/26 21:32:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/26 21:59:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ int Form::getExecGrade(void) const
 	return _execGrade;
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* Form::GradeTooHighException::what(void) const throw()
 {
 	return "Grade too high!";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* Form::GradeTooLowException::what(void) const throw()
 {
 	return "Grade too low!";
 }
