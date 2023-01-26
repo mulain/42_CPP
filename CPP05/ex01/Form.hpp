@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:36:01 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/25 15:13:11 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/26 21:31:15 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -26,22 +28,21 @@ class Form
 
 		Form&	operator=(const Form&);
 
+		void				checkGradeBounds(void);
 		const std::string	getName(void) const;
 		bool 				getIsSigned(void) const;
-		const int			getSignGrade(void) const;
-		const int			getExecGrade(void) const;
+		int					getSignGrade(void) const;
+		int					getExecGrade(void) const;
 		void				beSigned(const Bureaucrat&);
 
-		class GradeTooHighException: std::exception
+		class GradeTooHighException: public std::exception
 		{
-			public:
-				const char* what() const throw();
+			const char* what() const throw();
 		};
 
-		class GradeTooLowException: std::exception
+		class GradeTooLowException: public std::exception
 		{
-			public:
-				const char* what() const throw();
+			const char* what() const throw();
 		};
 
 	private:
@@ -49,8 +50,6 @@ class Form
 		bool				_isSigned;
 		const int			_signGrade;
 		const int			_execGrade;
-
-
 };
 
 std::ostream& operator<<(std::ostream&, const Form&);
