@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/23 21:23:07 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/25 17:35:50 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,22 @@ void Bureaucrat::setGrade(int grade)
 	if (grade > LOWGRADE)
 		throw Bureaucrat::GradeTooLowException();
 	_grade = grade;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	std::cout << "Bureaucrat " << _name;
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << " failed to sign form " << form.getName() << ": ";
+		std::cout << e.what() << std::endl;
+		return;
+	}
+	std::cout << " signed form " << form.getName() << "." << std::endl;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

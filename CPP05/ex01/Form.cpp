@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:58:32 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/25 15:19:51 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/25 17:46:48 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,18 @@ const char* Form::GradeTooLowException::what() const
 	return "Grade too low!";
 }
 
-Add also a beSigned() member function to the Form that takes a Bureaucrat as parameter.
-It changes the form status to signed if the bureaucrat’s grade is
-high enough (higher or egal to the required one).
-Remember, grade 1 is higher than grade 2.
-If the grade is too low, throw a Form::GradeTooLowException.
-Lastly, add a signForm() member function to the Bureaucrat. If the form got signed, it will print something like:
-   <bureaucrat> signed <form>
-Otherwise, it will print something like:
-<bureaucrat> couldn’t sign <form> because <reason>.
-Implement and turn in some tests to ensure everything works as expected.
+void Form::beSigned(const Bureaucrat& bur)
+{
+	if (bur.getGrade() > _signGrade)
+		throw Form::GradeTooLowException();
+	_isSigned = true;
+}
+
+std::ostream& operator<<(std::ostream& o, const Form& form)
+{
+	std::cout	<< (form.getIsSigned() ? "Signed form " : "Unsigned form ")\
+				<< form.getName()\
+				<< ", required grade to sign: " << form.getSignGrade()\
+				<< ", required grade to execute: " << form.getExecGrade()\
+				<< "." << std::endl;
+}
