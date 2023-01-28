@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/22 12:15:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 21:08:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ Character::Character(std::string name):
 
 Character::Character(Character const & src)
 {
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
 	*this = src;
 }
 

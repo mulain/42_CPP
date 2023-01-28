@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 18:40:07 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/22 15:07:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 21:10:40 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ MateriaSource::~MateriaSource(void)
 
 MateriaSource::MateriaSource(MateriaSource const & src)
 {
+	for (int i = 0; i < 4; i++)
+		_inventory[i] = NULL;
 	*this = src;
 }
 
