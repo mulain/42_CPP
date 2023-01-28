@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:58:32 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/28 14:07:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 14:57:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ const char* AForm::FormNotSignedException::what(void) const throw()
 
 void AForm::beSigned(const Bureaucrat& bur)
 {
-	if (bur.getGrade() > _signGrade)
+	if (bur.getGrade() > _signGrade)	
 		throw AForm::GradeTooLowException();
 	_isSigned = true;
 	std::cout << getName() << " was signed by " << bur.getName() << "." << std::endl;

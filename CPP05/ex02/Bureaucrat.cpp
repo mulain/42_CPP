@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:24:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/27 17:04:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 15:00:55 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void Bureaucrat::signForm(AForm& form)
 	try
 	{
 		form.beSigned(*this);
+		std::cout << " signed form " << form.getName() << "." << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -87,7 +88,6 @@ void Bureaucrat::signForm(AForm& form)
 		std::cout << e.what() << std::endl;
 		return;
 	}
-	std::cout << " signed form " << form.getName() << "." << std::endl;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
