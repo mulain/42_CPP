@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:08:54 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/27 18:37:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 11:25:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SHRUBBERY_HPP
 
 #include <iostream>
+#include <fstream>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 

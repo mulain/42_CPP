@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:36:01 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/27 18:56:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 11:45:14 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,17 @@ class AForm
 		{
 			const char* what(void) const throw();
 		};
-
+		
 		class GradeTooLowException: public std::exception
 		{
 			const char* what(void) const throw();
 		};
 
+		class FormNotSignedException: public std::exception
+		{
+			const char* what(void) const throw();
+		};
+		
 	private:
 		const std::string	_name;
 		bool				_isSigned;
