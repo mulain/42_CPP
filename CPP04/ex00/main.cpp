@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 20:16:00 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/18 10:04:32 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/28 16:31:33 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main(void)
 
 		WrongAnimal* wrongcat = new WrongCat;
 
-		wrongcat->getType();
+		std::cout << wrongcat->getType() <<std::endl;
 		wrongcat->makeSound();
 		delete wrongcat;
 	}
