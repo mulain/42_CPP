@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/29 12:33:31 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/29 13:07:31 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= urlaub
+NAME	= nichtzustaendig
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
