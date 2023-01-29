@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 11:50:53 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/29 12:47:03 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/29 13:06:00 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ Intern& Intern::operator=(const Intern& src)
 	return *this;
 }
 
+/*
+Didn't come up with a better way to define the list of possible return objects than actually allocating the 
+entire list. Maybe some way to use an enum? Pretty sure this is possible (even without forbidden libraries).
+*/
 AForm* Intern::makeForm(std::string formtype, std::string target)
 {
 	std::string		compareList[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
