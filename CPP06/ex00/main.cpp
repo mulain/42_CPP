@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:00:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/29 17:46:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/29 18:03:28 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void argcountCheck(int argc)
 	}
 }
 
-void formatCheck(std::string input)
+void checkFormat(std::string input)
 {
 	
 }
@@ -49,6 +49,6 @@ int main (int argc, char** argv)
 	argcountCheck(argc);
 	std::string input(argv[1]);
 	handlePseudo(input);
-	formatCheck(input);
+	checkFormat(input);
 	std::cout << "Commencing rest" << std::endl;
 }
