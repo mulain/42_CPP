@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:33:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/25 17:51:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/27 16:39:15 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,34 @@
 
 int main()
 {
-	Form tmp("C34", 98, 23);
-	Form tmp2(tmp);
-	std::cout << "Trying to create a form with a too low grade!" << std::endl;
+	std::cout << "Attempting to create a form with a too low grade (151):" << std::endl;
 	try
 	{
-		Form tmp3("OHNO", 151, 23);
+		Form temp("test", 151, 23);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << std::endl << "Trying to create a form with a too high grade!" << std::endl;
+	std::cout << std::endl << "Attempting to create a form with a too high grade (0):" << std::endl;
 	try
 	{
-		Form tmp3("OHNO", 98, 0);
+		Form temp("test", 98, 0);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	Bureaucrat billy("Billy", 98);
-	Bureaucrat bobby("Bobby", 99);
-	std::cout << std::endl << tmp << std::endl;
-	std::cout << tmp2 << std::endl;
-	bobby.signForm(tmp);
-	billy.signForm(tmp);
-	tmp2 = tmp;
-	std::cout << tmp2 << std::endl;
+	
+	Form datform("Dat Form", 98, 23);
+	Form datform2(datform);
+	Bureaucrat bubs("Bubs", 98);
+	Bureaucrat shmubs("Shmubs", 99);
+	std::cout << std::endl << datform << std::endl;
+	std::cout << datform2 << std::endl;
+	bubs.signForm(datform);
+	shmubs.signForm(datform2);
+	datform2 = datform;
+	std::cout << datform2 << std::endl;
 
 }
