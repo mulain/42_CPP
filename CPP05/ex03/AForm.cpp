@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:58:32 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/28 14:57:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/29 12:50:48 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,6 @@ std::ostream& operator<<(std::ostream& o, const AForm& form)
 				<<" with target: " << form.getTarget()\
 				<< ", required grade to sign: " << form.getSignGrade()\
 				<< ", required grade to execute: " << form.getExecGrade()\
-				<< "." << std::endl;
+				<< ".";
 	return o;
 }
