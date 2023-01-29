@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:33:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/27 16:39:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/29 12:38:27 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,4 @@ int main()
 	shmubs.signForm(datform2);
 	datform2 = datform;
 	std::cout << datform2 << std::endl;
-
 }
