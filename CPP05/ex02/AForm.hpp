@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 14:36:01 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/28 11:45:14 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/29 12:37:05 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class AForm
 {
 	public:
 		AForm(void);
-		~AForm(void);
+		virtual ~AForm(void);
 		AForm(std::string, int, int, std::string);
 		AForm(const AForm&);
 
