@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:10:34 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/28 14:12:05 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/29 11:07:02 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(void):
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
+{
+	return;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
+	AForm::AForm("Unnamed Shrubbery Creation Form", 145, 137, target)
+	
 {
 	return;
 }
@@ -40,21 +47,23 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(const Bureaucrat& bur)
 {
 	std::ofstream outfile((getTarget() + "_shrubbery").c_str());
-	if (outfile.is_open())
+	if (!outfile.is_open())
+	{
+		std::cout << "Shrubbery Creation Form: outfile error" << std::endl;
+		return;
+	}
+	for (int i = 0; i < 3; i++)
+	{
 		outfile << "        *" << std::endl\
 				<< "       / \\" << std::endl\
-				<< "      /   \\" << std::endl\
+				<< "      /  *\\" << std::endl\
 				<< "     /     \\" << std::endl\
-				<< "    /       \\" << std::endl\
-				<< "   *         *" << std::endl\
-				<< "  / \\       / \\" << std::endl\
+				<< "    /  *    \\" << std::endl\
+				<< "   *    *  * *" << std::endl\
+				<< "  / \\    *  / \\" << std::endl\
 				<< " *   *     *   *" << std::endl\
 				<< "      |   |" << std::endl\
-				<< "      |   |" << std::endl;
-	else
-	{
-		std::cerr << "Shrubbery Creation Form: outfile error" << std::endl;
-		return;
+				<< "      |   |" << std::endl << std::endl;
 	}
 	outfile.close();
 	std::cout << getName() << " was executed by " << bur.getName() << "." << std::endl;
