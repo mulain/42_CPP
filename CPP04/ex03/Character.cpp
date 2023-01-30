@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/30 12:16:46 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:01:09 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ Character::Character(void):
 
 Character::~Character(void)
 {
+	std::cout << "Char destructor: " << _name << std::endl;
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i])
+		{
 			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
 	}
 }
 
@@ -77,7 +82,7 @@ void Character::equip(AMateria* m)
 	else
 	{
 		_inventory[i] = m;
-		std::cout << _name << ": New materia equipped in slot " << i << "!"<< std::endl;
+		std::cout << _name << ": Materia (" << m->getType() << ") equipped in slot " << i << "!"<< std::endl;
 	}
  }
 

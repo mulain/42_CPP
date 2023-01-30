@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:05:31 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/30 12:18:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:19:03 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ int main(void)
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
 
-		ICharacter* bob = new Character("bob");
+		ICharacter* bert = new Character("bert");
 
-		me->use(0, *bob);
-		me->use(1, *bob);
+		me->use(0, *bert);
+		me->use(1, *bert);
 
-		delete bob;
+		delete bert;
 		delete me;
 		delete src;
 	}
 	
 	std::cout << partition << std::endl;
-	std::cout << "Additional tests 1" << std::endl;
+	std::cout << "Additional tests 1: Inventory / Learning Materia" << std::endl;
 	std::cout << partition << std::endl;
 	{
 		Character newBoi("newBoi");
@@ -81,8 +81,9 @@ int main(void)
 		newBoi.equip(materia_2);
 		newBoi.use(0, oldBoiref);		
 	}
+	
 	std::cout << partition << std::endl;
-	std::cout << "Additional tests 2" << std::endl;
+	std::cout << "Additional tests 2: Materia Sources" << std::endl;
 	std::cout << partition << std::endl;
 	{
 		IMateriaSource *icesrc = new MateriaSource();
@@ -103,41 +104,68 @@ int main(void)
 		MateriaSource mixedsrc2(mixedsrc);
 		MateriaSource mixedsrc3;
 		mixedsrc3 = mixedsrc2;
+		
+		delete icesrc;
+	}
+
+	std::cout << partition << std::endl;
+	std::cout << "Additional tests 3: Characters / more Inventory" << std::endl;
+	std::cout << partition << std::endl;
+	{
 
 		std::cout << std::endl << "Messing around with Characters" << std::endl;
-		ICharacter *phil = new Character("phil");
-		Character bob("bob");
+		ICharacter*		ernie = new Character("ernie");
+		Character		bert("bert");
+		MateriaSource	matSource;
 		
-		phil->use(0, bob);
-		bob.use(0, *phil);
+		ernie->use(0, bert);
+		bert.use(0, *ernie);
 		std::cout << std::endl;
-		std::cout << "Equipping and reequipping bob" << std::endl;
-		AMateria* icemat = mixedsrc.createMateria("ice");
-		bob.equip(icemat);
-		bob.equip(icemat);
-		bob.equip(icemat);
-		bob.equip(icemat);
-		bob.equip(icemat);
-		bob.unequip(2);
-		bob.equip(icemat);
+		std::cout << "Equipping and reequipping bert" << std::endl;
+		matSource.learnMateria(new Ice);
+		// These don't have to be deleted as long as they are in a character inventory
+		// when the scope ends. If they are not equipped, have to manually delete.
+		AMateria* icemat0 = matSource.createMateria("ice");
+		AMateria* icemat1 = matSource.createMateria("ice");
+		AMateria* icemat2 = matSource.createMateria("ice");
+		AMateria* icemat3 = matSource.createMateria("ice");
+		bert.equip(icemat0);
+		bert.equip(icemat1);
+		bert.equip(icemat2);
+		bert.equip(icemat3);
+		bert.equip(icemat3);
+		bert.unequip(2);
+		bert.equip(icemat2);
+		bert.unequip(5);
 		std::cout << std::endl;
 
 		std::cout << "Messing around some more" << std::endl;
-		AMateria *tmp;
-		bob.equip(NULL);
-		bob.use(0, *phil);
-		bob.use(1, *phil);
-		bob.equip(mixedsrc3.createMateria("cure"));
-		tmp = bob.getMatAddr(0);
-		bob.unequip(0);
-		bob.unequip(5);
-		bob.unequip(2);
-		bob.use(0, *phil);
-		std::cout << "testy\n" << std::endl;
+		bert.equip(NULL);
+		bert.use(0, *ernie);
+		bert.use(1, *ernie);
+		bert.equip(matSource.createMateria("cure"));
+		std::cout << std::endl;
+
+		std::cout << "Unequipping and not leaking (getMatAddr)" << std::endl;
+		
+		AMateria* tmp;
+		
+		tmp = bert.getMatAddr(0);
+		bert.unequip(0);
 		delete tmp;
-		delete icesrc;
-		delete phil;
-		delete icemat;
+		bert.use(0, *ernie);
+		
+		tmp = bert.getMatAddr(2);
+		bert.unequip(2);
+		delete tmp;
+
+		// Don't have to getMatAddr if you know exactly which pointer was 
+		// equipped in the slot that was unequipped.
+		bert.unequip(3);
+		delete icemat3;
+		
+		delete ernie;
 	}
+	std::cout << "End of tests." << std::endl;
 	return 0;
 }
