@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:05:31 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/28 21:09:51 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 12:18:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ int main(void)
 		bob.unequip(5);
 		bob.unequip(2);
 		bob.use(0, *phil);
+		std::cout << "testy\n" << std::endl;
 		delete tmp;
 		delete icesrc;
 		delete phil;

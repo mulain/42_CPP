@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/28 21:08:31 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 12:16:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ void Character::equip(AMateria* m)
 
  void Character::unequip(int idx)
  {
-	if (!_inventory[idx])
+	if (idx < 0 || idx > 3)
+		std::cout << _name << ": Invalid inventory slot!" << std::endl;
+	else if (!_inventory[idx])
 		std::cout << _name << ": Inventory slot is already empty!" << std::endl;
 	else
 	{
