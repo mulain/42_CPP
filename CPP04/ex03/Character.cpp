@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 11:44:24 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/30 20:01:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:22:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ Character::Character(void):
 
 Character::~Character(void)
 {
-	std::cout << "Char destructor: " << _name << std::endl;
-
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i])
