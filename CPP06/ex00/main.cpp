@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:00:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/29 18:03:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 23:32:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,18 @@ void argcountCheck(int argc)
 	}
 }
 
-void checkFormat(std::string input)
+double checkFormat(std::string input)
 {
+	double	value;
+	char*	alpha;
 	
+	if (input.size() == 1)
+		return static_cast<double>(input[0]);
+	value = strtod(input.c_str(), &alpha);
+	if (!alpha[0] || (alpha[0] == 'f' && alpha[1] == 0))
+		return value;
+	std::cout << "Invalid format." << std::endl;
+	exit (1);	
 }
 
 void handlePseudo(std::string input)
@@ -49,6 +58,6 @@ int main (int argc, char** argv)
 	argcountCheck(argc);
 	std::string input(argv[1]);
 	handlePseudo(input);
-	checkFormat(input);
-	std::cout << "Commencing rest" << std::endl;
+	double value = checkFormat(input);
+	std::cout << value << std::endl;
 }
