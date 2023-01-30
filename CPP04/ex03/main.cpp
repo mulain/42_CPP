@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 12:05:31 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/30 20:19:03 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/30 20:20:35 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,12 +123,14 @@ int main(void)
 		std::cout << std::endl;
 		std::cout << "Equipping and reequipping bert" << std::endl;
 		matSource.learnMateria(new Ice);
+		
 		// These don't have to be deleted as long as they are in a character inventory
 		// when the scope ends. If they are not equipped, have to manually delete.
 		AMateria* icemat0 = matSource.createMateria("ice");
 		AMateria* icemat1 = matSource.createMateria("ice");
 		AMateria* icemat2 = matSource.createMateria("ice");
 		AMateria* icemat3 = matSource.createMateria("ice");
+		
 		bert.equip(icemat0);
 		bert.equip(icemat1);
 		bert.equip(icemat2);
