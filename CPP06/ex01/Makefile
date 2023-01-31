@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/29 16:00:42 by wmardin          ###   ########.fr        #
+#    Updated: 2023/01/31 17:18:32 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= conversion
+NAME	= serialization
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address

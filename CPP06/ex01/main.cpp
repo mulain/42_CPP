@@ -6,28 +6,45 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/31 13:51:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/31 17:47:00 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdint.h>
 
-
-int main (int argc, char** argv)
+typedef struct Datastruct
 {
-	return 0;
+	int				i;
+	char			c;
+	std::string		message;
+} Data;
+
+uintptr_t serialize(Data* ptr)
+{
+	return reinterpret_cast<uintptr_t>(ptr);
 }
 
-/*
-Implement the following functions:
-uintptr_t serialize(Data* ptr);
-It takes a pointer and converts it to the unsigned integer type uintptr_t.
-Data* deserialize(uintptr_t raw);
-It takes an unsigned integer parameter and converts it to a pointer to Data.
-Write a program to test that your functions works as expected.
-You must create a non-empty (it means it has data members) Data structure.
-Use serialize() on the address of the Data object and pass its return value to
-deserialize(). Then, ensure the return value of deserialize() compares equal to the
-original pointer.
-Do not forget to turn in the files of your Data structure.
-*/
+Data* deserialize(uintptr_t raw)
+{
+	return reinterpret_cast<Data*>(raw);
+}
+
+int main (void)
+{
+	Data		data;
+	Data*		data_copy;
+	uintptr_t	intptr;
+	
+	data.i = 42;
+	data.c = 'a';
+	data.message = "mulain was here.";
+	
+	std::cout << "Address of data: " << &data << ", data.i: " << data.i << ", data.c: " << data.c << ", data.message: " << data.message << std::endl;
+	intptr = serialize(&data);
+	std::cout << "intptr: " << intptr << ", intptr in hex: 0x" << std::hex << intptr << std::dec << std::endl;
+	data_copy = deserialize(intptr);
+	std::cout << "data_copy points to: " << data_copy << ", data_copy->i: " << data_copy->i << ", data_copy->c: " << data_copy->c << ", data_copy->message: " << data_copy->message << std::endl;
+	
+	return 0;
+}
