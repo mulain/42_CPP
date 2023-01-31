@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/31 18:10:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/31 19:25:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,46 @@ void identify(Base* p)
 		std::cout << "C" << std::endl;
 }
 
-/* void identify(Base& p)
+void identify(Base& p)
 {
+	Base	base;
 	
+	std::cout << "Reference dynamic cast identified derived class: ";
+	try
+	{
+		base = dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	try
+	{
+		base = dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
 
-	
-} */
+	}
+	catch(const std::exception& e)
+	{
+	}
+	try
+	{
+		base = dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+	}
+}
 
 int main(void)
 {
 	Base*	ptr = generate();
-	//Base&	ref = *ptr;
+	Base&	ref = *ptr;
 	
 	identify(ptr);
-	//identify(ref);
+	identify(ref);
 	
 	delete ptr;
 	return 0;
