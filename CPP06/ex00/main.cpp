@@ -6,12 +6,21 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:00:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/31 00:06:50 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/01/31 13:21:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
+
+/* typedef struct t_conversion
+{
+	char	charly;
+	int		intsy;
+	float	floater;
+	double	doubl;
+} t_conv; */
 
 void argcountCheck(int argc)
 {
@@ -39,11 +48,6 @@ void handlePseudo(std::string input)
 	}
 }
 
-/*
-You have to first detect the type of the literal passed as parameter, convert it from
-string to its actual type, then convert it explicitly to the three other data types. Lastly,
-display the results as shown below.
-*/
 double checkFormat(std::string input)
 {
 	double	value;
@@ -75,17 +79,76 @@ void printScalars(double value)
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
 	
 	// float block
+	std::cout << "float: " << static_cast<float>(value) << (!(fmod(value, 1)) ? ".0f" : "f") << std::endl;
+
+	// double block
+	std::cout << "double: " << static_cast<double>(value) << (!(fmod(value, 1)) ? ".0" : "") << std::endl;
 }
+
+/*
+This function is not really needed, but the subject demands that the input type be 
+identified and the string be cast to it. Only then is the conversion to the other types
+allowed. It would be way faster using "checkFormat", but hey.
+Actually: I'm not doing this. This is just too wyld.
+
+void convert(std::string input, t_conv* conv)
+{
+	double	value;
+	char*	alpha;
+
+	if (input.size() == 1 && !isdigit(input[0]))
+	{
+		std::cout << "Type: char" << std::endl;
+		char ackchualtype = static_cast<char>(input[0]);
+		conv->charly = ackchualtype;
+		conv->intsy = static_cast<int>(ackchualtype);
+		conv->floater = static_cast<float>(ackchualtype);
+		conv->doubl = static_cast<double>(ackchualtype);
+		return;
+	}
+	value = strtod(input.c_str(), &alpha);
+	if (!alpha[0] && input.find('.') == std::string::npos)
+	{
+		std::cout << "Type: int" << std::endl;
+		int ackchualtype = static_cast<int>(value);
+		conv->charly = static_cast<char>(ackchualtype);
+		conv->intsy = ackchualtype;
+		conv->floater = static_cast<float>(ackchualtype);
+		conv->doubl = static_cast<double>(ackchualtype);
+		return;
+	}
+	if (alpha[0] == 'f' && alpha[1] == 0)
+	{
+		std::cout << "Type: float" << std::endl;
+		float ackchualtype = static_cast<float>(value);
+		conv->charly = static_cast<char>(ackchualtype);
+		conv->intsy = static_cast<int>(ackchualtype);
+		conv->floater = ackchualtype;
+		conv->doubl = static_cast<double>(ackchualtype);
+		return;
+	}
+	if (!alpha[0])
+	{
+		std::cout << "Type: double" << std::endl;
+		double ackchualtype = static_cast<double>(value);
+		conv->charly = static_cast<char>(ackchualtype);
+		conv->intsy = static_cast<int>(ackchualtype);
+		conv->floater = static_cast<float>(ackchualtype);
+		conv->doubl = ackchualtype;
+		return;
+	}
+	std::cout << "Invalid format." << std::endl;
+	exit (1);	
+}
+*/
 
 int main (int argc, char** argv)
 {
-	std::string input;
-	//double		value;
+	std::string 	input;
+	//t_conv			conv;
 	
 	argcountCheck(argc);
 	input = argv[1];
 	handlePseudo(input);
 	printScalars(checkFormat(input));
-	
-	//std::cout << value << std::endl;
 }
