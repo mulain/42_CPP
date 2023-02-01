@@ -11,8 +11,7 @@ reinterpret_cast can cast between unrelated types, such as a pointer to a class 
 
 dynamic_cast
 
-Allows for type-safe, runtime type checking of objects.
-Typically used for converting a pointer or reference to a base class to a derived class, but you want to make sure at runtime that the object actually is of the derived class type.
-If the conversion is not possible, dynamic_cast returns a null pointer or a reference
-to a nullptr, indicating that the conversion failed.
-Dynamic_cast only works with polymorphic types, i.e. classes with virtual functions.
+Performs a type-safe (type checking) conversion of objects at runtime.
+Typically used for converting a base class pointer (or reference) to a derived class pointer (or reference) when it is necessary to confirm at runtime that the object actually is of the expected derived class type.
+If the conversion is not possible (i.e. object is not of expected type), dynamic_cast returns a null pointer or a reference to a nullptr.
+Dynamic_cast only works with polymorphic types (classes with virtual functions).
