@@ -1,7 +1,6 @@
 static_cast
 
 Performs implicit type conversions. It is used to convert a value from one type to another type, typically when the types are related by inheritance.
-
 Unlike dynamic_cast, static_cast performs the conversion at compile-time and does not perform any runtime type checking.
 
 
