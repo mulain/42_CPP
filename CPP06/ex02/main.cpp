@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/31 19:25:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/01 10:35:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+
+/*
+dynamic_cast is a type of casting operator that allows for type-safe, runtime type checking
+of objects.
+It is typically used when you have a pointer or reference to a base class and need to convert
+it to a derived class, but you want to make sure at runtime that the object actually is
+of the derived class type.
+If the conversion is not possible, dynamic_cast returns a null pointer or a reference
+to a nullptr, indicating that the conversion failed.
+
+Note that dynamic_cast only works with polymorphic types, that is, classes with virtual functions.
+*/
 
 Base* generate(void)
 {
