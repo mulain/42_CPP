@@ -6,19 +6,22 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/02 08:39:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/02 09:00:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#include "templates.hpp"
+#include "whatever.hpp"
 
 int main(void)
 {
 	int a = 2;
 	int b = 3;
+	std::cout << "Pre-swap: " << "a = " << a << ", b = " << b << std::endl;
 	::swap( a, b );
+	std::cout << "Post-swap: " << "a = " << a << ", b = " << b << std::endl;
+	std::cout << std::endl << "Subject test:" << std::endl;
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   templates.hpp                                      :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:27:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/02 08:33:14 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/02 08:44:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEMPLATES_HPP
-#define TEMPLATES_HPP
+#ifndef WHATEVER_HPP
+#define WHATEVER_HPP
 
 template <typename T>
 void swap(T& a, T& b)
