@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/01/31 17:47:53 by wmardin          ###   ########.fr        #
+#    Updated: 2023/02/02 08:34:18 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= identify
+NAME	= templates
 
 CC		= c++
 CFLAGS	= #-g -fsanitize=address
