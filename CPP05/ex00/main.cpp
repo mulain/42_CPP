@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42wolfsburg.de>   +#+  +:+       +#+        */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:33:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/24 14:31:55 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/01 22:20:22 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(void)
 		std::cout << e.what() << std::endl << std::endl;
 	}
 
-	std::cout << "Try block: OP with grade 0 now:" << std::endl;
+	std::cout << "Try block: OP, grade 0:" << std::endl;
 	try
 	{
 		Bureaucrat op("OP", 0);
@@ -37,21 +37,9 @@ int main(void)
 		std::cout << e.what() << std::endl << std::endl;
 	}
 
-	std::cout << "Try block: Gosu, grade 1 and Boon, 150:" << std::endl << std::endl;
-	try
-	{
-		Bureaucrat gosu("Gosu", 1);
-		Bureaucrat boon("Boon", 150);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << "Non try block now:" << std::endl;
+	std::cout << "Printing Bureaucrats:" << std::endl;
 	Bureaucrat gosu("Gosu", 1);
 	Bureaucrat boon("Boon", 150);
-	std::cout << "Result:" << std::endl;
 	std::cout << gosu << std::endl;
 	std::cout << boon << std::endl << std::endl;
 
