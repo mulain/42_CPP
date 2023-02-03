@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:17:57 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/03 18:12:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/03 18:37:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ class Array
 
 		T getElement(size_t index) const
 		{
-			checkIndex(index);
+			//checkIndex(index);
 			return _content[index];
 		}
 
 		// Setters
 		void setElement(size_t index, T value)
 		{
-			checkIndex(index);
+			//checkIndex(index);
 			_content[index] = value;
 		}
 	
