@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/03 18:53:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/03 22:13:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,6 @@ int main (void)
 	std::cout << "charray_a element 0: " << charray_a[0] << std::endl;
 	std::cout << "charray_a element 1 (not manually initialized): " << charray_a[1] << std::endl;
 	std::cout << "charray_a element 1 cast to int: " << static_cast<int>(charray_a[1]) << std::endl;
-
- return 0;
+	
+	return 0;
 }
