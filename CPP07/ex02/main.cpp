@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/03 18:35:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/03 18:53:26 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main (void)
 	try
 	{
 		for (int i = 0; i < 5; i++)
-		std::cout << "array_a element[" << i << "]: " << array_a.getElement(i) << std::endl;
+		std::cout << "array_a element[" << i << "]: " << array_a[i] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -46,7 +46,7 @@ int main (void)
 	try
 	{
 		for (int i = 0; i < 5; i++)
-		std::cout << "array_b element[" << i << "]: " << array_b.getElement(i) << std::endl;
+		std::cout << "array_b element[" << i << "]: " << array_b[i] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -57,11 +57,11 @@ int main (void)
 	std::cout << "Part 2: Setting array_a element 1 to value of 42, then trying with array_b" << std::endl;
 	std::cout << partition << std::endl;
 	
-	array_a.setElement(1, 42);
+	array_a[1] = 42;
 	try
 	{
 		for (int i = 0; i < 5; i++)
-		std::cout << "array_a element[" << i << "]: " << array_a.getElement(i) << std::endl;
+		std::cout << "array_a element[" << i << "]: " << array_a[i] << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -70,7 +70,7 @@ int main (void)
 	
 	try
 	{
-		array_b.setElement(1, 42);
+		array_b[1] = 42;
 	}
 	catch(const std::exception& e)
 	{
@@ -83,19 +83,19 @@ int main (void)
 
 	array_b = array_a;
 	for (int i = 0; i < 5; i++)
-		std::cout << "array_b element[" << i << "]: " << array_b.getElement(i) << std::endl;
+		std::cout << "array_b element[" << i << "]: " << array_b[i] << std::endl;
 	
 	std::cout << partition << std::endl;
 	std::cout << "Part 4: Modifying array_a (element 0 to 420); array_b is unaffected" << std::endl;
 	std::cout << partition << std::endl;
 
-	array_a.setElement(0, 420);
+	array_a[0] = 420;
 
 	for (int i = 0; i < 5; i++)
-		std::cout << "array_a element[" << i << "]: " << array_a.getElement(i) << std::endl;
+		std::cout << "array_a element[" << i << "]: " << array_a[i] << std::endl;
 	std::cout << partition << std::endl;
 	for (int i = 0; i < 5; i++)
-		std::cout << "array_b element[" << i << "]: " << array_b.getElement(i) << std::endl;
+		std::cout << "array_b element[" << i << "]: " << array_b[i] << std::endl;
 
 	std::cout << partition << std::endl;
 	std::cout << "Part 4: Copying the smaller array_c (size 1) to array_a (size 5)" << std::endl;
@@ -112,12 +112,12 @@ int main (void)
 
 	Array<char> charray_a(5);
 
-	charray_a.setElement(0, 'a');
+	charray_a[0] = 'a';
 
 	std::cout << "charray_a size: " << charray_a.getSize() << std::endl;
-	std::cout << "charray_a element 0: " << charray_a.getElement(0) << std::endl;
-	std::cout << "charray_a element 1 (not manually initialized): " << charray_a.getElement(1) << std::endl;
-	std::cout << "charray_a element 1 cast to int: " << static_cast<int>(charray_a.getElement(1)) << std::endl;
+	std::cout << "charray_a element 0: " << charray_a[0] << std::endl;
+	std::cout << "charray_a element 1 (not manually initialized): " << charray_a[1] << std::endl;
+	std::cout << "charray_a element 1 cast to int: " << static_cast<int>(charray_a[1]) << std::endl;
 
  return 0;
 }
