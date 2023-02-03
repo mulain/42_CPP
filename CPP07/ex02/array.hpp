@@ -6,22 +6,12 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:17:57 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/03 17:55:55 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/03 18:12:30 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Turn-in directory : ex02/
-Files to turn in : Makefile, main.cpp, Array.{h, hpp}
-and optional file: Array.tpp
-Forbidden functions : None
 
-Develop a class template Array that contains elements of type T and that implements
-the following behavior and functions:
-• Construction with no parameter: Creates an empty array.
-• Construction with an unsigned int n as a parameter: Creates an array of n elements
-initialized by default.
-Tip: Try to compile int * a = new int(); then display *a.
 • Construction by copy and assignment operator. In both cases, modifying either the
 original array or its copy after copying musn’t affect the other array.
 • You MUST use the operator new[] to allocate memory. Preventive allocation (allocating memory in advance) is forbidden. Your program must never access nonallocated memory.
@@ -83,12 +73,12 @@ class Array
 		}
 		
 		// Getters
-		size_t getSize(void)
+		size_t getSize(void) const
 		{
 			return _size;
 		}
 
-		T getElement(size_t index)
+		T getElement(size_t index) const
 		{
 			checkIndex(index);
 			return _content[index];
@@ -103,7 +93,7 @@ class Array
 	
 	private:
 		// Checkers
-		void checkIndex(size_t index)
+		void checkIndex(size_t index) const
 		{
 			if (index >= _size)
 				throw std::out_of_range("Invalid index.");
