@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 10:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 11:04:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 11:34:15 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,14 @@ void Span::addNumber(int number)
 
 unsigned int Span::shortestSpan(void)
 {
-	
+	checkLogic();
+	return static_cast<unsigned int>(1);
 }
 
 unsigned int Span::longestSpan(void)
 {
-	
+	checkLogic();
+	return static_cast<unsigned int>(*std::max_element(_content.begin(), _content.end()) - *std::min_element(_content.begin(), _content.end()));
 }
 
 void Span::checkFull(void)
