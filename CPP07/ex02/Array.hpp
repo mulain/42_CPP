@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 22:17:57 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/03 18:56:44 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 18:51:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ class Array
 			_content = new T[_size];
 			for (size_t i = 0; i < _size; i++)
 				_content[i] = src._content[i];
-			return *this;			
+			return *this;
 		}
 
 		T& operator[](size_t index)
