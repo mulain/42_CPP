@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 17:34:08 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 17:35:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,10 @@ int main (void)
 	srand(time(NULL));
 	for (int i = 0; i < 25000; i++)
 		seedvector.push_back(rand());
-	
-	
+
 	bigboiii.addSpan(seedvector.begin(), seedvector.end());
 	std::cout << "Longest span: " << bigboiii.longestSpan() << ".";
 	std::cout << " Shortest span: " << bigboiii.shortestSpan() << "." << std::endl;
 	
-
-
 	return 0;
 }
