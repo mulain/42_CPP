@@ -6,12 +6,11 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 17:36:02 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 17:36:06 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cmath>
-
 #include "Span.hpp"
 
 int main (void)
