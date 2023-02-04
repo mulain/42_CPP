@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 10:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 16:44:26 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 17:32:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ void Span::addNumber(int number)
 {
 	checkFull();
 	_content.push_back(number);
+}
+
+void Span::addSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	while (begin < end)
+	{
+		addNumber(*begin);
+		begin++;
+	}
 }
 
 unsigned int Span::shortestSpan(void)

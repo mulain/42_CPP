@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 16:53:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 17:32:40 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,21 @@ int main (void)
 		}		
 	}
 	std::cout << partition << std::endl;
-	std::cout << "Part 3: Big span" << std::endl;
+	std::cout << "Part 3: Big span seeded with random numbers using iterator range of a vector" << std::endl;
 	std::cout << partition << std::endl;
+	
+	Span bigboiii(10000);
+	std::vector<int> seedvector;
+	
+	srand(time(NULL));
+	for (int i = 0; i < 10000; i++)
+		seedvector.push_back(rand());
+	
+	
+	bigboiii.addSpan(seedvector.begin(), seedvector.end());
+	std::cout << "Longest span: " << bigboiii.longestSpan() << ".";
+	std::cout << " Shortest span: " << bigboiii.shortestSpan() << "." << std::endl;
+	
 
 
 	return 0;
