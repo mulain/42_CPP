@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 21:56:19 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/03 22:22:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 10:20:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@ You don’t have to handle associative containers.
 
 #include <iostream>
 #include <algorithm>
-#include <exception>
 
 template<typename T>
 typename T::iterator easyFind(T container, int i)
 {
 	typename T::iterator iter;
 
-	iter = std::find(container.begin(), container.end(), i);
+	iter = find(container.begin(), container.end(), i);
 	if (iter == container.end())
-		std::cout << "fauil" << std::endl;
+		throw std::runtime_error("Value not found.");
 	return iter;
 }
 
