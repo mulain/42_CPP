@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 10:35:09 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 17:13:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 17:35:52 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 
 class Span
 {
