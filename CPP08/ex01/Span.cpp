@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 10:41:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 11:34:15 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 12:03:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,13 @@ void Span::addNumber(int number)
 unsigned int Span::shortestSpan(void)
 {
 	checkLogic();
-	return static_cast<unsigned int>(1);
+	std::vector<int> temp(_content);
+	std::sort(temp.begin(), temp.end());
+	
+	unsigned int span = *(temp.begin() + 1) - *temp.begin();
+	for (std::vector<int>::iterator iter = temp.begin(); iter != temp.end(); iter++)
+		span = std::min(span, static_cast<unsigned int>(*(iter + 1) - *iter));
+	return span;
 }
 
 unsigned int Span::longestSpan(void)
