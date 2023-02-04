@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/04 12:15:16 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/04 12:17:55 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main (void)
 	std::cout << partition << std::endl;
 
 	Span	span1;
-	Span	span2(50);
 	Span	spanbigboiii(10000);
 
 	std::cout << partition << std::endl;
@@ -30,7 +29,7 @@ std::cout << partition << std::endl;
 
 	try
 	{
-		std::cout << "Longest span of span2: " << span2.longestSpan() << std::endl;
+		std::cout << "Longest span of span1: " << span1.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -38,7 +37,7 @@ std::cout << partition << std::endl;
 	}
 	try
 	{
-		std::cout << "Shortest span of span2: " << span2.shortestSpan() << std::endl;
+		std::cout << "Shortest span of span1: " << span1.shortestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
