@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:36:37 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/05 13:58:51 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/05 17:08:36 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ class MutantStack: public std::stack<T>
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		iterator begin(void)
 		{
-			return std::stack<T>::begin();
+			return std::stack<T>::c.begin();
 		}
 		
 		iterator end(void)
 		{
-			return std::stack<T>::end();
+			return std::stack<T>::c.end();
 		}
 };
 
