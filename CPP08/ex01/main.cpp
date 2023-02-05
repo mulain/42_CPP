@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:42:02 by wmardin           #+#    #+#             */
-/*   Updated: 2023/02/05 12:13:38 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/02/05 13:35:28 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ int main (void)
 	}
 	
 	std::cout << partition << std::endl;
-	std::cout << "Part 2: Small span object with overflow" << std::endl;
+	std::cout << "Part 2: Small span object with overflow and one negative number" << std::endl;
 	std::cout << partition << std::endl;
-	for (int i = 0; i < 12; i++)
+	span1.addNumber(-5);
+	for (int i = 2; i < 12; i++)
 	{
 		try
 		{
