@@ -6,15 +6,14 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/02/05 10:40:10 by wmardin          ###   ########.fr        #
+#    Updated: 2023/02/05 10:42:39 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= array
 
 CC		= c++
-CFLAGS	= 
-EFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
+FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 RM		= rm -rf
 
 BLUE	= \033[30m
@@ -25,7 +24,7 @@ SRC		= main.cpp
 all: $(NAME)
 
 $(NAME):
-	@$(CC) $(CFLAGS) $(EFLAGS) $(SRC) -o $(NAME)
+	@$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	@echo "$(BLUE)$(NAME) compiled.$(RESET)"
 
 clean:
