@@ -6,27 +6,25 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/02/02 08:34:18 by wmardin          ###   ########.fr        #
+#    Updated: 2023/02/05 10:44:16 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= templates
 
 CC		= c++
-CFLAGS	= #-g -fsanitize=address
-EFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
+FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 RM		= rm -rf
 
-BLUE	= \033[94m
+BLUE	= \033[30m
 RESET	= \033[0m
 
 SRC		= main.cpp
-#OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): #$(OBJ)
-	@$(CC) $(CFLAGS) $(EFLAGS) $(SRC) -o $(NAME)
+$(NAME):
+	@$(CC) $(FLAGS) $(SRC) -o $(NAME)
 	@echo "$(BLUE)$(NAME) compiled.$(RESET)"
 
 clean:
@@ -51,4 +49,3 @@ mgit:
 	git push
 	@echo "$(BLUE)git auto add & push with message performed.$(RESET)"
 
-#.SILENT: $(OBJ)
