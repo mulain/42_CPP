@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/15 21:51:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:40:39 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Your program must respect these rules:
 #define DATE_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <algorithm>
 
@@ -43,16 +44,18 @@ class Date
 
 		Date& operator=(const Date&);
 	
-		int getYear();
-		int getMonth();
-		int getDay();
+		int getYear() const;
+		int getMonth() const;
+		int getDay() const;
 		//setters? prolly no! Prolly also get rid of getters.
-		std::string getDateString();
+		std::string getDateString() const;
 
 	private:
 		int _year;
 		int _month;
 		int _day;		
 };
+
+std::ostream& operator<<(std::ostream& o, const Date& date);
 
 #endif

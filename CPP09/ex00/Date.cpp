@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/15 21:57:52 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:39:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,30 @@ Date& Date::operator=(const Date& src)
 	return *this;
 }
 
-std::string Date::getDateString()
+std::string Date::getDateString() const
 {
-	std::string dateString;
+	return std::to_string(_year) + "-" + std::to_string(_month) + "-" + std::to_string(_day);
+}
 
-	dateString = std::to_string(_year) + "-" + std::to_string(_month) + "-" + std::to_string(_day);
-	//dateString = _year + "-" + _month + "-" + _day;
-	return dateString;
+int Date::getYear() const
+{
+	return _year;
+}
+
+int Date::getMonth() const
+{
+	return _month;
+}
+
+int Date::getDay() const
+{
+	return _day;
+}
+
+std::ostream& operator<<(std::ostream& o, const Date& date)
+{
+	std::cout << std::setw(4) << std::setfill('0') << date.getYear() << '-';
+	std::cout << std::setw(2) << std::setfill('0') << date.getMonth() << '-';
+	std::cout << std::setw(2) << std::setfill('0') << date.getDay();
+	return o;
 }
