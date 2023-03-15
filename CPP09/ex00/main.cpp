@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/15 22:40:54 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:30:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int main (void)
 {
-	Date	date1(2022, 9, 24);
+	Date	date1(2025, 2, 29);
 
 	std::cout << date1.getDateString() << std::endl;
 	std::cout << date1 << std::endl;
