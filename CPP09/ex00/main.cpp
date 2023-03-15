@@ -6,35 +6,32 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/15 19:32:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/15 21:58:07 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <vector>
 #include <iostream>
+#include <map>
+#include <utility>
 
-#include "easyfind.hpp"
+#include "Date.hpp"
 
 int main (void)
 {
-	std::vector<int>			vector1;
-	std::vector<int>::iterator	iter;
-	std::string					partition(70, '-');
+	Date	date1(2022, 12, 24);
 
-	std::cout << partition << std::endl;
-	std::cout << "Part 1: int vector: value that is present" << std::endl;
-	std::cout << partition << std::endl;
-	for (int i = 1; i < 11; i++)
-		vector1.push_back(i);
-	
-	iter = easyFind(vector1, 2);
-	std::cout << (iter != vector1.end() ? "Value found!" : "Value not found!") << std::endl;
-	
-	std::cout << partition << std::endl;
-	std::cout << "Part 2: int vector: value that is not present" << std::endl;
-	std::cout << partition << std::endl;
-	
-	iter = easyFind(vector1, 42);
-	std::cout << (iter != vector1.end() ? "Value found!" : "Value not found!") << std::endl;
-	return 0;
+	std::cout << date1.getDateString() << std::endl;
+    /* std::map<int, double> asset_prices; // Map to store asset prices by date
+
+    // Inserting some sample data
+    asset_prices.insert(std::make_pair(20220101, 50.0));
+    asset_prices.insert(std::make_pair(20220102, 60.0));
+    asset_prices.insert(std::make_pair(20220103, 70.0));
+
+    // Retrieving the price of an asset on a particular date
+    int date = 20220102;
+    double price = asset_prices[date];
+    std::cout << "The price of the asset on " << date << " is " << price << std::endl;
+ */
+    return 0;
 }
