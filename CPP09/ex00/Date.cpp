@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 00:39:04 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:45:06 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,21 @@ void Date::setMonth(int month)
 void Date::setDay(int day)
 {
 	if (day < 1 || day > 31)
-		throw std::out_of_range("Day out of range.");
+		throw std::out_of_range("Day out of range. 1 to 31 valid for that month.");
 	if (_month == 4 || _month == 6 || _month == 9 || _month == 11)
 	{
 		if (day > 30)
-			throw std::out_of_range("Day out of range.");
+			throw std::out_of_range("Day out of range. 1 to 30 valid for that month.");
 	}
 	else if (_month == 2)
 	{
 		if (isLeapYear())
 		{
 			if (day > 29)
-				throw std::out_of_range("Day out of range.");
+				throw std::out_of_range("Day out of range. 1 to 29 valid for February in a leap year.");
 		}
 		else if (day > 28)
-			throw std::out_of_range("Day out of range.");
+			throw std::out_of_range("Day out of range. 1 to 28 valid for February in a non leap year.");
 	}
 	_day = day;
 }
