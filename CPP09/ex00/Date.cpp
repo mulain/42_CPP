@@ -6,16 +6,16 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 00:28:58 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:39:04 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Date.hpp"
 
 Date::Date(void):
-	_year(-1),
-	_month(-1),
-	_day(-1)
+	_year(1),
+	_month(1),
+	_day(1)
 {}
 
 Date::~Date(void)
@@ -39,11 +39,6 @@ Date& Date::operator=(const Date& src)
 	_month = src._month;
 	_day = src._day;
 	return *this;
-}
-
-std::string Date::getDateString() const
-{
-	return std::to_string(_year) + "-" + std::to_string(_month) + "-" + std::to_string(_day);
 }
 
 // Setters
@@ -72,7 +67,7 @@ void Date::setDay(int day)
 	}
 	else if (_month == 2)
 	{
-		if (isLeapYear(_year))
+		if (isLeapYear())
 		{
 			if (day > 29)
 				throw std::out_of_range("Day out of range.");
@@ -84,9 +79,9 @@ void Date::setDay(int day)
 }
 
 // Helpers
-bool Date::isLeapYear(int year)
+bool Date::isLeapYear() const
 {
-    return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+    return ((_year % 4 == 0 && _year % 100 != 0) || _year % 400 == 0);
 }
 
 // Getters

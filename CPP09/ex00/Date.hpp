@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 00:17:47 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:40:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ Your program must respect these rules:
 
 #include <iostream>
 #include <iomanip>
-#include <vector>
-#include <algorithm>
 
 class Date
 {
@@ -50,11 +48,9 @@ class Date
 		int getYear() const;
 		int getMonth() const;
 		int getDay() const;
-		//setters? prolly no! Prolly also get rid of getters.
-		std::string getDateString() const;
 
 	private:
-		bool isLeapYear(int);
+		bool isLeapYear() const;
 		
 		int _year;
 		int _month;
