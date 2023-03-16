@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 14:50:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:04:08 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,15 @@ int main (int argc, char** argv)
 		std::cout << E_INPUTFILE << std::endl;
 		exit(1);
 	}
-	mtgox.importData((char*)"data.csv");
-	std::cout << "Reading input file: " << argv[1] << std::endl;
+	mtgox.importPriceHistory((char*)"data.csv");
+	std::cout << date4 << ": " << mtgox.getPriceOnDate(date4) << std::endl;
 	std::cout << date0 << ": " << mtgox.getPriceOnDate(date0) << std::endl;
-	std::cout << date1 << ": " << mtgox.getPriceOnDate(date1) << std::endl;
 	std::cout << date2 << ": " << mtgox.getPriceOnDate(date2) << std::endl;
 	std::cout << date3 << ": " << mtgox.getPriceOnDate(date3) << std::endl;
-	std::cout << date4 << ": " << mtgox.getPriceOnDate(date4) << std::endl;
-    return 0;
+	std::cout << date1 << ": " << mtgox.getPriceOnDate(date1) << std::endl;
+    
+	
+	std::cout << "Reading input file: " << argv[1] << std::endl;
+
+	
 }

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 14:37:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:14:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 #include <fstream>
 #include <map>
 #include <utility>
+#include <limits>
 
 #include "Date.hpp"
 
-#define E_INFILE	"Infile error."
+#define E_INFILE_DB		"Infile error: price history database."
+#define E_INFILE_ACC	"Infile error: account history file."
 
 typedef std::map<Date, double>::const_iterator	mapiter;
 
@@ -34,8 +36,9 @@ class BitcoinExchange
 
 		BitcoinExchange& operator=(const BitcoinExchange&);
 
-		void importData(char*);
-		void printPairs();
+		void importPriceHistory(char*);
+		void printPriceHistory();
+		void importAccountFile(char*);
 		double getPriceOnDate(Date);
 	
 	private:
@@ -48,6 +51,7 @@ class BitcoinExchange
 		
 		std::string				_name;
 		std::map<Date, double> _btc_price;
+		std::map<Date, double> _btc_amount;
 };
 
 #endif
