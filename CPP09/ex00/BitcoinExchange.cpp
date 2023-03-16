@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 14:43:56 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:51:46 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void BitcoinExchange::importData(char* input)
 		_btc_price.insert(std::make_pair(date, price));
 	}
 	infile.close();
-	std::cout << "Parsed file: " << input << std::endl;
-	std::cout << "Imported pairs: " << _btc_price.size() << std::endl;
+	std::cout << "Imported database file: " << input << std::endl;
+	std::cout << "Imported valid pairs: " << _btc_price.size() << std::endl;
 }
 
 void BitcoinExchange::printPairs()
