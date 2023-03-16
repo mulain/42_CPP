@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 15:17:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:28:06 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void BitcoinExchange::importPriceHistory(char* filepath)
 		_btc_price.insert(std::make_pair(date, price));
 	}
 	infile.close();
-	std::cout << "Imported " << _btc_price.size() << " valid date-price pairs from database file \"" << input << "\"." << std::endl;
+	std::cout << "Imported " << _btc_price.size() << " valid date-price pairs from database file \"" << filepath << "\"." << std::endl;
 }
 
 void BitcoinExchange::printPriceHistory()
@@ -79,17 +79,26 @@ void BitcoinExchange::importAccountFile(char* filepath)
 		throw std::range_error(E_INFILE_ACC);		
 	while (std::getline(infile, line))
 	{
-		size_t delim = line.find('|');
+		size_t delim = line.find(" |");
 		if (delim == std::string::npos)
 			continue;
 		if (!date.parseDate(line.substr(0, delim)))
+		{
+			std::cout << "parseDate fail\n";
 			continue;
-		if (!parsePrice(line.substr(delim + 1, line.size()), &amount))
+		}
+		if (!parsePrice(line.substr(delim + 3, line.size()), &amount))
 			continue;
-		_btc_price.insert(std::make_pair(date, amount));
+		_btc_amount.insert(std::make_pair(date, amount));
 	}
 	infile.close();
-	std::cout << "Imported " << _btc_price.size() << " valid date-price pairs from database file \"" << input << "\"." << std::endl;
+	std::cout << "Imported " << _btc_amount.size() << " valid date-amount pairs from account file \"" << filepath << "\"." << std::endl;
+}
+
+void BitcoinExchange::printAccountFile()
+{
+	for (mapiter it = _btc_amount.begin(); it != _btc_amount.end(); it++)
+		std::cout << it->first << " | " << it->second << std::endl;
 }
 
 double	BitcoinExchange::getPriceOnDate(Date date)
@@ -103,12 +112,23 @@ double	BitcoinExchange::getPriceOnDate(Date date)
 }
 
 // Private functions
-bool BitcoinExchange::parsePrice(std::string input, double* price)
+bool BitcoinExchange::parsePrice(std::string input, double* num)
 {
 	char*	endptr;
 
-	*price = strtod(input.c_str(), &endptr);
-	if (*price < 0 || *price > INT_MAX || *endptr != 0)
+	*num = strtod(input.c_str(), &endptr);
+	if (*num < 0 || *num > INT_MAX || *endptr != 0)
 		return false;
 	return true;
 }
+
+bool BitcoinExchange::parseAmount(std::string input, double* num)
+{
+	char*	endptr;
+
+	*num = strtod(input.c_str(), &endptr);
+	if (*num < 0 || *num > 1000 || *endptr != 0)
+		return false;
+	return true;
+}
+

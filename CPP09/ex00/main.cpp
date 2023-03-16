@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 15:04:08 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:28:40 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int main (int argc, char** argv)
 	std::cout << date3 << ": " << mtgox.getPriceOnDate(date3) << std::endl;
 	std::cout << date1 << ": " << mtgox.getPriceOnDate(date1) << std::endl;
     
+	mtgox.importAccountFile(argv[1]);
+	mtgox.printAccountFile();
 	
-	std::cout << "Reading input file: " << argv[1] << std::endl;
+	//std::cout << "Reading input file: " << argv[1] << std::endl;
 
 	
 }

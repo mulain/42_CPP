@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 15:14:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 15:27:55 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,13 @@ class BitcoinExchange
 		void importPriceHistory(char*);
 		void printPriceHistory();
 		void importAccountFile(char*);
+		void printAccountFile();
 		double getPriceOnDate(Date);
 	
 	private:
-		bool parseDate(std::string, Date*);
-		bool parseYear(const char*, long*);
-		bool parseMonth(const char*, long*);
-		bool parseDay(const char*, long*, int, int);
-		bool isLeapYear(int) const;
 		bool parsePrice(std::string, double*);
-		
+		bool parseAmount(std::string, double*);
+
 		std::string				_name;
 		std::map<Date, double> _btc_price;
 		std::map<Date, double> _btc_amount;
