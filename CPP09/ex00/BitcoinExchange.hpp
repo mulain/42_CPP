@@ -6,10 +6,11 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/15 21:18:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 10:19:53 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* 
 You have to create a program which outputs the value of a certain amount of bitcoin
 on a certain date.
 
@@ -25,13 +26,14 @@ Your program must respect these rules:
 • Each line in this file must use the following format: "date | value".
 • A valid date will always be in the following format: Year-Month-Day.
 • A valid value must be either a float or a positive integer between 0 and 1000.
-
+ */
 #ifndef BTC_HPP
 #define BTC_HPP
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <fstream>
+
+#define E_INFILE	"Infile error."
 
 class BitcoinExchange
 {
@@ -43,16 +45,17 @@ class BitcoinExchange
 
 		BitcoinExchange& operator=(const BitcoinExchange&);
 
+		void importData(char*);
 		float getPrice(std::string);		
 
 		
-		void addSpan(std::vector<int>::iterator, std::vector<int>::iterator);
+		
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
 	
 	private:
 		bool isValidDateFormat(std::string);
-		bool isInRange()
+		bool isInRange();
 		
 		std::string	_name;
 };
