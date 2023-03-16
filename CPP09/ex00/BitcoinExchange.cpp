@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 15:28:06 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 16:46:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ void BitcoinExchange::importAccountFile(char* filepath)
 		if (delim == std::string::npos)
 			continue;
 		if (!date.parseDate(line.substr(0, delim)))
-		{
-			std::cout << "parseDate fail\n";
 			continue;
-		}
 		if (!parsePrice(line.substr(delim + 3, line.size()), &amount))
 			continue;
 		_btc_amount.insert(std::make_pair(date, amount));
@@ -97,8 +94,29 @@ void BitcoinExchange::importAccountFile(char* filepath)
 
 void BitcoinExchange::printAccountFile()
 {
-	for (mapiter it = _btc_amount.begin(); it != _btc_amount.end(); it++)
+	std::cout << "Account file in BTC exchange " << _name << ":" << std::endl;
+	std::cout << std::setw(11) << std::setfill(' ') << std::left << "Date" << "| Amount" << std::endl;
+	for (m_mapiter it = _btc_amount.begin(); it != _btc_amount.end(); it++)
 		std::cout << it->first << " | " << it->second << std::endl;
+}
+
+void BitcoinExchange::printAccountOverview()
+{
+	std::cout << "Account overview in BTC exchange " << _name << ":" << std::endl;
+	std::cout << std::setfill(' ') << std::left;
+	std::cout << std::setw(11) << "Date";
+	std::cout << std::setw(11) << "| Amnt BTC";
+	std::cout << std::setw(11) << "| Price";
+	std::cout << std::setw(11) << "| Value" << std::endl;
+	for (m_mapiter it = _btc_amount.begin(); it != _btc_amount.end(); it++)
+	{
+		std::cout << it->first << " | ";
+		std::cout << std::setfill(' ');
+		std::cout << std::setw(8) << it->second << " | ";
+		std::cout << std::setw(8) << getPriceOnDate(it->first) << " | ";
+		std::cout << std::setw(8) << getPriceOnDate(it->first) * it->second; 
+		std::cout << std::endl;
+	}
 }
 
 double	BitcoinExchange::getPriceOnDate(Date date)
@@ -109,6 +127,11 @@ double	BitcoinExchange::getPriceOnDate(Date date)
 	if (it == _btc_price.begin())
 		return std::numeric_limits<double>::quiet_NaN();
 	return (--it)->second;
+}
+
+std::string BitcoinExchange::getName()
+{
+	return _name;
 }
 
 // Private functions

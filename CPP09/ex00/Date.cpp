@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 14:36:00 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 16:41:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,8 +202,9 @@ int Date::getDay() const
 
 std::ostream& operator<<(std::ostream& o, const Date& date)
 {
-	std::cout << std::setw(4) << std::setfill('0') << date.getYear() << '-';
-	std::cout << std::setw(2) << std::setfill('0') << date.getMonth() << '-';
-	std::cout << std::setw(2) << std::setfill('0') << date.getDay();
+	std::cout << std::setfill('0') << std::right;
+	std::cout << std::setw(4) << date.getYear() << '-';
+	std::cout << std::setw(2) << date.getMonth() << '-';
+	std::cout << std::setw(2) << date.getDay();
 	return o;
 }

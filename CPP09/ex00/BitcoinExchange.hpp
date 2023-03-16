@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 15:27:55 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 16:06:24 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BTC_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <map>
 #include <utility>
@@ -25,6 +26,7 @@
 #define E_INFILE_ACC	"Infile error: account history file."
 
 typedef std::map<Date, double>::const_iterator	mapiter;
+typedef std::multimap<Date, double>::const_iterator	m_mapiter;
 
 class BitcoinExchange
 {
@@ -40,7 +42,10 @@ class BitcoinExchange
 		void printPriceHistory();
 		void importAccountFile(char*);
 		void printAccountFile();
+		void printAccountOverview();
+		
 		double getPriceOnDate(Date);
+		std::string getName();
 	
 	private:
 		bool parsePrice(std::string, double*);
@@ -48,7 +53,7 @@ class BitcoinExchange
 
 		std::string				_name;
 		std::map<Date, double> _btc_price;
-		std::map<Date, double> _btc_amount;
+		std::multimap<Date, double> _btc_amount;
 };
 
 #endif
