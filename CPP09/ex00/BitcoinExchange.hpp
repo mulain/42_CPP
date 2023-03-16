@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 13:56:52 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:37:41 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 #define E_INFILE	"Infile error."
 
+typedef std::map<Date, double>::const_iterator	mapiter;
+
 class BitcoinExchange
 {
 	public:
@@ -34,10 +36,7 @@ class BitcoinExchange
 
 		void importData(char*);
 		void printPairs();
-		
-
-		
-		float getPrice(std::string);
+		double getPriceOnDate(Date);
 	
 	private:
 		bool parseDate(std::string, Date*);

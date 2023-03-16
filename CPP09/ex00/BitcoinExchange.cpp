@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 14:25:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:43:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,20 @@ void BitcoinExchange::importData(char* input)
 
 void BitcoinExchange::printPairs()
 {
-	for (std::map<Date, double>::const_iterator it = _btc_price.begin(); it != _btc_price.end(); it++)
+	for (mapiter it = _btc_price.begin(); it != _btc_price.end(); it++)
 	{
 		std::cout << it->first << " | " << it->second << std::endl;
 	}
+}
+
+double	BitcoinExchange::getPriceOnDate(Date date)
+{
+	mapiter it = _btc_price.begin();
+	while (it->first <= date && it !=_btc_price.end())
+		it++;
+	if (it == _btc_price.begin())
+		return 0;
+	return (--it)->second;
 }
 
 // Private functions

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 12:56:17 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:50:00 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ Your program must respect these rules:
 
 int main (int argc, char** argv)
 {
+	Date date0(2008, 1, 1);
 	Date date1(2025, 2, 28);
-	Date date2(2025, 2, 28);
+	Date date2(2020, 1, 1);
+	Date date3(2020, 1, 2);
+	Date date4(1900, 1, 1);
 	BitcoinExchange	mtgox("mtgox");
+	
 	if (argc < 2)
 	{
 		std::cout << E_INPUTFILE << std::endl;
@@ -50,6 +54,12 @@ int main (int argc, char** argv)
 	}
 	mtgox.importData((char*)"data.csv");
 	std::cout << "Reading input file: " << argv[1] << std::endl;
+	std::cout << date0 << ": " << mtgox.getPriceOnDate(date0) << std::endl;
+	std::cout << date1 << ": " << mtgox.getPriceOnDate(date1) << std::endl;
+	std::cout << date2 << ": " << mtgox.getPriceOnDate(date2) << std::endl;
+	std::cout << date3 << ": " << mtgox.getPriceOnDate(date3) << std::endl;
+	std::cout << date4 << ": " << mtgox.getPriceOnDate(date4) << std::endl;
+	
 	//mtgox.printPairs();
     /* std::map<int, double> asset_prices; // Map to store asset prices by date
 
