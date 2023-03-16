@@ -6,14 +6,14 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/03/16 11:36:36 by wmardin          ###   ########.fr        #
+#    Updated: 2023/03/16 17:09:56 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= btc
 
 CC		= c++
-FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
+FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98 -fsanitize=address
 RM		= rm -rf
 
 COLOR	= \033[30m
