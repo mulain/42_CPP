@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 13:55:51 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 14:15:10 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,27 @@ bool Date::operator!=(const Date &rhs) const
 }
 
 // Setters
+bool Date::parseDate(std::string input)
+{
+	size_t delim = input.find('-');
+	if (delim == std::string::npos)
+		return false;
+	if (!parseYear(input.substr(0, delim).c_str()))
+		return false;
+	input.erase(0, delim + 1);
+	
+	delim = input.find('-');
+	if (delim == std::string::npos)
+		return false;
+	if (!parseMonth(input.substr(0, delim).c_str()))
+		return false;
+	input.erase(0, delim + 1);
+	
+	if (!parseDay(input.c_str()))
+		return false;
+	return true;
+}
+
 bool Date::parseYear(const char* input)
 {
 	long	num;
@@ -97,12 +118,8 @@ bool Date::parseYear(const char* input)
 bool Date::setYear(int year)
 {
 	if (year < 1 || year > 9999)
-	{
-		_year = -1;
-		return false;
-	}
-	_year = year;
-	return true;
+		return _year = -1, false;
+	return _year = year, true;
 }
 
 bool Date::parseMonth(const char* input)
@@ -119,12 +136,8 @@ bool Date::parseMonth(const char* input)
 bool Date::setMonth(int month)
 {
 	if (month < 1 || month > 12)
-	{
-		_month = -1;
-		return false;
-	}
-	_month = month;
-	return true;
+		return _month = -1, false;
+	return _month = month, true;
 }
 
 bool Date::parseDay(const char* input)
@@ -141,17 +154,11 @@ bool Date::parseDay(const char* input)
 bool Date::setDay(int day)
 {
 	if (day < 1 || day > 31)
-	{
-		_day = -1;
-		return false;
-	}
+		return _day = -1, false;
 	if (_month == 4 || _month == 6 || _month == 9 || _month == 11)
 	{
 		if (day > 30)
-		{
-			_day = -1;
-			return false;
-		}
+			return _day = -1, false;
 	}
 	else if (_month == 2)
 	{
@@ -163,8 +170,7 @@ bool Date::setDay(int day)
 		else if (day > 28)
 			return day = -1, false;
 	}
-	_day = day;
-	return true;
+	return _day = day, true;
 }
 
 // Helpers
