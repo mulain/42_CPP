@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 09:12:09 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 13:56:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ Your program must respect these rules:
 
 #include <iostream>
 #include <iomanip>
+#include <climits>
+#include <cstdlib>
 
 class Date
 {
@@ -46,9 +48,15 @@ class Date
 		bool operator==(const Date &rhs) const;
 		bool operator!=(const Date &rhs) const;
 
-		void setYear(int);
-		void setMonth(int);
-		void setDay(int);
+		bool parseYear(const char*);
+		bool setYear(int);
+		
+		bool parseMonth(const char*);
+		bool setMonth(int);
+
+		bool parseDay(const char*);
+		bool setDay(int);
+		
 		int getYear() const;
 		int getMonth() const;
 		int getDay() const;

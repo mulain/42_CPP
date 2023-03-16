@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 11:30:19 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 13:55:51 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,40 +83,88 @@ bool Date::operator!=(const Date &rhs) const
 }
 
 // Setters
-void Date::setYear(int year)
+bool Date::parseYear(const char* input)
+{
+	long	num;
+	char*	endptr;
+
+	num = strtol(input, &endptr, 10);
+	if (num < INT_MIN || num > INT_MAX || *endptr != 0)
+		return false;
+	return setYear(num);;
+}
+
+bool Date::setYear(int year)
 {
 	if (year < 1 || year > 9999)
-		throw std::out_of_range("Year out of range: 1 to 9999 valid.");
+	{
+		_year = -1;
+		return false;
+	}
 	_year = year;
+	return true;
 }
 
-void Date::setMonth(int month)
+bool Date::parseMonth(const char* input)
+{
+	long	num;
+	char*	endptr;
+
+	num = strtol(input, &endptr, 10);
+	if (num < INT_MIN || num > INT_MAX || *endptr != 0)
+		return false;
+	return setMonth(num);
+}
+
+bool Date::setMonth(int month)
 {
 	if (month < 1 || month > 12)
-		throw std::out_of_range("Month out of range: 1 to 12 valid.");
+	{
+		_month = -1;
+		return false;
+	}
 	_month = month;
+	return true;
 }
 
-void Date::setDay(int day)
+bool Date::parseDay(const char* input)
+{
+	long	num;
+	char*	endptr;
+
+	num = strtol(input, &endptr, 10);
+	if (num < INT_MIN || num > INT_MAX || *endptr != 0)
+		return false;
+	return setDay(num);
+}
+
+bool Date::setDay(int day)
 {
 	if (day < 1 || day > 31)
-		throw std::out_of_range("Day out of range: 1 to 31 valid for that month.");
+	{
+		_day = -1;
+		return false;
+	}
 	if (_month == 4 || _month == 6 || _month == 9 || _month == 11)
 	{
 		if (day > 30)
-			throw std::out_of_range("Day out of range: 1 to 30 valid for that month.");
+		{
+			_day = -1;
+			return false;
+		}
 	}
 	else if (_month == 2)
 	{
 		if (isLeapYear())
 		{
 			if (day > 29)
-				throw std::out_of_range("Day out of range: 1 to 29 valid for February in a leap year.");
+				return day = -1, false;
 		}
 		else if (day > 28)
-			throw std::out_of_range("Day out of range: 1 to 28 valid for February in a non leap year.");
+			return day = -1, false;
 	}
 	_day = day;
+	return true;
 }
 
 // Helpers
