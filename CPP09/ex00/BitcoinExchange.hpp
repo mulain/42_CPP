@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 16:06:24 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 17:06:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ class BitcoinExchange
 		bool parsePrice(std::string, double*);
 		bool parseAmount(std::string, double*);
 
-		std::string				_name;
-		std::map<Date, double> _btc_price;
+		std::string					_name;
+		std::map<Date, double> 		_btc_price;
 		std::multimap<Date, double> _btc_amount;
 };
 

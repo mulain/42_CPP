@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 16:46:13 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 17:05:57 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& src)
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 {
 	_name = src._name + "_copy";
-	// copy price data ofc
+	_btc_price = src._btc_price;
+	_btc_amount = src._btc_amount;
 	return *this;
 }
 
