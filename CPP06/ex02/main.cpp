@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:50:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/08 18:21:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 09:30:44 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,13 @@ void identify(Base* p)
 }
 
 void identify(Base& p)
-{
-	Base	base;
-	
+{	
 	std::cout << "Reference dynamic cast identified derived class: ";
-	if (dynamic_cast<A*>(&p) != nullptr)
+	if (dynamic_cast<A*>(&p))
         std::cout << "Type is A" << std::endl;
-    else if (dynamic_cast<B*>(&p) != nullptr)
+    else if (dynamic_cast<B*>(&p))
         std::cout << "Type is B" << std::endl;
-    else if (dynamic_cast<C*>(&p) != nullptr)
+    else if (dynamic_cast<C*>(&p))
         std::cout << "Type is C" << std::endl;
 }
 
