@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 00:45:06 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:56:30 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,43 @@ Date::Date(const Date& src)
 	*this = src;
 }
 
+// Operator overloads
 Date& Date::operator=(const Date& src)
 {
 	_year = src._year;
 	_month = src._month;
 	_day = src._day;
 	return *this;
+}
+
+bool Date::operator>(const Date &rhs) const
+{
+	if (_year > rhs._year)
+		return true;
+	if (_year < rhs._year)
+		return false;
+	if (_month > rhs._month)
+		return true;
+	if (_month < rhs._month)
+		return false;
+	if (_day > rhs._day)
+		return true;
+	return false;
+}
+
+bool Date::operator<(const Date &rhs) const
+{
+	if (_year < rhs._year)
+		return true;
+	if (_year > rhs._year)
+		return false;
+	if (_month < rhs._month)
+		return true;
+	if (_month > rhs._month)
+		return false;
+	if (_day < rhs._day)
+		return true;
+	return false;
 }
 
 // Setters
