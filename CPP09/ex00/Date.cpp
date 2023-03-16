@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 00:56:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 09:13:25 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,16 @@ bool Date::operator<(const Date &rhs) const
 	if (_day < rhs._day)
 		return true;
 	return false;
+}
+
+bool Date::operator==(const Date &rhs) const
+{
+	return _year == rhs._year && _month == rhs._month && _day == rhs._day;
+}
+
+bool Date::operator!=(const Date &rhs) const
+{
+	return !(*this == rhs);
 }
 
 // Setters

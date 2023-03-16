@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 01:01:16 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 09:14:14 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@
 int main (void)
 {
 	Date	date1(2025, 2, 28);
-	Date	date2(2026, 1, 29);
+	Date	date2(2025, 2, 28);
 
 	std::cout << date1 << std::endl;
 
 	std::cout << date2 << " is < " << date1 << ": " << (date2 < date1 ? "true" : "false") << std::endl;
+	std::cout << date2 << " is == " << date1 << ": " << (date2==date1 ? "true" : "false") << std::endl;
+	std::cout << date2 << " is != " << date1 << ": " << (date2!=date1 ? "true" : "false") << std::endl;
+
     /* std::map<int, double> asset_prices; // Map to store asset prices by date
 
     // Inserting some sample data
