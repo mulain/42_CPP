@@ -6,7 +6,7 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/03/15 21:50:49 by wmardin          ###   ########.fr        #
+#    Updated: 2023/03/16 11:36:36 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RM		= rm -rf
 COLOR	= \033[30m
 RESET	= \033[0m
 
-SRC		= main.cpp Date.cpp
+SRC		= main.cpp BitcoinExchange.cpp Date.cpp
 
 all: $(NAME)
 

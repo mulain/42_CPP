@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 10:22:20 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 11:30:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void Date::setDay(int day)
 // Helpers
 bool Date::isLeapYear() const
 {
-    return ((_year % 4 == 0 && _year % 100 != 0) || _year % 400 == 0);
+	return ((_year % 4 == 0 && _year % 100 != 0) || _year % 400 == 0);
 }
 
 // Getters
