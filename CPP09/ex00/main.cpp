@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 12:40:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 12:56:17 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ Your program must respect these rules:
 #include "Date.hpp"
 #include "BitcoinExchange.hpp"
 
+#define E_INPUTFILE	"Please provide an input file."
+
 int main (int argc, char** argv)
 {
 	Date date1(2025, 2, 28);
@@ -43,12 +45,11 @@ int main (int argc, char** argv)
 	BitcoinExchange	mtgox("mtgox");
 	if (argc < 2)
 	{
+		std::cout << E_INPUTFILE << std::endl;
 		exit(1);
 	}
-	
-	
-
-	mtgox.importData(argv[1]);
+	mtgox.importData((char*)"data.csv");
+	std::cout << "Reading input file: " << argv[1] << std::endl;
 	//mtgox.printPairs();
     /* std::map<int, double> asset_prices; // Map to store asset prices by date
 

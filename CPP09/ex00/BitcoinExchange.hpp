@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 12:38:28 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 13:02:19 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class BitcoinExchange
 		float getPrice(std::string);
 	
 	private:
-		bool parseDate(std::string, Date&);
+		bool parseDate(std::string, Date*);
 		bool parseYear(const char*, long*);
 		bool parseMonth(const char*, long*);
 		bool parseDay(const char*, long*, int, int);

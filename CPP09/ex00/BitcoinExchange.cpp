@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 12:41:16 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/16 13:17:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,26 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 	return *this;
 }
 
-// Work work
+// Public functions
 void BitcoinExchange::importData(char* input)
 {
 	std::ifstream infile(input);
 	std::string	line;
-	Date temp;
-	Date& tempDate = temp;
+	Date date;
 	double price;
 
 	if (!infile.is_open())
-		throw std::range_error("Could not open input file.");
+		throw std::range_error("Could not open input file.");		
 	while (std::getline(infile, line))
 	{
 		size_t delim = line.find(',');
 		if (delim == std::string::npos)
 			continue;
-		if (!parseDate(line.substr(0, delim), tempDate))
+		if (!parseDate(line.substr(0, delim), &date))
 			continue;
 		if (!parsePrice(line.substr(delim + 1, line.size()), &price))
 			continue;
-		_btc_price.insert(std::make_pair(temp, price));
+		_btc_price.insert(std::make_pair(date, price));
 	}
 	infile.close();
 	std::cout << "Parsed file: " << input << std::endl;
@@ -72,7 +71,8 @@ void BitcoinExchange::printPairs()
 	}
 }
 
-bool BitcoinExchange::parseDate(std::string input, Date& date)
+// Private functions
+bool BitcoinExchange::parseDate(std::string input, Date* date)
 {
 	size_t	delim;
 	long	year;
@@ -100,9 +100,9 @@ bool BitcoinExchange::parseDate(std::string input, Date& date)
 		return false;
 	
 	//clean this shite up! just return false on date creation
-	date.setYear(year);
-	date.setDay(month);
-	date.setDay(day);
+	date->setYear(static_cast<int>(year));
+	date->setMonth(static_cast<int>(month));	
+	date->setDay(static_cast<int>(day));
 	return true;
 }
 
