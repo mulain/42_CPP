@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/18 11:12:57 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/18 13:37:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void BitcoinExchange::importPriceHistory(char* filepath)
 	std::cout << "Imported " << _btc_price.size() << " valid date-price pairs from database file \"" << filepath << "\"." << std::endl;
 }
 
-void BitcoinExchange::printPriceHistory()
+void BitcoinExchange::printPriceHistory() const
 {
 	for (mapiter it = _btc_price.begin(); it != _btc_price.end(); it++)
 		std::cout << it->first << " | " << it->second << std::endl;
@@ -93,7 +93,7 @@ void BitcoinExchange::importAccountFile(char* filepath)
 	std::cout << "Imported " << _btc_amount.size() << " valid date-amount pairs from account file \"" << filepath << "\"." << std::endl;
 }
 
-void BitcoinExchange::printAccountFile()
+void BitcoinExchange::printAccountFile() const
 {
 	std::cout << "Account file in BTC exchange " << _name << ":" << std::endl;
 	std::cout << std::setw(11) << std::setfill(' ') << std::left << "Date" << "| Amount" << std::endl;
@@ -101,7 +101,7 @@ void BitcoinExchange::printAccountFile()
 		std::cout << it->first << " | " << it->second << std::endl;
 }
 
-void BitcoinExchange::printAccountOverview()
+void BitcoinExchange::printAccountOverview() const
 {
 	std::cout << "Account overview in BTC exchange " << _name << ":" << std::endl;
 	std::cout << std::setfill(' ') << std::left;
@@ -120,7 +120,7 @@ void BitcoinExchange::printAccountOverview()
 	}
 }
 
-double	BitcoinExchange::getPriceOnDate(Date date)
+double	BitcoinExchange::getPriceOnDate(Date date) const
 {
 	mapiter it = _btc_price.begin();
 	while (it->first <= date && it !=_btc_price.end())

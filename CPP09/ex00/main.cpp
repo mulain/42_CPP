@@ -6,14 +6,12 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/18 13:33:59 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/18 13:35:31 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Date.hpp"
 #include "BitcoinExchange.hpp"
-
-#define E_INPUTFILE	"Please provide an input file."
 
 int main (int argc, char** argv)
 {
@@ -21,7 +19,7 @@ int main (int argc, char** argv)
 
 	if (argc < 2)
 	{
-		std::cout << E_INPUTFILE << std::endl;
+		std::cout << "Please provide an input file." << std::endl;
 		exit(1);
 	}
 	{
