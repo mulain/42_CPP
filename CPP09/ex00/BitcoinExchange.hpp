@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 17:07:32 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/18 11:13:13 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class BitcoinExchange
 		void printAccountOverview();
 		
 		double getPriceOnDate(Date);
-		std::string getName();
+		std::string getName() const;
 	
 	private:
 		bool parsePrice(std::string, double*);

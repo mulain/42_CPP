@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/16 17:05:57 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/18 11:12:57 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ double	BitcoinExchange::getPriceOnDate(Date date)
 	return (--it)->second;
 }
 
-std::string BitcoinExchange::getName()
+std::string BitcoinExchange::getName() const
 {
 	return _name;
 }
