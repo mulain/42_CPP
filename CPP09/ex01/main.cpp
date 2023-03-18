@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/18 13:41:54 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/18 13:47:21 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ You must create a program with these constraints:
 • Your program must be able to handle operations with these tokens: "+ - / *".
 */
 
-#include "Date.hpp"
-#include "BitcoinExchange.hpp"
 
 int main (int argc, char** argv)
 {
@@ -29,7 +27,7 @@ int main (int argc, char** argv)
 
 	if (argc < 2)
 	{
-		std::cout << "Please provide an input file." << std::endl;
+		std::cout << "Please provide an argument!" << std::endl;
 		exit(1);
 	}
 	{
