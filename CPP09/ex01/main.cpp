@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/19 08:51:57 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/19 10:32:17 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void performOperation(std::stack<int> *numbers, char operand)
 	if (numbers->size() < 2)
 	{
 		std::cout << "Found less than 2 numbers to perform on for operand: " << operand << std::endl;
+		std::cout << "Current result is: " << numbers->top() << std::endl;
 		exit(1);
 	}
 	int rhs = numbers->top();
@@ -70,6 +71,6 @@ int main (int argc, char** argv)
 			performOperation(&numbers, input[i]);
 	}
 	if (numbers.size() > 1)
-		std::cout << "Expected operand but found end of input." << std::endl;
+		std::cout << "Expected operand but found end of input." << std::endl << "Current result is: ";
 	return std::cout << numbers.top() << std::endl, 0;
 }
