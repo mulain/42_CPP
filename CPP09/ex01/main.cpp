@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/19 02:13:18 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/19 08:48:34 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,9 @@ std::string syntaxCheck(int argc, char **argv)
 		std::cout << "Nothing to do..." << std::endl;
 		exit(0);
 	}
-	/* for (size_t i = 0; i < input.length(); i++)
-	{
-		if (input[i] == ' ')
-		{
-			input.erase(i);
-			i--;
-		}
-	} */
 	if (input.find_first_not_of("0123456789+-/* ") != std::string::npos)
 	{
-		std::cout << "Illegal character detected: " << input.find_first_not_of("0123456789+-/*") << std::endl;
+		std::cout << "Illegal character detected." << std::endl;
 		exit(1);
 	}
 	return input;
@@ -66,37 +58,29 @@ void performOperation(std::stack<int> *numbers, char operand)
 		std::cout << "Found less than 2 numbers to perform on for operand: " << operand << std::endl;
 		exit(1);
 	}
-	int result = numbers->top();
+	int rhs = numbers->top();
 	numbers->pop();
 	if (operand == '+')
-		result += numbers->top();
+		numbers->top()+= rhs;
 	else if (operand == '-')
-		result -= numbers->top();
+		numbers->top() -= rhs;
 	else if (operand == '*')
-		result *= numbers->top();
+		numbers->top() *= rhs;
 	else if (operand == '/')
-		result /= numbers->top();
-	numbers->pop();
-	std::cout << result << std::endl;
-	numbers->push(result);
+		numbers->top() /= rhs;
 }
 
 int main (int argc, char** argv)
 {
 	std::string input = syntaxCheck(argc, argv);
 	std::stack<int> numbers;
-	std::stack<int> operands;
 
 	for (int i = 0; input[i]; i++)
 	{
 		if (input[i] == ' ')
 			continue;
 		else if (isdigit(input[i]))
-		{
-			if (numbers.size() > 1)
-				return std::cout << "Expected operand but found end of input." << std::endl, 1;
 			numbers.push(input[i] - 48);
-		}
 		else
 			performOperation(&numbers, input[i]);
 	}
