@@ -6,24 +6,9 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/19 08:48:34 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/19 08:51:57 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-You must create a program with these constraints:
-• The program name is RPN.
-• Your program must take an inverted Polish mathematical expression as an argu- ment.
-• The numbers used in this operation and passed as arguments will always be less than 10. The calculation itself but also the result do not take into account this rule.
-• Your program must process this expression and output the correct result on the standard output.
-• If an error occurs during the execution of the program an error message should be displayed on the standard output.
-• Your program must be able to handle operations with these tokens: "+ - / *".
-
-For example, the infix expression (3 × 4) + (5 × 6) becomes 3 4 × 5 6 × + in reverse Polish notation.
-3456
-xx+
-
-*/
 
 #include <iostream>
 #include <stack>
