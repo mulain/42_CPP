@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/18 13:37:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/20 11:17:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,15 @@ void BitcoinExchange::importAccountFile(char* filepath)
 void BitcoinExchange::printAccountFile() const
 {
 	std::cout << "Account file in BTC exchange " << _name << ":" << std::endl;
-	std::cout << std::setw(11) << std::setfill(' ') << std::left << "Date" << "| Amount" << std::endl;
+	std::cout << std::setfill(' ') << std::left;
+	std::cout << std::setw(11) << "Date";
+	std::cout << std::setw(11) << "| Amnt BTC" << std::endl;
 	for (m_mapiter it = _btc_amount.begin(); it != _btc_amount.end(); it++)
-		std::cout << it->first << " | " << it->second << std::endl;
+	{
+		std::cout << it->first;
+		std::cout << std::setfill(' ') << std::right;
+		std::cout << " | " << std::setw(8) << it->second << std::endl;
+	}
 }
 
 void BitcoinExchange::printAccountOverview() const
