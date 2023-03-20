@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/20 22:38:21 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/20 22:48:29 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int main (int argc, char** argv)
 			performOperation(&numbers, input[i]);
 	}
 	if (numbers.size() > 1)
-		std::cout << "Expected operand but found end of input.\nCurrent result is: ";
+		return std::cout << "Expected operand but found end of input.", 1;
 	std::cout << numbers.top() << std::endl;
 	return 0;
 }
