@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/19 10:18:22 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/20 22:53:42 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,24 @@ the first container used to sort the positive integer sequence.
 the second container used to sort the positive integer sequence.
 
 */
-
+void myExit(std::string msg, int exitcode)
+{
+	if (!msg.empty())
+		std::cout << msg << std::endl;
+	exit(exitcode);
+}
 
 std::string syntaxCheck(int argc, char **argv)
-{
-	std::string input;
-	
+{	
 	if (argc < 2)
-	{
-		std::cout << "Please provide a list of positive ints to sort." << std::endl;
-		exit(1);
-	}
-	input = argv[1];
+		myExit("Please provide a list of positive ints to sort.", 1);
+	std::string input = argv[1];
+	for (size_t i = input.find(" "); i != std::string::npos; i = input.find(" "))
+		input.erase(i, 1);
 	if (input.empty())
-	{
-		std::cout << "Nothing to do..." << std::endl;
-		exit(0);
-	}
-	if (input.find_first_not_of("0123456789 ") != std::string::npos)
-	{
-		std::cout << "Illegal character detected." << std::endl;
-		exit(1);
-	}
+		myExit("Nothing to do..." , 0);
+	if (input.find_first_not_of("0123456789") != std::string::npos)
+		myExit("Illegal character detected." , 1);
 	return input;
 }
 
