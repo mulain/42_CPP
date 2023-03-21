@@ -6,12 +6,12 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/20 22:53:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/21 09:17:30 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <stack>
+#include <vector>
 
 /*
 • Your program must be able to use a positive integer sequence as argument.
@@ -30,6 +30,8 @@ the first container used to sort the positive integer sequence.
 the second container used to sort the positive integer sequence.
 
 */
+typedef std::vector<int>::const_iterator vec_it;
+
 void myExit(std::string msg, int exitcode)
 {
 	if (!msg.empty())
@@ -37,35 +39,54 @@ void myExit(std::string msg, int exitcode)
 	exit(exitcode);
 }
 
-std::string syntaxCheck(int argc, char **argv)
+bool isOnlyDigits(std::string input)
+{
+	return input.find_first_not_of("0123456789") == std::string::npos;
+}
+
+bool parsePosInt(const char* input, int* result)
+{
+	long	num;
+	char*	endptr;
+
+	if (!input || !input[0])
+		return false;
+	num = strtol(input, &endptr, 10);
+	if (num < 0 || num > INT_MAX || *endptr != 0)
+		return false;
+	*result = num;
+	return true;
+}
+
+std::vector<int> syntaxCheck(int argc, char **argv)
 {	
-	if (argc < 2)
-		myExit("Please provide a list of positive ints to sort.", 1);
-	std::string input = argv[1];
-	for (size_t i = input.find(" "); i != std::string::npos; i = input.find(" "))
-		input.erase(i, 1);
-	if (input.empty())
-		myExit("Nothing to do..." , 0);
-	if (input.find_first_not_of("0123456789") != std::string::npos)
-		myExit("Illegal character detected." , 1);
-	return input;
+	std::vector<int>	list;
+	int					num;
+	
+	if (argc < 3)
+		myExit("Please provide a list of >= 2 positive ints to sort.", 1);
+	for (size_t i = 1; argv[i]; i++)
+	{
+		if (parsePosInt(argv[i], &num))
+			list.push_back(num);
+		else
+			myExit("Invalid input detected." , 1);
+	}
+	return list;
+}
+
+void printVector(std::string title, std::vector<int> vec)
+{
+	std::cout << title << ":\t";
+	for (vec_it it = vec.begin(); it != vec.end();)
+		std::cout << *it << (++it != vec.end() ? " " : "\n");
+	
+	
 }
 
 int main (int argc, char** argv)
 {
-	std::string input = syntaxCheck(argc, argv);
-	std::stack<int> numbers;
+	std::vector<int> vec = syntaxCheck(argc, argv);
 
-	for (int i = 0; input[i]; i++)
-	{
-		if (input[i] == ' ')
-			continue;
-		else if (isdigit(input[i]))
-			numbers.push(input[i] - 48);
-		else
-			performOperation(&numbers, input[i]);
-	}
-	if (numbers.size() > 1)
-		std::cout << "Expected operand but found end of input." << std::endl;
-	return std::cout << numbers.top() << std::endl, 0;
+	printVector("Before", vec);
 }

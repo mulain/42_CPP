@@ -6,11 +6,11 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/03/18 13:45:51 by wmardin          ###   ########.fr        #
+#    Updated: 2023/03/21 09:16:36 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= RPN
+NAME	= PmergeMe
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98 -fsanitize=address
