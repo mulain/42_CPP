@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/21 09:17:30 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/21 09:20:54 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ void myExit(std::string msg, int exitcode)
 	if (!msg.empty())
 		std::cout << msg << std::endl;
 	exit(exitcode);
-}
-
-bool isOnlyDigits(std::string input)
-{
-	return input.find_first_not_of("0123456789") == std::string::npos;
 }
 
 bool parsePosInt(const char* input, int* result)
@@ -80,8 +75,6 @@ void printVector(std::string title, std::vector<int> vec)
 	std::cout << title << ":\t";
 	for (vec_it it = vec.begin(); it != vec.end();)
 		std::cout << *it << (++it != vec.end() ? " " : "\n");
-	
-	
 }
 
 int main (int argc, char** argv)
@@ -89,4 +82,5 @@ int main (int argc, char** argv)
 	std::vector<int> vec = syntaxCheck(argc, argv);
 
 	printVector("Before", vec);
+	printVector("After", vec);
 }
