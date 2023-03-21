@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/21 11:17:43 by wmardin          ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   main.cpp										   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: wmardin <wmardin@student.42.fr>			+#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2023/03/15 19:32:46 by wmardin		   #+#	#+#			 */
+/*   Updated: 2023/03/21 14:24:26 by wmardin		  ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 /*
@@ -50,6 +50,8 @@ $>
 #include <climits>
 #include <cstdlib>
 
+#define SPLITSIZE 5
+
 typedef std::vector<int>::const_iterator vec_it;
 
 void myExit(std::string msg, int exitcode)
@@ -75,19 +77,58 @@ bool parsePosInt(const char* input, int* result)
 
 std::vector<int> syntaxCheck(int argc, char **argv)
 {	
-	std::vector<int>	list;
+	std::vector<int>	vec;
 	int					num;
 	
 	if (argc < 3)
-		myExit("Please provide a list of >= 2 positive ints to sort.", 1);
+		myExit("Please provide >= 2 positive ints to sort.", 1);
 	for (size_t i = 1; argv[i]; i++)
 	{
 		if (parsePosInt(argv[i], &num))
-			list.push_back(num);
+			vec.push_back(num);
 		else
 			myExit("Invalid input detected." , 1);
 	}
-	return list;
+	return vec;
+}
+
+void mergeInsert(std::vector<int>& A, std::vector<int>& B)
+{
+	int index_a = 0;	
+	int index_b = 0;
+	int size_a = A.size();
+	int size_b = B.size();
+	while (index_a < size_a && index_b < size_b)
+	{
+		if (A[index_a] < B[index_b])
+			index_a++;
+		else
+		{
+			A.insert(A.begin() + index_a, B[index_b]);
+			index_a++;
+			index_b++;
+			size_a++;
+		}
+	}
+	while (index_b < size_b)
+	{
+		A.push_back(B[index_b]);
+		index_b++;
+	}
+}
+
+void mergeInsertSort(std::vector<int>& input)
+{
+	int n = input.size();
+	if (n < 2)
+		return;
+	std::vector<int> left(input.begin(), input.begin() + n / 2);
+	std::vector<int> right(input.begin() + n / 2, input.end());
+	mergeInsertSort(left);
+	mergeInsertSort(right);
+	input.clear();
+	mergeInsert(input, left);
+	mergeInsert(input, right);
 }
 
 void printVector(std::string title, std::vector<int> vec)
@@ -102,5 +143,8 @@ int main (int argc, char** argv)
 	std::vector<int> vec = syntaxCheck(argc, argv);
 
 	printVector("Before", vec);
+	mergeInsertSort(vec);
 	printVector("After", vec);
+	
+	//printVector("After", vec);
 }
