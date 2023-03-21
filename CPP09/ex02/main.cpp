@@ -6,12 +6,9 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/21 09:20:54 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/21 11:17:43 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
-#include <vector>
 
 /*
 • Your program must be able to use a positive integer sequence as argument.
@@ -29,7 +26,30 @@ the first container used to sort the positive integer sequence.
 • On the last line you must display an explicit text indicating the time used by your algorithm by specifying
 the second container used to sort the positive integer sequence.
 
+$> ./PmergeMe 3 5 9 7 4
+Before: 3 5 9 7 4
+After: 3 4 5 7 9
+Time to process a range of 5 elements with std::[..] : 0.00031 us
+Time to process a range of 5 elements with std::[..] : 0.00014 us
+$> ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+Before: 141 79 526 321 [...]
+After: 79 141 321 526 [...]
+Time to process a range of 3000 elements with std::[..] : 62.14389 us
+Time to process a range of 3000 elements with std::[..] : 69.27212 us
+$> ./PmergeMe "-1" "2"
+Error
+$> # For OSX USER:
+$> ./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
+[...]
+$>
+
 */
+
+#include <iostream>
+#include <vector>
+#include <climits>
+#include <cstdlib>
+
 typedef std::vector<int>::const_iterator vec_it;
 
 void myExit(std::string msg, int exitcode)
