@@ -43,12 +43,15 @@ $> ./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
 [...]
 $>
 
+./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+
 */
 
 #include <iostream>
 #include <vector>
 #include <climits>
 #include <cstdlib>
+#include <ctime>
 
 #define SPLITSIZE 5
 
@@ -143,8 +146,11 @@ int main (int argc, char** argv)
 	std::vector<int> vec = syntaxCheck(argc, argv);
 
 	printVector("Before", vec);
+	clock_t	start = clock();
 	mergeInsertSort(vec);
+	clock_t end = clock();
+	double duration = (double)(end - start) / CLOCKS_PER_SEC * 1000;
 	printVector("After", vec);
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector:\t" << duration << " ms" << std::endl;
 	
-	//printVector("After", vec);
 }
