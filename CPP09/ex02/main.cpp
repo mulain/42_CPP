@@ -57,42 +57,13 @@ $>
 
 typedef std::vector<int>::const_iterator vec_it;
 
-void myExit(std::string msg, int exitcode)
+void myExit(std::string msg, int* array, int exitcode)
 {
 	if (!msg.empty())
 		std::cout << msg << std::endl;
+	if (array)
+		delete[] array;
 	exit(exitcode);
-}
-
-bool parsePosInt(const char* input, int* result)
-{
-	long	num;
-	char*	endptr;
-
-	if (!input || !input[0])
-		return false;
-	num = strtol(input, &endptr, 10);
-	if (num < 0 || num > INT_MAX || *endptr != 0)
-		return false;
-	*result = num;
-	return true;
-}
-
-std::vector<int> syntaxCheck(int argc, char **argv)
-{	
-	std::vector<int>	vec;
-	int					num;
-	
-	if (argc < 3)
-		myExit("Please provide >= 2 positive ints to sort.", 1);
-	for (size_t i = 1; argv[i]; i++)
-	{
-		if (parsePosInt(argv[i], &num))
-			vec.push_back(num);
-		else
-			myExit("Invalid input detected." , 1);
-	}
-	return vec;
 }
 
 void mergeInsert(std::vector<int>& A, std::vector<int>& B)
@@ -134,23 +105,64 @@ void mergeInsertSort(std::vector<int>& input)
 	mergeInsert(input, right);
 }
 
-void printVector(std::string title, std::vector<int> vec)
+bool parsePosInt(const char* input, int* result)
 {
-	std::cout << title << ":\t";
-	for (vec_it it = vec.begin(); it != vec.end();)
-		std::cout << *it << (++it != vec.end() ? " " : "\n");
+	long	num;
+	char*	endptr;
+
+	if (!input || !input[0])
+		return false;
+	num = strtol(input, &endptr, 10);
+	if (num < 0 || num > INT_MAX || *endptr != 0)
+		return false;
+	*result = num;
+	return true;
+}
+
+int* checkAndParse(int argc, char** argv)
+{
+	int*	array;
+	int		num;
+	
+	if (argc < 3)
+		myExit("Please provide >= 2 positive ints to sort.", NULL, 1);
+	array = new int[argc];
+	for (size_t i = 1; argv[i]; i++)
+	{
+		if (parsePosInt(argv[i], &num))
+			array[i - 1] = num;
+		else
+			myExit("Invalid input detected.", array, 1);
+	}
+	return array;
+}
+
+void printIntArray(std::string msg, int* array, int size)
+{
+	std::cout << msg << ":\t";
+	for (int i = 0; i < size; i++)
+		std::cout << array[i] << (i < size - 1 ? " " : "\n");
 }
 
 int main (int argc, char** argv)
 {
-	std::vector<int> vec = syntaxCheck(argc, argv);
-
-	printVector("Before", vec);
-	clock_t	start = clock();
-	mergeInsertSort(vec);
-	clock_t end = clock();
-	double duration = (double)(end - start) / CLOCKS_PER_SEC * 1000;
-	printVector("After", vec);
-	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector:\t" << duration << " ms" << std::endl;
+	int* array_vec = checkAndParse(argc, argv);
+	int* array_we = checkAndParse(argc, argv);
+	int size = argc - 1;
+	printIntArray("Before", array_vec, size);
 	
+	//process using std::vector
+	clock_t	start = clock();
+	std::vector<int> vec(array_vec, array_vec + size);
+	mergeInsertSort(vec);
+	for (int i = 0; i < size; i++)
+		array_vec[i] = vec[i];
+	clock_t end = clock();
+	double duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1000;
+
+
+	printIntArray("After", array_vec, size);
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector:\t" << duration_vec << " ms" << std::endl;
+	delete[] array_vec;
+	delete[] array_we;
 }
