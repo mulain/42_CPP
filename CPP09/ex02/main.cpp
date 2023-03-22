@@ -52,6 +52,7 @@ $>
 #include <climits>
 #include <cstdlib>
 #include <ctime>
+#include <deque>
 
 #define SPLITSIZE 5
 
@@ -91,6 +92,31 @@ void mergeInsert(std::vector<int>& A, std::vector<int>& B)
 	}
 }
 
+void mergeInsert(std::deque<int>& A, std::deque<int>& B)
+{
+	int index_a = 0;	
+	int index_b = 0;
+	int size_a = A.size();
+	int size_b = B.size();
+	while (index_a < size_a && index_b < size_b)
+	{
+		if (A[index_a] < B[index_b])
+			index_a++;
+		else
+		{
+			A.insert(A.begin() + index_a, B[index_b]);
+			index_a++;
+			index_b++;
+			size_a++;
+		}
+	}
+	while (index_b < size_b)
+	{
+		A.push_back(B[index_b]);
+		index_b++;
+	}
+}
+
 void mergeInsertSort(std::vector<int>& input)
 {
 	int n = input.size();
@@ -98,6 +124,20 @@ void mergeInsertSort(std::vector<int>& input)
 		return;
 	std::vector<int> left(input.begin(), input.begin() + n / 2);
 	std::vector<int> right(input.begin() + n / 2, input.end());
+	mergeInsertSort(left);
+	mergeInsertSort(right);
+	input.clear();
+	mergeInsert(input, left);
+	mergeInsert(input, right);
+}
+
+void mergeInsertSort(std::deque<int>& input)
+{
+	int n = input.size();
+	if (n < 2)
+		return;
+	std::deque<int> left(input.begin(), input.begin() + n / 2);
+	std::deque<int> right(input.begin() + n / 2, input.end());
 	mergeInsertSort(left);
 	mergeInsertSort(right);
 	input.clear();
@@ -147,11 +187,11 @@ void printIntArray(std::string msg, int* array, int size)
 int main (int argc, char** argv)
 {
 	int* array_vec = checkAndParse(argc, argv);
-	int* array_we = checkAndParse(argc, argv);
+	int* array_dq = checkAndParse(argc, argv);
 	int size = argc - 1;
 	printIntArray("Before", array_vec, size);
 	
-	//process using std::vector
+	// merge-insert sort algorithm using std::vector
 	clock_t	start = clock();
 	std::vector<int> vec(array_vec, array_vec + size);
 	mergeInsertSort(vec);
@@ -160,9 +200,18 @@ int main (int argc, char** argv)
 	clock_t end = clock();
 	double duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1000;
 
+	// merge-insert sort algorithm using std::deque
+	start = clock();
+	std::deque<int> dq(array_dq, array_dq + size);
+	mergeInsertSort(dq);
+	for (int i = 0; i < size; i++)
+		array_dq[i] = dq[i];
+	end = clock();
+	double duration_dq = (double)(end - start) / CLOCKS_PER_SEC * 1000;
 
 	printIntArray("After", array_vec, size);
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector:\t" << duration_vec << " ms" << std::endl;
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::deque:\t" << duration_dq << " ms" << std::endl;
 	delete[] array_vec;
-	delete[] array_we;
+	delete[] array_dq;
 }
