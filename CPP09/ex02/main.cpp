@@ -147,15 +147,15 @@ merge the result. At that point, the result will have undergone insertion sort t
 recursive calls.
 */
 template <typename Container>
-void mergeInsertSort(Container& data, int start, int end)
+void mergeInsertSortSplit(Container& data, int start, int end)
 {
 	if (end - start < SUBARRAY_SIZE)
 		insertionSort(data, start, end);
 	else
 	{
 		int mid = start + (end - start) / 2;
-		mergeInsertSort(data, start, mid);
-		mergeInsertSort(data, mid + 1, end);
+		mergeInsertSortSplit(data, start, mid);
+		mergeInsertSortSplit(data, mid + 1, end);
 		merge(data, start, mid, end);
 	}
 }
@@ -166,7 +166,7 @@ Overload so you can leisurely call the function just by passing the container.
 template <typename Container>
 void mergeInsertSort(Container& data)
 {
-	mergeInsertSort(data, 0, data.size() - 1);
+	mergeInsertSortSplit(data, 0, data.size() - 1);
 }
 
 int main (int argc, char** argv)
