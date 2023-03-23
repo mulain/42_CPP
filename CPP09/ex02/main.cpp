@@ -88,13 +88,13 @@ void insertionSort(Container& data, int start, int end)
 	for (int i = start + 1; i <= end; i++)
 	{
 		int key = data[i];
-		int j = i - 1;
-		while (j >= start && data[j] > key)
+		int j = i;
+		while (j > start && data[j - 1] > key)
 		{
-			data[j + 1] = data[j];
+			data[j] = data[j - 1];
 			j--;
 		}
-		data[j + 1] = key;
+		data[j] = key;
 	}
 }
 
