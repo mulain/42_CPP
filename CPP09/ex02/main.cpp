@@ -26,7 +26,7 @@ OSX:
 #include <vector>
 #include <deque>
 
-#define SUBARRAY_SIZE 3
+#define SUBARRAY_SIZE 4
 
 typedef std::vector<int>::const_iterator vec_it;
 
@@ -90,6 +90,13 @@ int* copyIntArray(int* src, int size)
 
 // MERGE INSERT SORT
 
+/*
+Vanilla insertion sort.
+Stores the evaluated value in <<key>> and keeps moving preceding values to the right as long
+as they are greater than <<key>>. The original array position of the value contained in <<key>>
+can get overwritten, but is of course saved in <<key>> and get's written once the compare
+array position does not contain a value > key. 
+*/
 template <typename Container>
 void insertionSort(Container& data, int start, int end)
 {
@@ -106,6 +113,12 @@ void insertionSort(Container& data, int start, int end)
 	}
 }
 
+/*
+Receives the entire data. But will only merge the parts referenced by start, mid and end.
+Iterates over the two parts writing the smaller value and incrementing the half from
+which it was taken.
+Finally writes any possible remaining values from the leftover half.
+*/
 template <typename Container>
 void merge(Container& data, int start, int mid, int end)
 {
@@ -116,22 +129,27 @@ void merge(Container& data, int start, int mid, int end)
 	while (index_left < left.size() && index_right < right.size())
 	{
 		if (left[index_left] <= right[index_right])
-			data[index_data] = left[index_left++];
+			data[index_data++] = left[index_left++];
 		else
-			data[index_data] = right[index_right++];
-		index_data++;
+			data[index_data++] = right[index_right++];
 	}
 	while (index_left < left.size())
 		data[index_data++] = left[index_left++];
 	while (index_right < right.size())
 		data[index_data++] = right[index_right++];
-
 }
 
+/*
+The actual begin of the function, splitting the data into subarrays.
+Once the chunks are smaller than the desired subarray size: insertion sort.
+Until then: split the received chunk in half, recursively call this function for both halves and
+merge the result. At that point, the result will have undergone insertion sort through the
+recursive calls.
+*/
 template <typename Container>
 void mergeInsertSort(Container& data, int start, int end)
 {
-	if (end - start + 1 <= SUBARRAY_SIZE)
+	if (end - start < SUBARRAY_SIZE)
 		insertionSort(data, start, end);
 	else
 	{
@@ -142,6 +160,9 @@ void mergeInsertSort(Container& data, int start, int end)
 	}
 }
 
+/*
+Overload so you can leisurely call the function just by passing the container.
+*/
 template <typename Container>
 void mergeInsertSort(Container& data)
 {
