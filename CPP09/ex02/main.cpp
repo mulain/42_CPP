@@ -19,66 +19,27 @@ OSX:
 */
 
 #include <iostream>
+#include <iomanip>
 #include <climits>
 #include <cstdlib>
 #include <ctime>
 #include <vector>
 #include <deque>
 
-#define SPLITSIZE 5
+#define SUBARRAY_SIZE 3
 
 typedef std::vector<int>::const_iterator vec_it;
 
-void myExit(std::string msg, int* array, int exitcode)
+// UTILS
+
+void myExit(const char* msg, int* array, int exitcode)
 {
-	if (!msg.empty())
+	if (msg)
 		std::cout << msg << std::endl;
 	if (array)
 		delete[] array;
 	exit(exitcode);
 }
-
-template <typename Container>
-void mergeInsert(Container& A, Container& B)
-{
-	int index_a = 0;	
-	int index_b = 0;
-	int size_a = A.size();
-	int size_b = B.size();
-	while (index_a < size_a && index_b < size_b)
-	{
-		if (A[index_a] < B[index_b])
-			index_a++;
-		else
-		{
-			A.insert(A.begin() + index_a, B[index_b]);
-			index_a++;
-			index_b++;
-			size_a++;
-		}
-	}
-	while (index_b < size_b)
-	{
-		A.push_back(B[index_b]);
-		index_b++;
-	}
-}
-
-/* template <typename Container>
-void mergeInsertSort(Container& input)
-{
-	int size = 4;
-	int n = input.size();
-	if (n < size)
-		return;
-	Container left(input.begin(), input.begin() + n / size);
-	Container right(input.begin() + n / size, input.end());
-	mergeInsertSort(left);
-	mergeInsertSort(right);
-	input.clear();
-	mergeInsert(input, left);
-	mergeInsert(input, right);
-} */
 
 bool parsePosInt(const char* input, int* result)
 {
@@ -94,14 +55,14 @@ bool parsePosInt(const char* input, int* result)
 	return true;
 }
 
-int* checkAndParse(int argc, char** argv)
+int* checkAndParse(int size, char** argv)
 {
 	int*	array;
 	int		num;
 	
-	if (argc < 3)
+	if (size < 2)
 		myExit("Please provide >= 2 positive ints to sort.", NULL, 1);
-	array = new int[argc];
+	array = new int[size];
 	for (size_t i = 1; argv[i]; i++)
 	{
 		if (parsePosInt(argv[i], &num))
@@ -112,14 +73,24 @@ int* checkAndParse(int argc, char** argv)
 	return array;
 }
 
-#define SUBARRAY_SIZE 10
+void printIntArray(std::string msg, int* array, int size)
+{
+	std::cout << msg << ":\t";
+	for (int i = 0; i < size; i++)
+		std::cout << array[i] << (i < size - 1 ? " " : "\n");
+}
+
+// MERGE INSERT SORT
 
 template <typename Container>
-void insertionSort(Container& data, int start, int end) {
-	for (int i = start + 1; i <= end; i++) {
+void insertionSort(Container& data, int start, int end)
+{
+	for (int i = start + 1; i <= end; i++)
+	{
 		int key = data[i];
 		int j = i - 1;
-		while (j >= start && data[j] > key) {
+		while (j >= start && data[j] > key)
+		{
 			data[j + 1] = data[j];
 			j--;
 		}
@@ -128,39 +99,43 @@ void insertionSort(Container& data, int start, int end) {
 }
 
 template <typename Container>
-void merge(Container& data, int start, int mid, int end) {
+void merge(Container& data, int start, int mid, int end)
+{
 	Container left(data.begin() + start, data.begin() + mid + 1);
 	Container right(data.begin() + mid + 1, data.begin() + end + 1);
+	size_t index_left = 0, index_right = 0, index_data = start;
 
-	size_t i = 0, j = 0, k = start;
-
-	while (i < left.size() && j < right.size()) {
-		if (left[i] <= right[j]) {
-			data[k] = left[i];
-			i++;
+	while (index_left < left.size() && index_right < right.size())
+	{
+		if (left[index_left] <= right[index_right])
+		{
+			data[index_data] = left[index_left];
+			index_left++;
 		}
-		else {
-			data[k] = right[j];
-			j++;
+		else
+		{
+			data[index_data] = right[index_right];
+			index_right++;
 		}
-		k++;
+		index_data++;
 	}
-
-	while (i < left.size()) {
-		data[k] = left[i];
-		i++;
-		k++;
+	while (index_left < left.size())
+	{
+		data[index_data] = left[index_left];
+		index_left++;
+		index_data++;
 	}
-
-	while (j < right.size()) {
-		data[k] = right[j];
-		j++;
-		k++;
+	while (index_right < right.size())
+	{
+		data[index_data] = right[index_right];
+		index_right++;
+		index_data++;
 	}
 }
 
 template <typename Container>
-void mergeInsertSort(Container& data, int start, int end) {
+void mergeInsertSort(Container& data, int start, int end)
+{
 	if (end - start + 1 <= SUBARRAY_SIZE)
 		insertionSort(data, start, end);
 	else
@@ -178,18 +153,19 @@ void mergeInsertSort(Container& data)
 	mergeInsertSort(data, 0, data.size() - 1);
 }
 
-void printIntArray(std::string msg, int* array, int size)
+int* copyIntArray(int* src, int size)
 {
-	std::cout << msg << ":\t";
+	int* copy = new int[size];
 	for (int i = 0; i < size; i++)
-		std::cout << array[i] << (i < size - 1 ? " " : "\n");
+		copy[i] = src[i];
+	return copy;
 }
 
 int main (int argc, char** argv)
 {
-	int* array_vec = checkAndParse(argc, argv);
-	int* array_dq = checkAndParse(argc, argv);
 	int size = argc - 1;
+	int* array_vec = checkAndParse(size, argv);
+	int* array_deq = copyIntArray(array_vec, size);
 	printIntArray("Before", array_vec, size);
 	
 	// merge-insert sort algorithm using std::vector
@@ -199,20 +175,21 @@ int main (int argc, char** argv)
 	for (int i = 0; i < size; i++)
 		array_vec[i] = vec[i];
 	clock_t end = clock();
-	double duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1000;
+	double duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
 
 	// merge-insert sort algorithm using std::deque
 	start = clock();
-	std::deque<int> dq(array_dq, array_dq + size);
-	mergeInsertSort(dq);
+	std::deque<int> deq(array_deq, array_deq + size);
+	mergeInsertSort(deq);
 	for (int i = 0; i < size; i++)
-		array_dq[i] = dq[i];
+		array_deq[i] = deq[i];
 	end = clock();
-	double duration_dq = (double)(end - start) / CLOCKS_PER_SEC * 1000;
+	double duration_deq = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
 
 	printIntArray("After", array_vec, size);
-	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector:\t" << duration_vec << " ms" << std::endl;
-	std::cout << "Time to process a range of " << vec.size() << " elements with std::deque:\t" << duration_dq << " ms" << std::endl;
+	std::cout << std::setprecision(3) << std::fixed;
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << duration_vec << " ms" << std::endl;
+	std::cout << "Time to process a range of " << vec.size() << " elements with std::deque:  " << duration_deq << " ms" << std::endl;
 	delete[] array_vec;
-	delete[] array_dq;
+	delete[] array_deq;
 }

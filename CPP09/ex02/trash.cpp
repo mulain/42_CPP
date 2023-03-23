@@ -60,3 +60,29 @@ void mergeInsertSort(std::deque<int>& input)
 	mergeInsert(input, left);
 	mergeInsert(input, right);
 }
+
+template <typename Container>
+void mergeInsert(Container& A, Container& B)
+{
+	int index_a = 0;	
+	int index_b = 0;
+	int size_a = A.size();
+	int size_b = B.size();
+	while (index_a < size_a && index_b < size_b)
+	{
+		if (A[index_a] < B[index_b])
+			index_a++;
+		else
+		{
+			A.insert(A.begin() + index_a, B[index_b]);
+			index_a++;
+			index_b++;
+			size_a++;
+		}
+	}
+	while (index_b < size_b)
+	{
+		A.push_back(B[index_b]);
+		index_b++;
+	}
+}

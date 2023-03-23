@@ -6,14 +6,14 @@
 #    By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 14:41:05 by wmardin           #+#    #+#              #
-#    Updated: 2023/03/21 09:16:36 by wmardin          ###   ########.fr        #
+#    Updated: 2023/03/23 09:59:11 by wmardin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= PmergeMe
 
 CC		= c++
-FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98 -fsanitize=address
+FLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98 #-fsanitize=address
 RM		= rm -rf
 
 COLOR	= \033[30m
