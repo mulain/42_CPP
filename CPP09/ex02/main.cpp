@@ -95,7 +95,10 @@ Vanilla insertion sort.
 Stores the evaluated value in <<key>> and keeps moving preceding values to the right as long
 as they are greater than <<key>>. The original array position of the value contained in <<key>>
 can get overwritten, but is of course saved in <<key>> and get's written once the compare
-array position does not contain a value > key. 
+array position does not contain a value > key.
+
+3 2 4 5
+
 */
 template <typename Container>
 void insertionSort(Container& data, int start, int end)
