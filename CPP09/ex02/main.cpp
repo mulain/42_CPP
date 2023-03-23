@@ -161,7 +161,7 @@ void mergeInsertSortSplit(Container& data, int start, int end)
 }
 
 /*
-Overload so you can leisurely call the function just by passing the container.
+Starter function so you can leisurely call it just by passing the container.
 */
 template <typename Container>
 void mergeInsertSort(Container& data)
@@ -169,35 +169,48 @@ void mergeInsertSort(Container& data)
 	mergeInsertSortSplit(data, 0, data.size() - 1);
 }
 
+/*
+Parses the input and writes it to an int array.
+Time is measured for each container for
+- Copying the int array to the container
+- Carrying out the sorting algorithm
+- Writing the sorted values back to the int array
+*/
 int main (int argc, char** argv)
 {
+	clock_t	start;
+	clock_t end;
+	double duration_vec;
+	double duration_deq;
 	int size = argc - 1;
 	int* array_vec = checkAndParse(size, argv);
 	int* array_deq = copyIntArray(array_vec, size);
 	printIntArray("Before", array_vec, size);
 	
-	// merge-insert sort algorithm using std::vector
-	clock_t	start = clock();
+	// mergeInsertSort using std::vector
+	start = clock();
 	std::vector<int> vec(array_vec, array_vec + size);
 	mergeInsertSort(vec);
 	for (int i = 0; i < size; i++)
 		array_vec[i] = vec[i];
-	clock_t end = clock();
-	double duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
+	end = clock();
+	duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
 
-	// merge-insert sort algorithm using std::deque
+	// mergeInsertSort using std::deque
 	start = clock();
 	std::deque<int> deq(array_deq, array_deq + size);
 	mergeInsertSort(deq);
 	for (int i = 0; i < size; i++)
 		array_deq[i] = deq[i];
 	end = clock();
-	double duration_deq = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
+	duration_deq = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
 
+	// reporting
 	printIntArray("After", array_vec, size);
 	std::cout << std::setprecision(3) << std::fixed;
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << duration_vec << " ms" << std::endl;
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::deque:  " << duration_deq << " ms" << std::endl;
+	
 	delete[] array_vec;
 	delete[] array_deq;
 }
