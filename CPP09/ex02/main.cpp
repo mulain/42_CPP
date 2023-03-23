@@ -64,7 +64,7 @@ void mergeInsert(Container& A, Container& B)
 	}
 }
 
-template <typename Container>
+/* template <typename Container>
 void mergeInsertSort(Container& input)
 {
 	int size = 4;
@@ -78,7 +78,7 @@ void mergeInsertSort(Container& input)
 	input.clear();
 	mergeInsert(input, left);
 	mergeInsert(input, right);
-}
+} */
 
 bool parsePosInt(const char* input, int* result)
 {
@@ -112,15 +112,12 @@ int* checkAndParse(int argc, char** argv)
 	return array;
 }
 
-#include <vector>
-#include <deque>
-
 #define SUBARRAY_SIZE 10
 
 template <typename Container>
 void insertionSort(Container& data, int start, int end) {
 	for (int i = start + 1; i <= end; i++) {
-		auto key = data[i];
+		int key = data[i];
 		int j = i - 1;
 		while (j >= start && data[j] > key) {
 			data[j + 1] = data[j];
@@ -135,7 +132,7 @@ void merge(Container& data, int start, int mid, int end) {
 	Container left(data.begin() + start, data.begin() + mid + 1);
 	Container right(data.begin() + mid + 1, data.begin() + end + 1);
 
-	int i = 0, j = 0, k = start;
+	size_t i = 0, j = 0, k = start;
 
 	while (i < left.size() && j < right.size()) {
 		if (left[i] <= right[j]) {
