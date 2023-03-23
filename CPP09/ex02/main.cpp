@@ -96,11 +96,12 @@ void mergeInsert(Container& A, Container& B)
 template <typename Container>
 void mergeInsertSort(Container& input)
 {
+	int size = 4;
 	int n = input.size();
-	if (n < 2)
+	if (n < size)
 		return;
-	Container left(input.begin(), input.begin() + n / 2);
-	Container right(input.begin() + n / 2, input.end());
+	Container left(input.begin(), input.begin() + n / size);
+	Container right(input.begin() + n / size, input.end());
 	mergeInsertSort(left);
 	mergeInsertSort(right);
 	input.clear();
