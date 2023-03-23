@@ -80,6 +80,14 @@ void printIntArray(std::string msg, int* array, int size)
 		std::cout << array[i] << (i < size - 1 ? " " : "\n");
 }
 
+int* copyIntArray(int* src, int size)
+{
+	int* copy = new int[size];
+	for (int i = 0; i < size; i++)
+		copy[i] = src[i];
+	return copy;
+}
+
 // MERGE INSERT SORT
 
 template <typename Container>
@@ -108,29 +116,16 @@ void merge(Container& data, int start, int mid, int end)
 	while (index_left < left.size() && index_right < right.size())
 	{
 		if (left[index_left] <= right[index_right])
-		{
-			data[index_data] = left[index_left];
-			index_left++;
-		}
+			data[index_data] = left[index_left++];
 		else
-		{
-			data[index_data] = right[index_right];
-			index_right++;
-		}
+			data[index_data] = right[index_right++];
 		index_data++;
 	}
 	while (index_left < left.size())
-	{
-		data[index_data] = left[index_left];
-		index_left++;
-		index_data++;
-	}
+		data[index_data++] = left[index_left++];
 	while (index_right < right.size())
-	{
-		data[index_data] = right[index_right];
-		index_right++;
-		index_data++;
-	}
+		data[index_data++] = right[index_right++];
+
 }
 
 template <typename Container>
@@ -151,14 +146,6 @@ template <typename Container>
 void mergeInsertSort(Container& data)
 {
 	mergeInsertSort(data, 0, data.size() - 1);
-}
-
-int* copyIntArray(int* src, int size)
-{
-	int* copy = new int[size];
-	for (int i = 0; i < size; i++)
-		copy[i] = src[i];
-	return copy;
 }
 
 int main (int argc, char** argv)
