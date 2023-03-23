@@ -112,6 +112,75 @@ int* checkAndParse(int argc, char** argv)
 	return array;
 }
 
+#include <vector>
+#include <deque>
+
+#define SUBARRAY_SIZE 10
+
+template <typename Container>
+void insertionSort(Container& data, int start, int end) {
+	for (int i = start + 1; i <= end; i++) {
+		auto key = data[i];
+		int j = i - 1;
+		while (j >= start && data[j] > key) {
+			data[j + 1] = data[j];
+			j--;
+		}
+		data[j + 1] = key;
+	}
+}
+
+template <typename Container>
+void merge(Container& data, int start, int mid, int end) {
+	Container left(data.begin() + start, data.begin() + mid + 1);
+	Container right(data.begin() + mid + 1, data.begin() + end + 1);
+
+	int i = 0, j = 0, k = start;
+
+	while (i < left.size() && j < right.size()) {
+		if (left[i] <= right[j]) {
+			data[k] = left[i];
+			i++;
+		}
+		else {
+			data[k] = right[j];
+			j++;
+		}
+		k++;
+	}
+
+	while (i < left.size()) {
+		data[k] = left[i];
+		i++;
+		k++;
+	}
+
+	while (j < right.size()) {
+		data[k] = right[j];
+		j++;
+		k++;
+	}
+}
+
+template <typename Container>
+void mergeInsertSort(Container& data, int start, int end) {
+	if (end - start + 1 <= SUBARRAY_SIZE)
+		insertionSort(data, start, end);
+	else
+	{
+		int mid = start + (end - start) / 2;
+		mergeInsertSort(data, start, mid);
+		mergeInsertSort(data, mid + 1, end);
+		merge(data, start, mid, end);
+	}
+}
+
+template <typename Container>
+void mergeInsertSort(Container& data)
+{
+	mergeInsertSort(data, 0, data.size() - 1);
+}
+
 void printIntArray(std::string msg, int* array, int size)
 {
 	std::cout << msg << ":\t";
