@@ -1,22 +1,14 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   main.cpp										   :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: wmardin <wmardin@student.42.fr>			+#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2023/03/15 19:32:46 by wmardin		   #+#	#+#			 */
-/*   Updated: 2023/03/21 14:24:26 by wmardin		  ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/24 20:34:57 by wmardin           #+#    #+#             */
+/*   Updated: 2023/03/24 20:35:04 by wmardin          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
-
-/*
-OSX:
-./PmergeMe `jot -r 3000 1 100000 | tr '\n' ' '`
-
- Linux:
-./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
-*/
 
 #include <iostream>
 #include <iomanip>
@@ -188,7 +180,7 @@ int main (int argc, char** argv)
 	int* array_deq = copyIntArray(array_vec, size);
 	printIntArray("Before", array_vec, size);
 	
-	// mergeInsertSort using std::vector
+	// operations using std::vector
 	start = clock();
 	std::vector<int> vec(array_vec, array_vec + size);
 	mergeInsertSort(vec);
@@ -197,7 +189,7 @@ int main (int argc, char** argv)
 	end = clock();
 	duration_vec = (double)(end - start) / CLOCKS_PER_SEC * 1e3;
 
-	// mergeInsertSort using std::deque
+	// operations using std::deque
 	start = clock();
 	std::deque<int> deq(array_deq, array_deq + size);
 	mergeInsertSort(deq);
