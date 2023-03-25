@@ -28,8 +28,6 @@ OSX:
 
 #define SUBARRAY_SIZE 4
 
-typedef std::vector<int>::const_iterator vec_it;
-
 // UTILS
 
 void myExit(const char* msg, int* array, int exitcode)
