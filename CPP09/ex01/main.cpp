@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/26 08:23:23 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/26 08:33:42 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ void myExit(const char* msg, int exitcode)
 std::string syntaxCheck(int argc, char **argv)
 {
 	if (argc < 2)
-		myExit("Please provide an argument." , 1);
+		myExit("Please provide an argument.", 1);
 	std::string input = argv[1];
 	for (size_t i = input.find(" "); i != std::string::npos; i = input.find(" "))
 		input.erase(i, 1);
 	if (input.empty())
 		myExit("Nothing to do..." , 0);
 	if (input.find_first_not_of("0123456789+-/*") != std::string::npos)
-		myExit("Illegal character detected." , 1);
+		myExit("Illegal character detected.", 1);
 	return input;
 }
 
