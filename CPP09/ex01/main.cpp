@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/20 22:48:29 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/26 08:23:23 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include <cstdlib>
 #include <sstream>
 
-void myExit(std::string msg, int exitcode)
+void myExit(const char* msg, int exitcode)
 {
-	if (!msg.empty())
+	if (msg)
 		std::cout << msg << std::endl;
 	exit(exitcode);
 }
@@ -70,7 +70,7 @@ int main (int argc, char** argv)
 			performOperation(&numbers, input[i]);
 	}
 	if (numbers.size() > 1)
-		return std::cout << "Expected operand but found end of input.", 1;
+		return std::cout << "Expected operand but found end of input.\n", 1;
 	std::cout << numbers.top() << std::endl;
 	return 0;
 }
