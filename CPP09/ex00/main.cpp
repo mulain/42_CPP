@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/20 11:10:19 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/26 08:35:56 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main (int argc, char** argv)
 		Date date4(1900, 1, 1);
 		BitcoinExchange	mtgox("mtgox");
 
-		mtgox.importPriceHistory((char*)"data.csv");
+		mtgox.importPriceHistory("data.csv");
 		mtgox.importAccountFile(argv[1]);
 		std::cout << date4 << ": " << mtgox.getPriceOnDate(date4) << std::endl;
 		std::cout << date0 << ": " << mtgox.getPriceOnDate(date0) << std::endl;
@@ -57,7 +57,7 @@ int main (int argc, char** argv)
 
 		BitcoinExchange	mtgox("mtgox");
 
-		mtgox.importPriceHistory((char*)"data.csv");
+		mtgox.importPriceHistory("data.csv");
 		mtgox.importAccountFile(argv[1]);
 		mtgox.printAccountOverview();
 	}

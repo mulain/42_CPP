@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:48:44 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/18 13:38:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/26 08:36:26 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ class BitcoinExchange
 
 		BitcoinExchange& operator=(const BitcoinExchange&);
 
-		void importPriceHistory(char*);
+		void importPriceHistory(const char*);
 		void printPriceHistory() const;
-		void importAccountFile(char*);
+		void importAccountFile(const char*);
 		void printAccountFile() const;
 		void printAccountOverview() const;
 		double getPriceOnDate(Date) const;

@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:39:11 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/20 11:17:56 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/03/26 08:36:38 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 }
 
 // Public functions
-void BitcoinExchange::importPriceHistory(char* filepath)
+void BitcoinExchange::importPriceHistory(const char* filepath)
 {
 	std::ifstream infile(filepath);
 	std::string	line;
@@ -69,7 +69,7 @@ void BitcoinExchange::printPriceHistory() const
 		std::cout << it->first << " | " << it->second << std::endl;
 }
 
-void BitcoinExchange::importAccountFile(char* filepath)
+void BitcoinExchange::importAccountFile(const char* filepath)
 {
 	std::ifstream infile(filepath);
 	std::string	line;
