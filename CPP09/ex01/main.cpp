@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 19:32:46 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/26 08:33:42 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:35:20 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,25 @@ std::string syntaxCheck(int argc, char **argv)
 	return input;
 }
 
-void performOperation(std::stack<int> *numbers, char operand)
+void performOperation(std::stack<int>& numbers, char operand)
 {
-	if (numbers->size() < 2)
+	if (numbers.size() < 2)
 	{
 		std::cout << "Found less than 2 numbers to perform on for operand: " << operand << std::endl;
-		if (!numbers->empty())
-			std::cout << "Current result is: " << numbers->top() << std::endl;
+		if (!numbers.empty())
+			std::cout << "Current result is: " << numbers.top() << std::endl;
 		exit(1);
 	}
-	int rhs = numbers->top();
-	numbers->pop();
+	int rhs = numbers.top();
+	numbers.pop();
 	if (operand == '+')
-		numbers->top()+= rhs;
+		numbers.top()+= rhs;
 	else if (operand == '-')
-		numbers->top() -= rhs;
+		numbers.top() -= rhs;
 	else if (operand == '*')
-		numbers->top() *= rhs;
+		numbers.top() *= rhs;
 	else if (operand == '/')
-		numbers->top() /= rhs;
+		numbers.top() /= rhs;
 }
 
 int main (int argc, char** argv)
@@ -67,7 +67,7 @@ int main (int argc, char** argv)
 		if (isdigit(input[i]))
 			numbers.push(input[i] - 48);
 		else
-			performOperation(&numbers, input[i]);
+			performOperation(numbers, input[i]);
 	}
 	if (numbers.size() > 1)
 		return std::cout << "Expected operand but found end of input.\n", 1;
