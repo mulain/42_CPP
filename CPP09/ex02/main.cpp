@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 23:06:51 by wmardin           #+#    #+#             */
-/*   Updated: 2023/03/25 23:08:10 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/05/10 12:41:58 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int* copyIntArray(int* src, int size)
 Vanilla insertion sort.
 Stores the evaluated value in <<key>> and keeps moving preceding values to the right as long
 as they are greater than <<key>>. The original array position of the value contained in <<key>>
-can get overwritten, but is of course saved in <<key>> and get's written once the compare
+can get overwritten, but is of course saved in <<key>> and gets written once the compare
 array position does not contain a value > key.
 
 3 2 4 5
@@ -179,10 +179,8 @@ Time is measured for each container for
 */
 int main (int argc, char** argv)
 {
-	clock_t	start;
-	clock_t end;
-	double duration_vec;
-	double duration_deq;
+	clock_t	start, end;
+	double duration_vec, duration_deq;
 	int size = argc - 1;
 	int* array_vec = checkAndParse(size, argv);
 	int* array_deq = copyIntArray(array_vec, size);
