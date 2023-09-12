@@ -6,13 +6,19 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:00:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/09/12 13:51:12 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/09/12 14:13:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+
+/*
+CARE
+This implementation is not what the subject asks. It asks for a static class!
+Also, it demands to cast to the original scalar type before converting.
+*/
 
 void argcountCheck(int argc)
 {
