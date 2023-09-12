@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:00:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/01/31 13:42:41 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/09/12 13:50:45 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,13 @@ void printScalars(double value)
 	// float & double block
 	// check for decimal modulo and for scientific notation cutoff to print empty decimal place as shown in subject
 	bool printDecimalZero = false;
-	if (!fmod(value, 1) && value < 1000000)
+	if (!fmod(value, 1) && value < 1e6 && value > -1e6)
 		printDecimalZero = true;
 	std::cout << "float: " << static_cast<float>(value) << (printDecimalZero ? ".0f" : "f") << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << (printDecimalZero ? ".0" : "") << std::endl;
 }
+
+#include <sstream>
 
 int main (int argc, char** argv)
 {
