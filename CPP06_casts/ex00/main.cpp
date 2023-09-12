@@ -6,7 +6,7 @@
 /*   By: wmardin <wmardin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 16:00:23 by wmardin           #+#    #+#             */
-/*   Updated: 2023/09/12 13:50:45 by wmardin          ###   ########.fr       */
+/*   Updated: 2023/09/12 13:51:12 by wmardin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ void printScalars(double value)
 	std::cout << "float: " << static_cast<float>(value) << (printDecimalZero ? ".0f" : "f") << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << (printDecimalZero ? ".0" : "") << std::endl;
 }
-
-#include <sstream>
 
 int main (int argc, char** argv)
 {
