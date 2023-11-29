@@ -54,7 +54,11 @@ void performOperation(std::stack<int>& numbers, char operand)
 	else if (operand == '*')
 		numbers.top() *= rhs;
 	else if (operand == '/')
+	{
+		if (rhs == 0)
+			myExit("Division by 0.", 1);
 		numbers.top() /= rhs;
+	}
 }
 
 int main (int argc, char** argv)
@@ -70,7 +74,7 @@ int main (int argc, char** argv)
 			performOperation(numbers, input[i]);
 	}
 	if (numbers.size() > 1)
-		return std::cout << "Expected operand but found end of input.\n", 1;
+		myExit("Expected operand but found end of input.", 1);
 	std::cout << numbers.top() << std::endl;
 	return 0;
 }
